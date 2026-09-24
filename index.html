@@ -8,21 +8,31 @@
 <meta property="og:title" content="Álvaro Barja · Pivote — CD Lourdes">
 <meta property="og:description" content="Panel de desarrollo del jugador: trayectoria de interior a pivote, rol táctico, físico, técnica y plan de entrenamiento semanal.">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230F6E56'/%3E%3Ctext x='50' y='67' font-size='46' font-weight='800' fill='white' text-anchor='middle' font-family='Arial,sans-serif'%3E20%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size:15px;}
-.hdr{background:linear-gradient(135deg,#085041 0%,#1D9E75 100%);color:#fff;padding:1.5rem;text-align:center;}
-.hdr h1{font-size:22px;font-weight:700;margin-bottom:4px;}
-.hdr p{font-size:13px;opacity:.85;}
-.hdr-chips{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:12px;}
-.hchip{font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);font-weight:600;}
-.tabs{display:flex;flex-wrap:wrap;gap:5px;padding:.75rem 1rem;background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:10;}
-.tab{padding:6px 11px;border-radius:20px;border:1px solid #ccc;background:#fff;color:#555;font-size:12px;cursor:pointer;transition:all .15s;white-space:nowrap;}
-.tab.active{background:#0F6E56;color:#fff;border-color:#0F6E56;font-weight:600;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:#f2f1ed;color:#1a1a18;font-size:15px;line-height:1.45;}
+h1,h2,.card-title,.tab,.stab,.hdr p,.tl-club,.player-name,.zi-title,.tip-title,.home-title,.vid-title,.nm{font-family:'Outfit','Inter',system-ui,sans-serif;}
+.hdr{position:relative;background:linear-gradient(135deg,#085041 0%,#1D9E75 100%);color:#fff;padding:1.75rem 1.5rem 1.5rem;text-align:center;overflow:hidden;box-shadow:0 4px 18px rgba(8,80,65,.25);}
+.hdr::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(255,255,255,.10) 0,transparent 45%),radial-gradient(circle at 85% 80%,rgba(255,255,255,.10) 0,transparent 45%),repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 2px,transparent 2px 26px);pointer-events:none;}
+.hdr>*{position:relative;}
+.hdr h1{font-size:24px;font-weight:800;margin-bottom:5px;letter-spacing:-.02em;}
+.hdr p{font-size:13px;opacity:.88;font-weight:500;}
+.hdr-chips{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.hchip{font-size:11px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);font-weight:600;backdrop-filter:blur(4px);}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:.75rem 1rem;background:#fff;border-bottom:1px solid #e5e2d9;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(20,20,15,.04);}
+.tab{padding:7px 13px;border-radius:20px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;white-space:nowrap;}
+.tab:hover{border-color:#1D9E75;color:#0F6E56;background:#F0FAF6;}
+.tab.active{background:linear-gradient(135deg,#0F6E56,#1D9E75);color:#fff;border-color:#0F6E56;font-weight:700;box-shadow:0 3px 10px rgba(15,110,86,.3);}
 .wrap{padding:1rem;max-width:820px;margin:0 auto;}
-.sec{display:none;}.sec.active{display:block;}
-.card{background:#fff;border:1px solid #e0ddd4;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;}
-.card-title{font-size:15px;font-weight:700;color:#1a1a18;margin-bottom:.75rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.sec{display:none;}.sec.active{display:block;animation:fadeIn .28s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+.card{background:#fff;border:1px solid #e8e5db;border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 14px rgba(20,20,15,.035);}
+.card-title{font-size:16px;font-weight:700;color:#1a1a18;margin-bottom:.75rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;letter-spacing:-.01em;}
 .badge{font-size:11px;padding:2px 8px;border-radius:6px;font-weight:600;}
 .bg{background:#E1F5EE;color:#0F6E56;}.bp{background:#EEEDFE;color:#3C3489;}.ba{background:#FAEEDA;color:#633806;}.bc{background:#FAECE7;color:#712B13;}.bb{background:#E6F1FB;color:#0C447C;}.br{background:#FCEBEB;color:#791F1F;}
 .row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0ede4;}
@@ -38,38 +48,41 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 .pb{margin-bottom:10px;}
 .pl{display:flex;justify-content:space-between;font-size:12px;color:#666;margin-bottom:3px;}
 .pbar{height:8px;border-radius:4px;background:#e8e6df;overflow:hidden;}
-.pfill{height:100%;border-radius:4px;}
+.pfill{height:100%;border-radius:4px;transition:width .6s ease;}
 .mc{border-left:3px solid #7F77DD;padding:10px 12px;background:#f5f4fe;border-radius:0 8px 8px 0;margin-bottom:8px;}
 .mc .mt{font-size:14px;font-weight:600;color:#3C3489;}
 .mc .md{font-size:13px;color:#534AB7;margin-top:2px;line-height:1.6;}
 .wbar{display:flex;gap:4px;margin-bottom:1rem;flex-wrap:wrap;}
-.db2{flex:1;min-width:38px;padding:6px 3px;font-size:12px;border-radius:8px;border:1px solid #ccc;background:#f4f4f2;color:#555;cursor:pointer;text-align:center;font-weight:500;}
-.db2.sel{background:#0F6E56;color:#fff;border-color:#0F6E56;}
-.dc2{display:none;}.dc2.active{display:block;}
+.db2{flex:1;min-width:38px;padding:7px 3px;font-size:12px;border-radius:9px;border:1px solid #dedad0;background:#fbfaf7;color:#555;cursor:pointer;text-align:center;font-weight:500;transition:all .15s ease;}
+.db2:hover{border-color:#1D9E75;color:#0F6E56;}
+.db2.sel{background:linear-gradient(135deg,#0F6E56,#1D9E75);color:#fff;border-color:#0F6E56;box-shadow:0 3px 8px rgba(15,110,86,.28);}
+.dc2{display:none;}.dc2.active{display:block;animation:fadeIn .25s ease;}
 .cl{list-style:none;}
-.cl li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0ede4;font-size:14px;line-height:1.5;}
+.cl li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #f0ede4;font-size:14px;line-height:1.5;}
 .cl li:last-child{border-bottom:none;}
-.chk{width:20px;height:20px;border-radius:50%;border:1.5px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;cursor:pointer;font-size:12px;font-weight:700;}
-.chk.done{background:#1D9E75;color:#fff;border-color:#1D9E75;}
+.chk{width:21px;height:21px;border-radius:50%;border:1.5px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;cursor:pointer;font-size:12px;font-weight:700;transition:all .15s ease;}
+.chk:hover{border-color:#1D9E75;}
+.chk.done{background:#1D9E75;color:#fff;border-color:#1D9E75;transform:scale(1.05);}
 .note{font-size:12px;color:#888;border-top:1px solid #f0ede4;padding-top:8px;margin-top:8px;line-height:1.5;}
 .pill-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
 .pill{font-size:11px;padding:3px 9px;border-radius:20px;}
 /* CAMPO */
-.field-wrap{background:#2d7a3a;border-radius:10px;padding:1rem;margin-bottom:1rem;}
+.field-wrap{background:#2d7a3a;border-radius:14px;padding:1rem;margin-bottom:1rem;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 6px 18px rgba(20,50,20,.22);}
 .field-wrap svg{width:100%;height:auto;display:block;}
-.zone-info{background:#fff;border-radius:8px;padding:.75rem 1rem;margin-top:.75rem;min-height:80px;}
+.zone-info{background:#fff;border-radius:10px;padding:.75rem 1rem;margin-top:.75rem;min-height:80px;box-shadow:0 2px 8px rgba(20,20,15,.05);}
 .zi-title{font-size:14px;font-weight:700;color:#0F6E56;margin-bottom:4px;}
 .zi-body{font-size:13px;color:#444;line-height:1.5;}
 /* Sub-tabs campo */
 .sub-tabs{display:flex;gap:6px;margin-bottom:.75rem;flex-wrap:wrap;}
-.stab{padding:5px 12px;border-radius:16px;border:1px solid #ccc;background:#f4f4f2;color:#555;font-size:12px;cursor:pointer;}
-.stab.active{background:#0F6E56;color:#fff;border-color:#0F6E56;font-weight:600;}
-.campo-view{display:none;}.campo-view.active{display:block;}
+.stab{padding:6px 13px;border-radius:16px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s ease;}
+.stab:hover{border-color:#1D9E75;color:#0F6E56;}
+.stab.active{background:linear-gradient(135deg,#0F6E56,#1D9E75);color:#fff;border-color:#0F6E56;font-weight:700;box-shadow:0 3px 8px rgba(15,110,86,.28);}
+.campo-view{display:none;}.campo-view.active{display:block;animation:fadeIn .25s ease;}
 /* DECISIONES */
-.scenario{background:#fff;border:1px solid #e0ddd4;border-radius:12px;padding:1rem;margin-bottom:.75rem;}
+.scenario{background:#fff;border:1px solid #e8e5db;border-radius:14px;padding:1.1rem;margin-bottom:.8rem;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 14px rgba(20,20,15,.035);}
 .sc-q{font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:.75rem;}
 .sc-opts{display:flex;flex-direction:column;gap:6px;}
-.sc-opt{padding:8px 12px;border-radius:8px;border:1.5px solid #ddd;background:#f9f8f5;font-size:13px;cursor:pointer;transition:all .15s;text-align:left;}
+.sc-opt{padding:9px 13px;border-radius:9px;border:1.5px solid #e2ded3;background:#fbfaf7;font-size:13px;cursor:pointer;transition:all .15s;text-align:left;}
 .sc-opt:hover{border-color:#1D9E75;background:#E1F5EE;}
 .sc-opt.correct{border-color:#1D9E75;background:#E1F5EE;color:#0F6E56;font-weight:600;}
 .sc-opt.wrong{border-color:#D85A30;background:#FAECE7;color:#712B13;}
@@ -79,14 +92,15 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 .fb-ko{background:#FAECE7;color:#712B13;}
 /* VÍDEOS */
 .vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.vid-card{background:#fff;border:1px solid #e0ddd4;border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .15s;}
-.vid-card:hover{transform:translateY(-2px);}
-.vid-thumb-placeholder{width:100%;aspect-ratio:16/9;background:#1a2a1a;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;}
-.vid-meta{padding:8px 10px;}
+.vid-card{background:#fff;border:1px solid #e8e5db;border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 12px rgba(20,20,15,.04);}
+.vid-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,20,15,.1);}
+.vid-thumb-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0d1f0d,#1a2a1a);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;}
+.vid-meta{padding:9px 11px;}
 .vid-title{font-size:12px;font-weight:600;color:#1a1a18;line-height:1.4;}
 .vid-sub{font-size:11px;color:#888;margin-top:2px;}
 /* PRESION y DEFENSA */
-.tip-card{background:#fff;border-left:4px solid #1D9E75;border-radius:0 10px 10px 0;padding:.9rem 1rem;margin-bottom:.75rem;border-top:1px solid #e0ddd4;border-right:1px solid #e0ddd4;border-bottom:1px solid #e0ddd4;}
+.tip-card{background:#fff;border-left:4px solid #1D9E75;border-radius:0 12px 12px 0;padding:.95rem 1.1rem;margin-bottom:.8rem;border-top:1px solid #e8e5db;border-right:1px solid #e8e5db;border-bottom:1px solid #e8e5db;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 14px rgba(20,20,15,.035);transition:transform .15s ease;}
+.tip-card:hover{transform:translateX(2px);}
 .tip-card.def{border-left-color:#D85A30;}
 .tip-card.purple{border-left-color:#7F77DD;}
 .tip-title{font-size:14px;font-weight:700;color:#1a1a18;margin-bottom:4px;}
@@ -95,7 +109,7 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 .tip-tag.r{background:#FAECE7;color:#712B13;}
 .tip-tag.p{background:#EEEDFE;color:#3C3489;}
 /* CASA */
-.home-ex{background:#fff;border-radius:10px;border:1px solid #e0ddd4;padding:1rem;margin-bottom:.75rem;}
+.home-ex{background:#fff;border-radius:12px;border:1px solid #e8e5db;padding:1rem 1.1rem;margin-bottom:.8rem;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 14px rgba(20,20,15,.035);}
 .hcat{font-size:12px;font-weight:700;padding:2px 8px;border-radius:12px;margin-bottom:.5rem;display:inline-block;}
 .home-title{font-size:14px;font-weight:700;color:#1a1a18;margin-bottom:4px;}
 .home-desc{font-size:13px;color:#555;line-height:1.5;}
@@ -114,9 +128,11 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 .tl-role{margin-bottom:6px;}
 .tl-desc{font-size:13px;color:#555;line-height:1.6;}
 .player-card{display:flex;align-items:center;gap:14px;}
-.player-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#085041,#1D9E75);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;}
+.player-avatar{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#085041,#1D9E75);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;box-shadow:0 4px 12px rgba(15,110,86,.3);}
 .player-name{font-size:17px;font-weight:700;color:#1a1a18;}
 .player-sub{font-size:12px;color:#666;margin-top:2px;}
+::selection{background:#1D9E75;color:#fff;}
+a,button{-webkit-tap-highlight-color:transparent;}
 @media(max-width:520px){.g2,.vid-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -201,7 +217,7 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
         <div class="tl-club">CD Lourdes</div>
         <div class="tl-period">Temporada 2026/27 · Actual</div>
         <div class="tl-role"><span class="badge bg">Pivote — Dorsal 20</span></div>
-        <div class="tl-desc">Este año paso a jugar de pivote, la posición base del equipo. Mi experiencia como interior me da ventaja en el pase, el cambio de orientación y la lectura del ataque; ahora estoy trabajando la cobertura defensiva, la protección de la línea de centrales y tomar decisiones un paso más atrás en el campo.</div>
+        <div class="tl-desc">Esta temporada el entrenador me pone de pivote, la posición base del equipo. Mi experiencia como interior me ayuda en el pase, el cambio de orientación y la lectura del ataque; ahora estoy trabajando la cobertura defensiva, la protección de la línea de centrales y tomar decisiones un paso más atrás en el campo.</div>
       </div>
     </div>
   </div>
