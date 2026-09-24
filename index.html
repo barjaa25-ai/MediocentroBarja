@@ -3,12 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Álvaro Barja · Pivote — CD Lourdes</title>
+<meta name="description" content="Panel de desarrollo de Álvaro Barja, pivote del CD Lourdes. Trayectoria, perfil táctico, físico, técnica y plan de entrenamiento.">
+<meta property="og:title" content="Álvaro Barja · Pivote — CD Lourdes">
+<meta property="og:description" content="Panel de desarrollo del jugador: trayectoria de interior a pivote, rol táctico, físico, técnica y plan de entrenamiento semanal.">
+<meta property="og:type" content="website">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size:15px;}
 .hdr{background:linear-gradient(135deg,#085041 0%,#1D9E75 100%);color:#fff;padding:1.5rem;text-align:center;}
 .hdr h1{font-size:22px;font-weight:700;margin-bottom:4px;}
 .hdr p{font-size:13px;opacity:.85;}
+.hdr-chips{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:12px;}
+.hchip{font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);font-weight:600;}
 .tabs{display:flex;flex-wrap:wrap;gap:5px;padding:.75rem 1rem;background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:10;}
 .tab{padding:6px 11px;border-radius:20px;border:1px solid #ccc;background:#fff;color:#555;font-size:12px;cursor:pointer;transition:all .15s;white-space:nowrap;}
 .tab.active{background:#0F6E56;color:#fff;border-color:#0F6E56;font-weight:600;}
@@ -78,7 +85,7 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 .vid-meta{padding:8px 10px;}
 .vid-title{font-size:12px;font-weight:600;color:#1a1a18;line-height:1.4;}
 .vid-sub{font-size:11px;color:#888;margin-top:2px;}
-/* 1v1 y DEFENSA */
+/* PRESION y DEFENSA */
 .tip-card{background:#fff;border-left:4px solid #1D9E75;border-radius:0 10px 10px 0;padding:.9rem 1rem;margin-bottom:.75rem;border-top:1px solid #e0ddd4;border-right:1px solid #e0ddd4;border-bottom:1px solid #e0ddd4;}
 .tip-card.def{border-left-color:#D85A30;}
 .tip-card.purple{border-left-color:#7F77DD;}
@@ -94,21 +101,44 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 .home-desc{font-size:13px;color:#555;line-height:1.5;}
 .series-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
 .ser-tag{font-size:11px;padding:2px 8px;border-radius:10px;background:#f0ede4;color:#444;font-weight:600;}
+/* CLUBES / TIMELINE */
+.timeline{position:relative;padding-left:26px;}
+.tl-item{position:relative;padding-bottom:1.4rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:'';position:absolute;left:-19px;top:16px;bottom:-14px;width:2px;background:#e0ddd4;}
+.tl-item:last-child::before{display:none;}
+.tl-dot{position:absolute;left:-26px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff;border:2.5px solid #7F77DD;}
+.tl-dot.tl-current{border-color:#1D9E75;background:#1D9E75;box-shadow:0 0 0 4px #E1F5EE;}
+.tl-club{font-size:16px;font-weight:700;color:#1a1a18;}
+.tl-period{font-size:12px;color:#888;margin:1px 0 6px;}
+.tl-role{margin-bottom:6px;}
+.tl-desc{font-size:13px;color:#555;line-height:1.6;}
+.player-card{display:flex;align-items:center;gap:14px;}
+.player-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#085041,#1D9E75);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;}
+.player-name{font-size:17px;font-weight:700;color:#1a1a18;}
+.player-sub{font-size:12px;color:#666;margin-top:2px;}
 @media(max-width:520px){.g2,.vid-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 <div class="hdr">
-  <h1>⚽ Medio Centro Interior</h1>
-  <p>Guía completa · Físico · Técnico · Táctico · 1v1 · Defensa · Mental · Casa</p>
+  <h1>⚽ Álvaro Barja — Pivote</h1>
+  <p>Guía completa · Físico · Técnico · Táctico · Presión · Defensa · Mental · Casa</p>
+  <div class="hdr-chips">
+    <span class="hchip">🏟️ CD Lourdes</span>
+    <span class="hchip">#20</span>
+    <span class="hchip">🔄 Interior → Pivote</span>
+    <span class="hchip">📅 Temporada 2026/27</span>
+  </div>
 </div>
 <div class="tabs">
   <button class="tab active" onclick="showTab('perfil',this)">Perfil</button>
+  <button class="tab" onclick="showTab('clubes',this)">🔄 Clubes</button>
   <button class="tab" onclick="showTab('campo',this)">🗺 Mapa campo</button>
   <button class="tab" onclick="showTab('decision',this)">🧠 Decisiones</button>
   <button class="tab" onclick="showTab('fisico',this)">💪 Físico</button>
   <button class="tab" onclick="showTab('tecnico',this)">⚽ Técnica</button>
-  <button class="tab" onclick="showTab('ataque1v1',this)">⚡ 1v1 Ataque</button>
+  <button class="tab" onclick="showTab('ataque1v1',this)">⚡ Bajo presión</button>
   <button class="tab" onclick="showTab('defensa',this)">🛡 Defensa</button>
   <button class="tab" onclick="showTab('tactico',this)">📋 Táctica</button>
   <button class="tab" onclick="showTab('mental',this)">🎯 Mental</button>
@@ -123,24 +153,63 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <!-- ══ PERFIL ══ -->
 <div id="s-perfil" class="sec active">
   <div class="card">
-    <div class="card-title">¿Qué es un medio centro interior? <span class="badge bg">Posición clave</span></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">Dorsal y rol</div><div class="desc">Lleva el dorsal 8. Ocupa el espacio entre líneas conectando defensa con ataque. Actúa a los lados del pivote con libertad para proyectarse según el momento del juego.</div></div></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">Referentes mundiales</div><div class="desc">Kevin De Bruyne, Toni Kroos, Luka Modric, Frenkie de Jong, Pedri, Gavi, Barella — todos dominan el halbraum, la visión de juego y la llegada al área desde segunda línea.</div></div></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">Demanda física real</div><div class="desc">Recorre entre 10 y 13 km por partido, con múltiples sprints, cambios de ritmo y duelos. Es una de las posiciones más exigentes del campo.</div></div></div>
+    <div class="card-title">¿Qué es un pivote (mediocentro defensivo)? <span class="badge bg">Posición clave</span></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Dorsal y rol</div><div class="desc">Álvaro Barja — dorsal 20, pivote del CD Lourdes. Es el jugador más retrasado del mediocampo: organiza el juego delante de la defensa, protege a los centrales y es la primera opción de salida de balón del equipo.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Referentes mundiales</div><div class="desc">Sergio Busquets, Rodri, Declan Rice, Casemiro, Fabinho, Joshua Kimmich — todos dominan la lectura del juego, la cobertura defensiva y el primer pase que arranca el ataque.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Demanda física real</div><div class="desc">Recorre entre 10 y 12 km por partido. Menos sprints largos que un interior, pero muchos desplazamientos laterales cortos, duelos cuerpo a cuerpo y coberturas constantes. Exige resistencia, fuerza y concentración sin descanso.</div></div></div>
   </div>
   <div class="g2">
     <div class="card"><div class="card-title">En ataque</div>
-      <div class="row"><div class="dot dg"></div><div><div class="desc">Apoyar al pivote y dar salida limpia desde defensa</div></div></div>
-      <div class="row"><div class="dot dg"></div><div><div class="desc">Llegar al área como segundo atacante (late run)</div></div></div>
-      <div class="row"><div class="dot dg"></div><div><div class="desc">Combinar en espacios reducidos y filtrar pases</div></div></div>
-      <div class="row"><div class="dot dg"></div><div><div class="desc">Explotar la zona 14 / halbraum constantemente</div></div></div>
+      <div class="row"><div class="dot dg"></div><div><div class="desc">Dar la primera salida de balón limpia desde los centrales</div></div></div>
+      <div class="row"><div class="dot dg"></div><div><div class="desc">Girar el juego con pases largos de banda a banda</div></div></div>
+      <div class="row"><div class="dot dg"></div><div><div class="desc">Ser siempre la opción segura cuando un compañero está presionado</div></div></div>
+      <div class="row"><div class="dot dg"></div><div><div class="desc">Filtrar algún pase vertical cuando el equipo lo necesita</div></div></div>
     </div>
     <div class="card"><div class="card-title">En defensa</div>
-      <div class="row"><div class="dot dc"></div><div><div class="desc">Presionar alto y cortar líneas de pase rivales</div></div></div>
-      <div class="row"><div class="dot dc"></div><div><div class="desc">Recuperar posición en menos de 3 segundos</div></div></div>
-      <div class="row"><div class="dot dc"></div><div><div class="desc">Anticipar y robar balones en mediocampo</div></div></div>
-      <div class="row"><div class="dot dc"></div><div><div class="desc">Proteger los espacios laterales del pivote</div></div></div>
+      <div class="row"><div class="dot dc"></div><div><div class="desc">Cubrir el espacio delante de los centrales</div></div></div>
+      <div class="row"><div class="dot dc"></div><div><div class="desc">Cortar líneas de pase hacia el delantero rival</div></div></div>
+      <div class="row"><div class="dot dc"></div><div><div class="desc">Anticipar y robar antes de que llegue el peligro</div></div></div>
+      <div class="row"><div class="dot dc"></div><div><div class="desc">Ser el primer filtro cuando los interiores o laterales suben</div></div></div>
     </div>
+  </div>
+</div>
+
+<!-- ══ CLUBES / TRAYECTORIA ══ -->
+<div id="s-clubes" class="sec">
+  <div class="card">
+    <div class="player-card">
+      <div class="player-avatar">AB</div>
+      <div>
+        <div class="player-name">Álvaro Barja</div>
+        <div class="player-sub">Pivote · Dorsal 20 · CD Lourdes · Temporada 2026/27</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Trayectoria y evolución de rol <span class="badge bg">De interior a pivote</span></div>
+    <div class="desc" style="margin-bottom:1rem;">Cómo he evolucionado en el campo, club a club, y qué me llevo de cada etapa.</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-club">CD Tudelano</div>
+        <div class="tl-period">Etapa anterior</div>
+        <div class="tl-role"><span class="badge bp">Interior — Mediocentro de banda</span></div>
+        <div class="tl-desc">Jugué como interior, desarrollando llegada al área, pase filtrado, control orientado y juego entre líneas en el halbraum. Esa base técnica y de visión de juego construida como interior es hoy mi punto fuerte para leer el partido desde una posición más retrasada.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot tl-current"></div>
+        <div class="tl-club">CD Lourdes</div>
+        <div class="tl-period">Temporada 2026/27 · Actual</div>
+        <div class="tl-role"><span class="badge bg">Pivote — Dorsal 20</span></div>
+        <div class="tl-desc">Este año paso a jugar de pivote, la posición base del equipo. Mi experiencia como interior me da ventaja en el pase, el cambio de orientación y la lectura del ataque; ahora estoy trabajando la cobertura defensiva, la protección de la línea de centrales y tomar decisiones un paso más atrás en el campo.</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Qué me llevo de interior al jugar ahora de pivote</div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Visión de juego y pase</div><div class="desc">Haber jugado entre líneas me ayuda a ver antes al compañero libre y a elegir el pase de mayor riesgo/beneficio cuando toca arriesgar.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Llegada ocasional al área</div><div class="desc">Sé cuándo aparecer en el área como sorpresa, aunque ahora sea algo puntual y no mi función principal.</div></div></div>
+    <div class="row"><div class="dot da"></div><div><div class="lbl">Lo que estoy incorporando ahora</div><div class="desc">Cobertura constante de la defensa, temporización, anticipación y ser el primer filtro cuando un compañero sube. Es el aprendizaje principal de esta temporada como pivote.</div></div></div>
   </div>
 </div>
 
@@ -168,21 +237,21 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
         <rect x="115" y="455" width="110" height="30" fill="none" stroke="#fff" stroke-width="1.5" opacity=".7"/>
         <rect x="135" y="10" width="70" height="10" fill="none" stroke="#fff" stroke-width="2" opacity=".9"/>
         <rect x="135" y="485" width="70" height="10" fill="none" stroke="#fff" stroke-width="2" opacity=".9"/>
-        <rect id="z1" x="16" y="340" width="308" height="74" rx="4" fill="#1D9E75" opacity=".25" class="zone-rect" onclick="showZone(1)" style="cursor:pointer;"/>
+        <rect id="z1" x="16" y="340" width="308" height="74" rx="4" fill="#1D9E75" opacity=".22" class="zone-rect" onclick="showZone(1)" style="cursor:pointer;"/>
         <rect x="16" y="340" width="308" height="74" rx="4" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
-        <text x="170" y="381" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 1 — Apoyo en salida de balón</text>
-        <rect id="z2" x="16" y="252" width="308" height="86" rx="4" fill="#378ADD" opacity=".2" class="zone-rect" onclick="showZone(2)" style="cursor:pointer;"/>
-        <rect x="16" y="252" width="308" height="86" rx="4" fill="none" stroke="#378ADD" stroke-width="1.5"/>
-        <text x="170" y="293" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 2 — Organización y construcción</text>
-        <rect id="z3" x="16" y="170" width="308" height="80" rx="4" fill="#EF9F27" opacity=".3" class="zone-rect" onclick="showZone(3)" style="cursor:pointer;"/>
-        <rect x="16" y="170" width="308" height="80" rx="4" fill="none" stroke="#EF9F27" stroke-width="2"/>
-        <text x="170" y="207" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">⭐ ZONA 3 — Halbraum / Entre líneas</text>
-        <text x="170" y="222" text-anchor="middle" fill="#fff" font-size="10" opacity=".9">TU ZONA ESTRELLA</text>
-        <rect id="z4" x="16" y="87" width="308" height="81" rx="4" fill="#D85A30" opacity=".25" class="zone-rect" onclick="showZone(4)" style="cursor:pointer;"/>
+        <text x="170" y="381" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 1 — Salida y cobertura defensiva</text>
+        <rect id="z2" x="16" y="252" width="308" height="86" rx="4" fill="#378ADD" opacity=".35" class="zone-rect" onclick="showZone(2)" style="cursor:pointer;"/>
+        <rect x="16" y="252" width="308" height="86" rx="4" fill="none" stroke="#378ADD" stroke-width="2"/>
+        <text x="170" y="287" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">⭐ ZONA 2 — Organización / Distribución</text>
+        <text x="170" y="302" text-anchor="middle" fill="#fff" font-size="10" opacity=".9">TU ZONA ESTRELLA</text>
+        <rect id="z3" x="16" y="170" width="308" height="80" rx="4" fill="#EF9F27" opacity=".2" class="zone-rect" onclick="showZone(3)" style="cursor:pointer;"/>
+        <rect x="16" y="170" width="308" height="80" rx="4" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+        <text x="170" y="214" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 3 — Halbraum (apoyo puntual)</text>
+        <rect id="z4" x="16" y="87" width="308" height="81" rx="4" fill="#D85A30" opacity=".2" class="zone-rect" onclick="showZone(4)" style="cursor:pointer;"/>
         <rect x="16" y="87" width="308" height="81" rx="4" fill="none" stroke="#D85A30" stroke-width="1.5"/>
-        <text x="170" y="128" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 4 — Llegada al área rival</text>
+        <text x="170" y="128" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 4 — Área rival (rara vez)</text>
         <circle cx="170" cy="295" r="10" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-        <text x="170" y="299" text-anchor="middle" fill="#0F6E56" font-size="9" font-weight="700">8</text>
+        <text x="170" y="299" text-anchor="middle" fill="#0F6E56" font-size="9" font-weight="700">20</text>
         <circle cx="170" cy="330" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
         <text x="170" y="334" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
         <circle cx="90" cy="210" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
@@ -192,13 +261,13 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
         <circle cx="170" cy="140" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
         <text x="170" y="144" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">9</text>
         <circle cx="25" cy="480" r="5" fill="#fff" stroke="#0F6E56" stroke-width="1.5"/>
-        <text x="33" y="484" fill="#fff" font-size="9">Tú (8)</text>
+        <text x="33" y="484" fill="#fff" font-size="9">Tú (20)</text>
         <circle cx="73" cy="480" r="5" fill="#6ee7b7"/>
         <text x="81" y="484" fill="#fff" font-size="9">Compañeros</text>
       </svg>
       <div class="zone-info" id="zone-info">
         <div class="zi-title">Toca una zona del campo para ver tu rol</div>
-        <div class="zi-body">Cada zona del campo define qué debe hacer el interior. La zona naranja (halbraum) es donde más impacto generas como medio centro interior.</div>
+        <div class="zi-body">Cada zona del campo define qué debe hacer el pivote. La zona azul (organización, delante de la defensa) es tu base: desde ahí controlas el ritmo y proteges al equipo.</div>
       </div>
     </div>
   </div>
@@ -230,7 +299,7 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
             <!-- Zona primer palo -->
             <rect x="15" y="40" width="80" height="40" rx="3" fill="#D85A30" opacity=".3"/>
             <text x="55" y="56" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">1er palo</text>
-            <text x="55" y="68" text-anchor="middle" fill="#fff" font-size="8">Desvío o bloqueo</text>
+            <text x="55" y="68" text-anchor="middle" fill="#fff" font-size="8">Delantero/central</text>
             <!-- Zona punto penal -->
             <rect x="120" y="95" width="100" height="40" rx="3" fill="#EF9F27" opacity=".35"/>
             <text x="170" y="111" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Punto de penalti</text>
@@ -239,20 +308,20 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
             <rect x="240" y="40" width="80" height="40" rx="3" fill="#7F77DD" opacity=".35"/>
             <text x="280" y="56" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">2do palo</text>
             <text x="280" y="68" text-anchor="middle" fill="#fff" font-size="8">Remate cruzado</text>
-            <!-- Borde área grande = donde está el INTERIOR -->
+            <!-- Borde área grande = donde está el PIVOTE -->
             <rect x="75" y="90" width="60" height="35" rx="3" fill="#1D9E75" opacity=".5"/>
             <text x="105" y="105" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-            <text x="105" y="117" text-anchor="middle" fill="#fff" font-size="8">Rechace + disparo</text>
+            <text x="105" y="117" text-anchor="middle" fill="#fff" font-size="8">Seguridad + rechace</text>
             <!-- jugadores -->
             <circle cx="105" cy="102" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-            <text x="105" y="106" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">8</text>
+            <text x="105" y="106" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
             <!-- delantero 1er palo -->
             <circle cx="100" cy="52" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
             <text x="100" y="56" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">9</text>
-            <!-- otro interior 2do palo -->
+            <!-- interior 2do palo -->
             <circle cx="270" cy="52" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="270" y="56" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">10</text>
-            <!-- pivote punto penal -->
+            <text x="270" y="56" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">8</text>
+            <!-- central punto penal -->
             <circle cx="170" cy="112" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
             <text x="170" y="116" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
             <!-- lateral borde área -->
@@ -261,14 +330,14 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
             <!-- defensa borde campo para cortar -->
             <circle cx="330" cy="250" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
             <text x="330" y="254" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">2</text>
-            <text x="170" y="310" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Jugador en borde izquierdo del área esperando rechace</text>
-            <text x="170" y="325" text-anchor="middle" fill="#fff" font-size="9" opacity=".7">Si despejan → tú y el lateral cortan el balón para reiniciar</text>
+            <text x="170" y="310" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Como pivote, no subes al área a rematar</text>
+            <text x="170" y="325" text-anchor="middle" fill="#fff" font-size="9" opacity=".7">Si despejan → tú y el lateral cortáis el balón para reiniciar</text>
           </svg>
         </div>
-        <div class="row"><div class="dot dg"></div><div><div class="lbl">Tu posición: borde exterior del área grande</div><div class="desc">Te sitúas en el límite del área, no dentro. Así puedes rematar rechaces de media distancia y también retroceder rápido si el rival contraataca.</div></div></div>
-        <div class="row"><div class="dot da"></div><div><div class="lbl">Si el corner es en corto</div><div class="desc">Te aproximas al sacador como opción de pase. Tras recibirlo, conduces o lanzas el centro al área. Esta variante sorprende más a la defensa.</div></div></div>
-        <div class="row"><div class="dot db"></div><div><div class="lbl">Rechace al segundo palo</div><div class="desc">Si el balón llega largo, el jugador del segundo palo puede devolverlo hacia ti. Estás en posición perfecta para disparar de primera.</div></div></div>
-        <div class="row"><div class="dot dc"></div><div><div class="lbl">Seguridad ante contraataque</div><div class="desc">Junto al lateral que no sube, eres el seguro: si el rival despeja largo, vosotros dos detenéis el contraataque. Nunca subáis los dos al área en el corner.</div></div></div>
+        <div class="row"><div class="dot dg"></div><div><div class="lbl">Tu posición: borde exterior del área grande</div><div class="desc">Como pivote no entras al área a rematar. Te quedas en el borde para recoger rechaces, disparar de media distancia si el balón te llega limpio, y sobre todo estar listo para frenar un contraataque.</div></div></div>
+        <div class="row"><div class="dot da"></div><div><div class="lbl">Si el corner es en corto</div><div class="desc">Puedes ser la opción de apoyo cercana al sacador si nadie más está disponible, aunque normalmente esa función la hace un interior. Tu prioridad sigue siendo cubrir la espalda del equipo.</div></div></div>
+        <div class="row"><div class="dot db"></div><div><div class="lbl">Rechace desde el punto de penalti</div><div class="desc">Si el balón sale despejado hacia ti, controla y decide con calma: disparo si hay hueco, o circular el balón para organizar un segundo ataque.</div></div></div>
+        <div class="row"><div class="dot dc"></div><div><div class="lbl">Eres el seguro del equipo</div><div class="desc">Junto al lateral que no sube, eres la última barrera antes del contraataque rival. Esta es tu responsabilidad número uno en cada corner a favor: nunca subas tú también al área.</div></div></div>
       </div>
       <div id="cn-def" class="campo-view">
         <div class="field-wrap" style="margin-bottom:.75rem;">
@@ -287,18 +356,18 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
             <!-- zona 1er palo -->
             <rect x="240" y="270" width="80" height="35" rx="3" fill="#D85A30" opacity=".35"/>
             <text x="280" y="284" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">1er palo</text>
-            <text x="280" y="296" text-anchor="middle" fill="#fff" font-size="8">Central/tu compañero</text>
+            <text x="280" y="296" text-anchor="middle" fill="#fff" font-size="8">Central/compañero</text>
             <!-- zona 2o palo -->
             <rect x="15" y="270" width="80" height="35" rx="3" fill="#7F77DD" opacity=".35"/>
             <text x="55" y="284" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">2do palo</text>
-            <text x="55" y="296" text-anchor="middle" fill="#fff" font-size="8">Central/tu compañero</text>
+            <text x="55" y="296" text-anchor="middle" fill="#fff" font-size="8">Central/compañero</text>
             <!-- borde área = TÚ -->
             <rect x="75" y="248" width="70" height="28" rx="3" fill="#1D9E75" opacity=".5"/>
             <text x="110" y="261" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-            <text x="110" y="272" text-anchor="middle" fill="#fff" font-size="8">Rechace + salida</text>
+            <text x="110" y="272" text-anchor="middle" fill="#fff" font-size="8">Cobertura + salida</text>
             <!-- tú -->
             <circle cx="110" cy="258" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-            <text x="110" y="262" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">8</text>
+            <text x="110" y="262" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
             <!-- defensores en postes y zona -->
             <circle cx="155" cy="280" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
             <text x="155" y="284" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">4</text>
@@ -313,12 +382,12 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
             <text x="290" y="174" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">7</text>
             <text x="170" y="200" text-anchor="middle" fill="#fff" font-size="9" opacity=".8">Atacante arriba esperando contraataque</text>
             <text x="170" y="60" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Tu posición: borde del área grande</text>
-            <text x="170" y="75" text-anchor="middle" fill="#fff" font-size="9" opacity=".7">Si despejan → recoge y sale rápido al contraataque</text>
+            <text x="170" y="75" text-anchor="middle" fill="#fff" font-size="9" opacity=".7">Si despejan → recoges y sales rápido al contraataque</text>
           </svg>
         </div>
-        <div class="row"><div class="dot dc"></div><div><div class="lbl">No entras al área a defender el corner rival</div><div class="desc">Tu misión principal es estar en el borde del área: si se despeja largo, eres el primero en recuperar el balón y lanzar el contraataque.</div></div></div>
-        <div class="row"><div class="dot da"></div><div><div class="lbl">Defiendes la segunda jugada</div><div class="desc">Si el centro llega a la frontal del área y el rival remata, tú bloqueas o interceptas. Tampoco te alejes demasiado — mantente entre 15-20 metros de la portería.</div></div></div>
-        <div class="row"><div class="dot db"></div><div><div class="lbl">Comunicación con el pivote</div><div class="desc">Si el pivote entra al área a defender, tú cubres el centro del campo para que el rival no encuentre el pase de rechace sin oposición.</div></div></div>
+        <div class="row"><div class="dot dc"></div><div><div class="lbl">No entras al área a defender el corner rival</div><div class="desc">Tu misión es estar en el borde del área: si se despeja largo, eres el primero en recuperar el balón y lanzar el contraataque. Es tu zona natural como pivote.</div></div></div>
+        <div class="row"><div class="dot da"></div><div><div class="lbl">Defiendes la segunda jugada</div><div class="desc">Si el centro llega a la frontal del área y el rival remata, tú bloqueas o interceptas. No te alejes demasiado — mantente entre 15-20 metros de tu portería.</div></div></div>
+        <div class="row"><div class="dot db"></div><div><div class="lbl">Comunicación con tus centrales</div><div class="desc">Habla con ellos antes del saque: si uno entra al área a defender el corner, tú cubres el centro del campo para que el rival no encuentre el pase de rechace sin oposición.</div></div></div>
         <div class="row"><div class="dot dg"></div><div><div class="lbl">Tras el despeje: activa el contraataque</div><div class="desc">Eres el primer pase de salida. Ya tienes al extremo o delantero arriba. Controla rápido y lanza antes de que el rival reorganice.</div></div></div>
       </div>
     </div>
@@ -342,15 +411,15 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
           <!-- sacador de banda -->
           <circle cx="325" cy="130" r="6" fill="#ffcc00" stroke="#fff" stroke-width="1"/>
           <text x="325" y="120" text-anchor="middle" fill="#ffcc00" font-size="8">Saque</text>
-          <!-- tu posición escalonada -->
-          <rect x="200" y="110" width="70" height="35" rx="3" fill="#1D9E75" opacity=".45"/>
-          <text x="235" y="126" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-          <text x="235" y="138" text-anchor="middle" fill="#fff" font-size="8">Opción de pase</text>
-          <circle cx="235" cy="122" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-          <text x="235" y="126" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">8</text>
-          <!-- pivote opción corta -->
-          <circle cx="170" cy="155" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="170" y="159" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
+          <!-- tu posición central-baja -->
+          <rect x="155" y="150" width="70" height="35" rx="3" fill="#1D9E75" opacity=".45"/>
+          <text x="190" y="166" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
+          <text x="190" y="178" text-anchor="middle" fill="#fff" font-size="8">Opción segura y central</text>
+          <circle cx="190" cy="162" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
+          <text x="190" y="166" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
+          <!-- interior opción avanzada -->
+          <circle cx="235" cy="115" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
+          <text x="235" y="119" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">8</text>
           <!-- delantero arriba -->
           <circle cx="200" cy="60" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
           <text x="200" y="64" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">9</text>
@@ -358,15 +427,15 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
           <circle cx="295" cy="90" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
           <text x="295" y="94" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">11</text>
           <!-- flecha saque a ti -->
-          <line x1="323" y1="128" x2="250" y2="122" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4"/>
-          <!-- flecha tuya al pivote -->
-          <line x1="227" y1="130" x2="178" y2="152" stroke="#fff" stroke-width="1.5" stroke-dasharray="4" opacity=".7"/>
-          <text x="170" y="270" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Ofrécete escalonado entre el sacador y el pivote</text>
+          <line x1="323" y1="128" x2="220" y2="160" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4"/>
+          <!-- flecha tuya de vuelta al centro -->
+          <line x1="160" y1="165" x2="105" y2="180" stroke="#fff" stroke-width="1.5" stroke-dasharray="4" opacity=".7"/>
+          <text x="170" y="270" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Te ofreces algo más retrasado y centrado que el interior</text>
         </svg>
       </div>
-      <div class="row"><div class="dot dg"></div><div><div class="lbl">Posición escalonada en el interior</div><div class="desc">No te quedes pegado a la banda ni al sacador. Escalonarte en el interior (pasillo 2-4) te convierte en la opción de pase más segura y progresiva. Recibes ya orientado hacia el centro del campo.</div></div></div>
-      <div class="row"><div class="dot da"></div><div><div class="lbl">Opción hacia adelante: filtrar o combinar</div><div class="desc">Si recibes con espacio, da el pase hacia el delantero o el extremo. Si hay presión, combina en corto con el pivote y reposiciónate de inmediato en el halbraum.</div></div></div>
-      <div class="row"><div class="dot db"></div><div><div class="lbl">Saque de banda en campo rival</div><div class="desc">Aquí sí subes más. Sitúate en el borde del área a la espera del centro. Si el balón no llega, repliégate inmediatamente para cubrir una posible pérdida.</div></div></div>
+      <div class="row"><div class="dot dg"></div><div><div class="lbl">Posición retrasada y central</div><div class="desc">No subas al mismo nivel que el sacador. Ofrécete más retrasado y hacia el centro: eres la opción de seguridad que nunca falla, aunque el pase parezca menos ambicioso.</div></div></div>
+      <div class="row"><div class="dot da"></div><div><div class="lbl">Tras recibir: reorganiza, no arriesgues</div><div class="desc">Si recibes con presión, da un pase corto y seguro a un central o cambia de orientación con calma. No es tu función buscar el pase vertical arriesgado en esta jugada.</div></div></div>
+      <div class="row"><div class="dot db"></div><div><div class="lbl">Saque de banda en campo rival</div><div class="desc">Aquí puedes subir algo más como segunda opción, pero siempre pensando en cubrir una pérdida rápida — sigue siendo tu prioridad como pivote.</div></div></div>
     </div>
     <div id="bv-bcon" class="campo-view">
       <div class="field-wrap" style="margin-bottom:.75rem;">
@@ -380,12 +449,12 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
           <!-- tu posición cortando el pase interior -->
           <rect x="170" y="110" width="80" height="35" rx="3" fill="#D85A30" opacity=".4"/>
           <text x="210" y="126" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-          <text x="210" y="138" text-anchor="middle" fill="#fff" font-size="8">Cortar pase interior</text>
+          <text x="210" y="138" text-anchor="middle" fill="#fff" font-size="8">Cerrar el centro del campo</text>
           <circle cx="210" cy="122" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-          <text x="210" y="126" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">8</text>
-          <!-- pivote cierra centro -->
+          <text x="210" y="126" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
+          <!-- interior cierra pasillo -->
           <circle cx="150" cy="145" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="150" y="149" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
+          <text x="150" y="149" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">8</text>
           <!-- lateral marca exterior -->
           <circle cx="295" cy="110" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
           <text x="295" y="114" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">2</text>
@@ -393,12 +462,12 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
           <line x1="323" y1="128" x2="260" y2="122" stroke="#ff5555" stroke-width="1.5" stroke-dasharray="4" opacity=".7"/>
           <!-- tu zona de corte -->
           <line x1="210" y1="130" x2="210" y2="155" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="3" opacity=".6"/>
-          <text x="170" y="270" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Cierra el pasillo interior — el lateral marca en banda</text>
+          <text x="170" y="270" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Tú cierras el centro, tu lateral marca en banda</text>
         </svg>
       </div>
-      <div class="row"><div class="dot dc"></div><div><div class="lbl">Cierra el pasillo interior</div><div class="desc">Tu lateral marca al extremo rival en la banda. Tú te sitúas en el pasillo interior para cortar el pase hacia el pivote o mediapunta rival. Divide la responsabilidad con el lateral: él cierra la banda, tú el interior.</div></div></div>
-      <div class="row"><div class="dot da"></div><div><div class="lbl">No te vayas a la banda</div><div class="desc">Error habitual: ir a ayudar al lateral en la banda y dejar libre el pasillo interior. Confía en tu lateral y mantén tu posición de corte en el interior.</div></div></div>
-      <div class="row"><div class="dot dg"></div><div><div class="lbl">Si se recupera el balón: sal rápido</div><div class="desc">Tras interceptar o recuperar el balón del saque rival, activa el contraataque de inmediato. Ya tienes compañeros adelantados — eres el primer pase de transición.</div></div></div>
+      <div class="row"><div class="dot dc"></div><div><div class="lbl">Cierra el centro del campo</div><div class="desc">Tu lateral marca al extremo rival en la banda. Tú te sitúas en el centro para cortar el pase hacia el pivote o mediapunta rival. Divide la responsabilidad: él cierra la banda, tú el centro.</div></div></div>
+        <div class="row"><div class="dot da"></div><div><div class="lbl">No te vayas a la banda</div><div class="desc">Error habitual: ir a ayudar al lateral en la banda y dejar libre el centro del campo. Confía en tu lateral y mantén tu posición de corte en el centro.</div></div></div>
+      <div class="row"><div class="dot dg"></div><div><div class="lbl">Si se recupera el balón: sal rápido</div><div class="desc">Tras interceptar o recuperar el balón del saque rival, activa el contraataque de inmediato. Eres el primer pase de transición.</div></div></div>
     </div>
   </div>
 
@@ -415,15 +484,15 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
         <!-- P1 banda izq -->
         <rect x="15" y="15" width="60" height="470" fill="#378ADD" opacity=".15"/>
         <text x="45" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,45,260)">BANDA IZQ (1)</text>
-        <!-- P2 interior izq = TU ZONA -->
-        <rect x="75" y="15" width="60" height="470" fill="#EF9F27" opacity=".3"/>
-        <text x="105" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,105,260)">⭐ HALBRAUM IZQ (2)</text>
-        <!-- P3 centro -->
-        <rect x="135" y="15" width="70" height="470" fill="#1D9E75" opacity=".15"/>
-        <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,170,260)">CENTRO (3)</text>
-        <!-- P4 interior der = TU ZONA -->
-        <rect x="205" y="15" width="60" height="470" fill="#EF9F27" opacity=".3"/>
-        <text x="235" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,235,260)">⭐ HALBRAUM DER (4)</text>
+        <!-- P2 halbraum izq -->
+        <rect x="75" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
+        <text x="105" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,105,260)">HALBRAUM IZQ (2)</text>
+        <!-- P3 centro = TU ZONA -->
+        <rect x="135" y="15" width="70" height="470" fill="#EF9F27" opacity=".3"/>
+        <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,170,260)">⭐ CENTRO (3)</text>
+        <!-- P4 halbraum der -->
+        <rect x="205" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
+        <text x="235" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,235,260)">HALBRAUM DER (4)</text>
         <!-- P5 banda der -->
         <rect x="265" y="15" width="60" height="470" fill="#378ADD" opacity=".15"/>
         <text x="295" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,295,260)">BANDA DER (5)</text>
@@ -432,15 +501,15 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
         <line x1="135" y1="15" x2="135" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
         <line x1="205" y1="15" x2="205" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
         <line x1="265" y1="15" x2="265" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
-        <!-- jugador tú -->
-        <circle cx="105" cy="250" r="10" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-        <text x="105" y="254" text-anchor="middle" fill="#0F6E56" font-size="9" font-weight="700">8</text>
-        <text x="170" y="480" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Los pasillos 2 y 4 son tu territorio de influencia</text>
+        <!-- jugador tú, centrado -->
+        <circle cx="170" cy="250" r="10" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
+        <text x="170" y="254" text-anchor="middle" fill="#0F6E56" font-size="9" font-weight="700">20</text>
+        <text x="170" y="480" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">El pasillo 3 (centro) es tu territorio de influencia</text>
       </svg>
     </div>
-    <div class="row"><div class="dot da"></div><div><div class="lbl">Pasillos 2 y 4 — Halbraum (TU ZONA)</div><div class="desc">El espacio entre la banda y el centro. Desde aquí lanzas pases diagonales al área, cambias de orientación o disparas. La zona más difícil de defender del campo moderno.</div></div></div>
-    <div class="row"><div class="dot db"></div><div><div class="lbl">Pasillo 1 y 5 — Bandas</div><div class="desc">Llegas aquí para crear superioridad o dar opción de desdoble al lateral. No es tu posición base, pero debes saberla explotar en los momentos correctos.</div></div></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">Pasillo 3 — Centro</div><div class="desc">Del pivote. Entras puntualmente para combinar en corto o cuando el pivote sale a presionar. Evita saturar este pasillo con el pivote y el otro interior.</div></div></div>
+    <div class="row"><div class="dot da"></div><div><div class="lbl">Pasillo 3 — Centro (TU ZONA)</div><div class="desc">El eje del campo, siempre delante de tus centrales. Desde aquí controlas el ritmo, das el cambio de orientación y proteges el pasillo más peligroso para el rival. Es tu base durante los 90 minutos.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Pasillos 2 y 4 — Halbraum</div><div class="desc">Apoyas aquí de forma puntual: cuando un interior sube y deja espacio, o cuando el equipo necesita un pase filtrado desde una posición más adelantada. No es tu zona base, pero debes saber ocuparla si hace falta — la conoces bien de tu etapa como interior.</div></div></div>
+    <div class="row"><div class="dot db"></div><div><div class="lbl">Pasillo 1 y 5 — Bandas</div><div class="desc">Rara vez llegas aquí. Solo en situaciones defensivas puntuales, para ayudar a doblar sobre el extremo rival si tu lateral queda superado.</div></div></div>
   </div>
 </div>
 
@@ -448,61 +517,61 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <div id="s-decision" class="sec">
   <div class="card">
     <div class="card-title">Toma de decisiones — situaciones reales <span class="badge bp">Interactivo</span></div>
-    <div class="desc" style="margin-bottom:1rem;">Elige la opción que harías. El interior que piensa rápido antes de recibir siempre decide mejor.</div>
+    <div class="desc" style="margin-bottom:1rem;">Elige la opción que harías. El pivote que piensa rápido antes de recibir siempre decide mejor.</div>
     <div class="scenario">
-      <div class="sc-q">1. Recibes el balón entre líneas de espaldas a portería rival. Hay un defensa cerca. ¿Qué haces?</div>
+      <div class="sc-q">1. Recibes el balón en tu zona de creación, de espaldas a portería rival, con un defensa cerca. ¿Qué haces?</div>
       <div class="sc-opts">
-        <button class="sc-opt" onclick="answer(1,'a')">A) Giro rápido hacia el espacio libre y avanzas</button>
-        <button class="sc-opt" onclick="answer(1,'b')">B) Das el balón de vuelta al pivote sin mirar opciones</button>
+        <button class="sc-opt" onclick="answer(1,'a')">A) Giro rápido hacia el espacio libre sin mirar antes</button>
+        <button class="sc-opt" onclick="answer(1,'b')">B) Das el balón de vuelta al central sin mirar opciones</button>
         <button class="sc-opt" onclick="answer(1,'c')">C) Proteges el balón, escaneas y buscas la mejor opción</button>
         <button class="sc-opt" onclick="answer(1,'d')">D) Intentas regatear al defensa de frente</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb1-ok">✓ Correcto. Proteger + escanear + decidir. El giro solo es válido si ya viste el espacio antes de recibir.</div>
-      <div class="sc-feedback fb-ko" id="fb1-ko">✗ No es la mejor opción. De espaldas con presión, primero protege el balón y escanea. El giro ciego puede resultar en pérdida.</div>
+      <div class="sc-feedback fb-ok" id="fb1-ok">✓ Correcto. Proteger + escanear + decidir. Como pivote, perder el balón aquí es el error más caro del equipo — nunca arriesgues sin haber visto antes tus opciones.</div>
+      <div class="sc-feedback fb-ko" id="fb1-ko">✗ No es la mejor opción. De espaldas con presión, primero protege el balón y escanea. Perder este balón en tu zona deja a todo el equipo expuesto.</div>
     </div>
     <div class="scenario">
-      <div class="sc-q">2. Tu equipo pierde el balón. Estás en campo contrario. ¿Cuál es tu primera acción?</div>
+      <div class="sc-q">2. Tu equipo pierde el balón mientras tú estás en el centro del campo. ¿Cuál es tu primera acción?</div>
       <div class="sc-opts">
         <button class="sc-opt" onclick="answer(2,'a')">A) Presionar inmediatamente al poseedor si estás cerca</button>
-        <button class="sc-opt" onclick="answer(2,'b')">B) Sprint para recuperar tu posición defensiva si estás lejos</button>
+        <button class="sc-opt" onclick="answer(2,'b')">B) Sprint para recuperar tu posición delante de los centrales</button>
         <button class="sc-opt" onclick="answer(2,'c')">C) Quedarte esperando que el rival avance</button>
         <button class="sc-opt" onclick="answer(2,'d')">D) Protestar la jugada al árbitro</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb2-ok">✓ Correcto. Si estás cerca del balón, presiona. Si no, repliegue inmediato. Los mejores interiores completan la transición en menos de 3 segundos.</div>
-      <div class="sc-feedback fb-ko" id="fb2-ko">✗ La transición defensiva debe ser inmediata. Quedarse parado deja al equipo en inferioridad.</div>
+      <div class="sc-feedback fb-ok" id="fb2-ok">✓ Correcto. Si estás cerca del balón, presiona. Como pivote, la transición defensiva inmediata es tu responsabilidad número uno: sin ti bien colocado, la defensa queda expuesta.</div>
+      <div class="sc-feedback fb-ko" id="fb2-ko">✗ La transición defensiva debe ser inmediata. Quedarse parado deja al equipo en inferioridad justo delante de tu propia defensa.</div>
     </div>
     <div class="scenario">
-      <div class="sc-q">3. Tu lateral sube al ataque por tu banda. ¿Qué haces tú?</div>
+      <div class="sc-q">3. Tu interior (compañero de mediocampo) sube al ataque y deja espacio libre en el centro. ¿Qué haces tú?</div>
       <div class="sc-opts">
-        <button class="sc-opt" onclick="answer(3,'a')">A) Subes tú también a apoyar el ataque por la banda</button>
+        <button class="sc-opt" onclick="answer(3,'a')">A) Subes tú también a apoyar el ataque</button>
         <button class="sc-opt" onclick="answer(3,'b')">B) Te quedas en tu posición sin moverte</button>
-        <button class="sc-opt" onclick="answer(3,'c')">C) Cubres el espacio que deja el lateral, dando equilibrio</button>
-        <button class="sc-opt" onclick="answer(3,'d')">D) Pides el balón al pivote para atacar por el centro</button>
+        <button class="sc-opt" onclick="answer(3,'c')">C) Cubres el espacio que deja el interior, dando equilibrio</button>
+        <button class="sc-opt" onclick="answer(3,'d')">D) Pides el balón para atacar tú por el centro</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb3-ok">✓ Perfecto. Principio de compensación posicional. Si el lateral sube, tú cubres su espacio. Sin esto el equipo pierde estructura defensiva.</div>
-      <div class="sc-feedback fb-ko" id="fb3-ko">✗ Si subes tú también, dejáis un espacio enorme por la banda. El interior da equilibrio: cuando un compañero avanza, tú cubres lo que deja.</div>
+      <div class="sc-feedback fb-ok" id="fb3-ok">✓ Perfecto. Principio de compensación posicional. Tú jugabas de interior y sabes que el pivote cubre cuando tú subías — ahora ese pivote eres tú. Sin esto el equipo pierde estructura defensiva.</div>
+      <div class="sc-feedback fb-ko" id="fb3-ko">✗ Si subes tú también, dejáis el centro del campo completamente vacío. El pivote da equilibrio: cuando un compañero avanza, tú cubres lo que deja.</div>
     </div>
     <div class="scenario">
-      <div class="sc-q">4. Tienes el balón en el halbraum. El delantero está marcado. El extremo está libre en banda. Un compañero llega libre al área. ¿A quién?</div>
+      <div class="sc-q">4. Tienes el balón en tu zona de creación, con espacio y tiempo. El interior está marcado, el extremo pide un pase seguro en banda, y el delantero se desmarca a la espalda del último defensa rival. ¿Qué pase eliges?</div>
       <div class="sc-opts">
-        <button class="sc-opt" onclick="answer(4,'a')">A) Al delantero marcado — más cerca de portería</button>
-        <button class="sc-opt" onclick="answer(4,'b')">B) Al extremo en banda para que centre</button>
-        <button class="sc-opt" onclick="answer(4,'c')">C) Al compañero libre en el área — pase de gol</button>
-        <button class="sc-opt" onclick="answer(4,'d')">D) Te la guardas y conduces hacia el área</button>
+        <button class="sc-opt" onclick="answer(4,'a')">A) Al interior marcado — es tu compañero más cercano</button>
+        <button class="sc-opt" onclick="answer(4,'b')">B) Al extremo en banda, la opción más segura</button>
+        <button class="sc-opt" onclick="answer(4,'c')">C) Pase filtrado a la espalda de la defensa para el delantero</button>
+        <button class="sc-opt" onclick="answer(4,'d')">D) Conduces tú y buscas el área rival</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb4-ok">✓ Excelente. El compañero libre en el área es la opción de máximo peligro. Este pase filtrado desde el halbraum es la jugada diferencial del interior.</div>
-      <div class="sc-feedback fb-ko" id="fb4-ko">✗ Hay un jugador libre en el área — ese es el pase más peligroso. Aprovecha la superioridad en lugar de buscar opciones seguras pero menos efectivas.</div>
+      <div class="sc-feedback fb-ok" id="fb4-ok">✓ Excelente. Leer el momento exacto en que el delantero rompe la línea es la jugada diferencial de un pivote con buena visión. Este es el pase de gol — aprovecha siempre la máxima ocasión cuando tengas tiempo para ejecutarlo bien.</div>
+      <div class="sc-feedback fb-ko" id="fb4-ko">✗ Hay un compañero rompiendo a la espalda de la defensa — ese es el pase más peligroso. Con tiempo y espacio, prioriza siempre la opción de máximo daño sobre la opción segura.</div>
     </div>
     <div class="scenario">
       <div class="sc-q">5. Es el minuto 75, tu equipo gana 1-0 y el rival presiona. Recibes el balón en campo propio. ¿Qué haces?</div>
       <div class="sc-opts">
         <button class="sc-opt" onclick="answer(5,'a')">A) Das el pase arriesgado al delantero para buscar el 2-0</button>
         <button class="sc-opt" onclick="answer(5,'b')">B) Circulas el balón con calma, mantienes la posesión y consumes tiempo</button>
-        <button class="sc-opt" onclick="answer(5,'c')">C) Chulas largo a la banda para despejar el peligro</button>
+        <button class="sc-opt" onclick="answer(5,'c')">C) Chutas largo a la banda para despejar el peligro</button>
         <button class="sc-opt" onclick="answer(5,'d')">D) Devuelves siempre al portero</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb5-ok">✓ Correcto. Inteligencia de partido. Circular con calma, no arriesgar y consumir tiempo es la decisión correcta cuando vas ganando. El interior gestiona el ritmo del partido.</div>
-      <div class="sc-feedback fb-ko" id="fb5-ko">✗ Con el resultado a favor, la prioridad es no perder el balón. Un pase arriesgado o un balón largo regala la posesión al rival. La gestión del ritmo es una habilidad clave del interior.</div>
+      <div class="sc-feedback fb-ok" id="fb5-ok">✓ Correcto. Inteligencia de partido. Como pivote, gestionar el ritmo del partido es tu responsabilidad principal: circular con calma, no arriesgar y consumir tiempo es la decisión correcta cuando vas ganando.</div>
+      <div class="sc-feedback fb-ko" id="fb5-ko">✗ Con el resultado a favor, la prioridad es no perder el balón. Un pase arriesgado o un balón largo regala la posesión al rival. Gestionar el ritmo del partido es una responsabilidad clave del pivote.</div>
     </div>
   </div>
 </div>
@@ -511,28 +580,28 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <div id="s-fisico" class="sec">
   <div class="card">
     <div class="card-title">Capacidades físicas prioritarias</div>
-    <div class="pb"><div class="pl"><span>Resistencia aeróbica</span><span>Muy alta</span></div><div class="pbar"><div class="pfill" style="width:95%;background:#1D9E75;"></div></div></div>
-    <div class="pb"><div class="pl"><span>Velocidad / explosividad</span><span>Alta</span></div><div class="pbar"><div class="pfill" style="width:85%;background:#7F77DD;"></div></div></div>
-    <div class="pb"><div class="pl"><span>Fuerza funcional (core y tren inferior)</span><span>Alta</span></div><div class="pbar"><div class="pfill" style="width:80%;background:#EF9F27;"></div></div></div>
-    <div class="pb"><div class="pl"><span>Agilidad y cambio de dirección</span><span>Alta</span></div><div class="pbar"><div class="pfill" style="width:85%;background:#378ADD;"></div></div></div>
+    <div class="pb"><div class="pl"><span>Resistencia aeróbica</span><span>Muy alta</span></div><div class="pbar"><div class="pfill" style="width:90%;background:#1D9E75;"></div></div></div>
+    <div class="pb"><div class="pl"><span>Fuerza funcional y en el choque</span><span>Muy alta</span></div><div class="pbar"><div class="pfill" style="width:90%;background:#EF9F27;"></div></div></div>
+    <div class="pb"><div class="pl"><span>Agilidad y cambio de dirección</span><span>Alta</span></div><div class="pbar"><div class="pfill" style="width:78%;background:#378ADD;"></div></div></div>
+    <div class="pb"><div class="pl"><span>Velocidad reactiva / arrancada corta</span><span>Media-alta</span></div><div class="pbar"><div class="pfill" style="width:65%;background:#7F77DD;"></div></div></div>
     <div class="pb"><div class="pl"><span>Flexibilidad y movilidad</span><span>Media-alta</span></div><div class="pbar"><div class="pfill" style="width:70%;background:#D85A30;"></div></div></div>
   </div>
   <div class="g2">
     <div class="card"><div class="card-title">Resistencia <span class="badge bg">Aeróbica</span></div>
-      <div class="ex"><div class="nm">Fartlek con cambios de ritmo</div><div class="dt">3 min trote + 1 min sprint. 5-8 series. Simula el partido real.</div></div>
-      <div class="ex"><div class="nm">Rondo posicional + sprint</div><div class="dt">Posesión 90s + sprint al palo. 4-6 rondas.</div></div>
+      <div class="ex"><div class="nm">Fartlek con cambios de ritmo</div><div class="dt">3 min trote + 1 min sprint corto. 5-8 series. Simula el vaivén constante del pivote.</div></div>
+      <div class="ex"><div class="nm">Rondo posicional + cobertura</div><div class="dt">Posesión 90s reposicionándote cada pase. 4-6 rondas.</div></div>
     </div>
-    <div class="card"><div class="card-title">Fuerza <span class="badge bp">Explosividad</span></div>
+    <div class="card"><div class="card-title">Fuerza <span class="badge ba">Choque y duelos</span></div>
       <div class="ex"><div class="nm">Sentadilla explosiva + peso muerto</div><div class="dt">5x6 reps. Baja lento, sube a máxima velocidad.</div></div>
-      <div class="ex"><div class="nm">Pliometría (saltos al cajón)</div><div class="dt">3x10 saltos. Potencia de tren inferior.</div></div>
+      <div class="ex"><div class="nm">Lucha y protección de balón (duelos)</div><div class="dt">3x1 min contra un compañero que presiona. Fuerza aplicada al contacto real.</div></div>
     </div>
     <div class="card"><div class="card-title">Prevención <span class="badge bc">Lesiones</span></div>
       <div class="ex"><div class="nm">Nórdico (isquiotibiales)</div><div class="dt">Excéntrico. 3x8. Reduce roturas hasta el 50%.</div></div>
-      <div class="ex"><div class="nm">Propiocepción tobillo</div><div class="dt">Tabla inestable. 3x30s por pie. Previene esguinces.</div></div>
+      <div class="ex"><div class="nm">Propiocepción tobillo</div><div class="dt">Tabla inestable. 3x30s por pie. Previene esguinces en los cambios de dirección.</div></div>
     </div>
-    <div class="card"><div class="card-title">Agilidad <span class="badge ba">Velocidad</span></div>
+    <div class="card"><div class="card-title">Agilidad <span class="badge bb">Reposicionamiento</span></div>
       <div class="ex"><div class="nm">Escalera de agilidad</div><div class="dt">4 variaciones de footwork. 3x30s cada una.</div></div>
-      <div class="ex"><div class="nm">Sprints cortos 10-20m</div><div class="dt">7 sprints máximos + retorno trotando.</div></div>
+      <div class="ex"><div class="nm">Cambios de dirección cortos (5-10m)</div><div class="dt">7 repeticiones. Clave para cubrir espacio delante de la defensa.</div></div>
     </div>
   </div>
 </div>
@@ -541,68 +610,68 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <div id="s-tecnico" class="sec">
   <div class="card">
     <div class="card-title">Habilidades técnicas esenciales</div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">Control orientado</div><div class="desc">Recibir ya girado hacia donde vas. Fundamental en el halbraum. Práctica: cono a 2m, toca y gira en un solo movimiento.</div></div></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">Pase en primer toque</div><div class="desc">Interior y exterior del pie. Debe ser un reflejo, no una decisión consciente. Ejercicio: cuadrado de 4 jugadores en movimiento.</div></div></div>
-    <div class="row"><div class="dot dp"></div><div><div class="lbl">Pase filtrado (rompelíneas)</div><div class="desc">Entre defensores para habilitar al delantero. Visión periférica + timing perfecto. La jugada diferencial del interior de élite.</div></div></div>
-    <div class="row"><div class="dot da"></div><div><div class="lbl">Disparo desde zona 14</div><div class="desc">Llegada al área como interior. Tiro raso con interior del pie. Al menos 20 remates por sesión desde el borde del área.</div></div></div>
-    <div class="row"><div class="dot dc"></div><div><div class="lbl">Escaneo antes de recibir</div><div class="desc">Girar la cabeza 2-3 veces antes de que llegue el balón. Modric lo hace cada 2 segundos. Entrénalo en todos los ejercicios.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Recepción protegida y semi-perfilada</div><div class="desc">Girar el cuerpo para ver el campo mientras proteges el balón del rival que presiona por detrás. Práctica: recibe con un compañero marcándote pasivo, protege 3 segundos y sal limpio.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Pase corto en primer toque (seguridad)</div><div class="desc">Interior y exterior del pie. En tu zona nunca arriesgues el balón — debe ser un reflejo, no una decisión consciente. Ejercicio: rondo 6v2.</div></div></div>
+    <div class="row"><div class="dot dp"></div><div><div class="lbl">Pase largo / cambio de orientación</div><div class="desc">Diagonal de banda a banda con golpeo limpio y altura controlada. Es la principal arma ofensiva del pivote de élite. Al menos 20 cambios de orientación de 30-40m por sesión.</div></div></div>
+    <div class="row"><div class="dot da"></div><div><div class="lbl">Entrada limpia y anticipación</div><div class="desc">Lee la trayectoria del pase antes que el propio rival y roba sin cometer falta. Entrena el timing de la entrada, no la velocidad.</div></div></div>
+    <div class="row"><div class="dot dc"></div><div><div class="lbl">Escaneo constante</div><div class="desc">Girar la cabeza 2-3 veces antes de que llegue el balón. Busquets y Rodri lo hacen cada 2 segundos. Es la base de todo lo demás como pivote — entrénalo en todos los ejercicios.</div></div></div>
   </div>
 </div>
 
-<!-- ══ 1v1 ATAQUE ══ -->
+<!-- ══ BAJO PRESIÓN ══ -->
 <div id="s-ataque1v1" class="sec">
   <div class="card">
-    <div class="card-title">Cómo superar al rival en 1v1 — técnicas de ataque <span class="badge bg">Con vídeos</span></div>
-    <div class="desc" style="margin-bottom:1rem;">El interior supera rivales principalmente en el halbraum y en el pasillo hacia el área. Aquí tienes las técnicas más efectivas con su descripción y vídeos de referencia.</div>
+    <div class="card-title">Cómo salir de la presión rival — recursos del pivote <span class="badge bg">Con vídeos</span></div>
+    <div class="desc" style="margin-bottom:1rem;">El pivote recibe bajo presión constante: de tu decisión depende si el equipo mantiene la posesión o la pierde en zona peligrosa, justo delante de tu propia defensa. Aquí tienes los recursos más efectivos.</div>
   </div>
 
   <div class="tip-card">
-    <div class="tip-title">1. Freno-arranque (cambio de ritmo) <span class="tip-tag">La más efectiva</span></div>
-    <div class="tip-body">Conducir a media velocidad, frenar de golpe (el defensa frena contigo), y luego accelerar a máxima velocidad pasando por un lado. No necesitas fintas complicadas — el cambio de velocidad descoloca a cualquier defensa. Es el recurso más usado por Modric y Kroos.</div>
+    <div class="tip-title">1. Giro de espaldas (giro de Cruyff) <span class="tip-tag">El más útil</span></div>
+    <div class="tip-body">Amaga que vas hacia adelante, gira sobre el pie de apoyo y sales en dirección contraria con el interior del pie. Ideal cuando recibes con presión por detrás. Protege el balón con el cuerpo durante el giro. Es el recurso favorito de Busquets para salir limpio.</div>
   </div>
   <div class="tip-card">
-    <div class="tip-title">2. Amague de cuerpo + aceleración <span class="tip-tag">Zona interior</span></div>
-    <div class="tip-body">Finta con el hombro o la cabeza hacia un lado (el defensa desplaza su peso) y sales por el lado contrario. Eficaz cuando el defensa está centrado frente a ti. Clave: que el amague sea creíble — lleva el peso del cuerpo hacia ese lado antes de salir.</div>
+    <div class="tip-title">2. Freno-arranque (cambio de ritmo) <span class="tip-tag">Ganar metros</span></div>
+    <div class="tip-body">Conducir a media velocidad, frenar de golpe (el rival frena contigo) y acelerar de nuevo pasando por un lado. Útil tras robar el balón, para ganar los primeros metros antes de que el rival se reorganice.</div>
   </div>
   <div class="tip-card">
-    <div class="tip-title">3. Pase-y-va (pared + desmarque) <span class="tip-tag">Sin contacto</span></div>
-    <div class="tip-body">Combina en corto con un compañero y arranca en profundidad. Superas al rival sin necesidad de regatear — el pase hace el trabajo. Fundamental en espacios reducidos donde el 1v1 directo es difícil. Iniesta y Pedri lo usan constantemente.</div>
+    <div class="tip-title">3. Pase-y-va con el central <span class="tip-tag">Sin contacto</span></div>
+    <div class="tip-body">Combina en corto con un central y ofrécete de nuevo en espacio libre. Sales de la presión sin necesidad de regatear — el pase hace el trabajo. Fundamental cuando el rival presiona con dos jugadores.</div>
   </div>
   <div class="tip-card">
-    <div class="tip-title">4. Conducción interior con pie débil <span class="tip-tag">Desmarque</span></div>
-    <div class="tip-body">Cuando el defensa te cierra el pie dominante, usa el interior del pie no dominante para recortar hacia dentro. Requiere trabajo del pie débil en entrenamiento. El interior que solo juega con un pie es predecible y fácil de defender.</div>
+    <div class="tip-title">4. Conducción con pie débil para cambiar el ángulo <span class="tip-tag">Salida limpia</span></div>
+    <div class="tip-body">Cuando el rival te cierra el pie dominante, usa el interior del pie no dominante para recortar y cambiar el ángulo de salida. Un pivote que solo juega con un pie es predecible y fácil de presionar.</div>
   </div>
   <div class="tip-card">
-    <div class="tip-title">5. Giro de Cruyff (o giro de espaldas) <span class="tip-tag">Salida de presión</span></div>
-    <div class="tip-body">Amaga que vas hacia adelante, gira sobre el pie de apoyo y sales en dirección contraria con el interior del pie. Ideal cuando recibes con presión por detrás. Protege el balón con el cuerpo durante el giro.</div>
+    <div class="tip-title">5. Amague de cuerpo + salida al espacio libre <span class="tip-tag">Zona central</span></div>
+    <div class="tip-body">Finta con el hombro o la cabeza hacia un lado (el rival desplaza su peso) y sales por el lado contrario. Eficaz cuando el defensa está centrado frente a ti en tu propia zona.</div>
   </div>
   <div class="tip-card">
-    <div class="tip-title">6. Recepción y giro en una sola acción <span class="tip-tag">Control orientado</span></div>
-    <div class="tip-body">No es un regate tradicional — es superar al defensa en el momento de la recepción. Recibes el balón ya orientado hacia el espacio libre antes de que el rival llegue a ti. Requiere escanear el campo antes de recibir para saber dónde está el espacio.</div>
+    <div class="tip-title">6. Recepción orientada de espaldas al rival <span class="tip-tag">Control orientado</span></div>
+    <div class="tip-body">Recibe ya girado hacia el espacio libre antes de que el rival llegue a presionarte. Requiere escanear el campo antes de recibir para saber dónde está el hueco.</div>
   </div>
   <div class="tip-card purple">
-    <div class="tip-title">Principio clave en 1v1 para el interior <span class="tip-tag p">Táctica</span></div>
-    <div class="tip-body">El interior no debe abusar del regate en campo propio o en zonas de riesgo. El 1v1 es más efectivo en campo rival o en el halbraum. En zonas defensivas, prefiere el pase rápido. En zonas ofensivas, el regate puede crear situaciones de gol.</div>
+    <div class="tip-title">Principio clave: cuándo arriesgar y cuándo no <span class="tip-tag p">Táctica</span></div>
+    <div class="tip-body">Como pivote, nunca arriesgues un regate dentro o cerca de tu propia área. Reserva estos recursos para salir de la primera línea de presión del rival, no para "driblar por diversión". Si dudas, el pase seguro siempre gana.</div>
   </div>
 
   <div class="card" style="margin-top:1rem;">
-    <div class="card-title">Vídeos — 1v1 en ataque <span class="badge bb">YouTube</span></div>
+    <div class="card-title">Vídeos — Salir de la presión <span class="badge bb">YouTube</span></div>
     <div class="vid-grid">
-      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=cambio+de+ritmo+futbol+1v1+mediocampista')">
+      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=busquets+giro+de+espaldas+salida+presion+futbol')">
         <div class="vid-thumb-placeholder">▶</div>
-        <div class="vid-meta"><div class="vid-title">Cambio de ritmo en el 1v1</div><div class="vid-sub">Freno-arranque y aceleración</div></div>
+        <div class="vid-meta"><div class="vid-title">Busquets — giro de espaldas</div><div class="vid-sub">Salir limpio de la presión</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=giro+cruyff+futbol+tutorial')">
         <div class="vid-thumb-placeholder">▶</div>
         <div class="vid-meta"><div class="vid-title">Giro de Cruyff — tutorial</div><div class="vid-sub">Técnica paso a paso</div></div>
       </div>
-      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=regates+futbol+interior+mediocampista+1v1')">
+      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=resistencia+a+la+presion+pivote+futbol+entrenamiento')">
         <div class="vid-thumb-placeholder">▶</div>
-        <div class="vid-meta"><div class="vid-title">Regates para el interior en 1v1</div><div class="vid-sub">Técnicas específicas para el puesto</div></div>
+        <div class="vid-meta"><div class="vid-title">Resistencia a la presión</div><div class="vid-sub">Ejercicios específicos para el pivote</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=pared+y+va+futbol+como+hacerlo')">
         <div class="vid-thumb-placeholder">▶</div>
-        <div class="vid-meta"><div class="vid-title">Pase-y-va: superar sin regatear</div><div class="vid-sub">La combinación como herramienta de 1v1</div></div>
+        <div class="vid-meta"><div class="vid-title">Pase-y-va: superar la presión</div><div class="vid-sub">La combinación como herramienta de salida</div></div>
       </div>
     </div>
   </div>
@@ -611,53 +680,53 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <!-- ══ DEFENSA ══ -->
 <div id="s-defensa" class="sec">
   <div class="card">
-    <div class="card-title">Tácticas defensivas del interior <span class="badge bc">Con vídeos</span></div>
-    <div class="desc" style="margin-bottom:1rem;">El interior moderno defiende tanto como ataca. Aquí están las tácticas defensivas clave que debes dominar como medio centro interior.</div>
+    <div class="card-title">Tácticas defensivas del pivote <span class="badge bc">Con vídeos</span></div>
+    <div class="desc" style="margin-bottom:1rem;">Como pivote, la defensa es tu función principal. Aquí están las tácticas clave que debes dominar para proteger a tu equipo.</div>
   </div>
 
   <div class="tip-card def">
-    <div class="tip-title">1. Pressing en la salida de balón rival <span class="tip-tag r">Alta intensidad</span></div>
-    <div class="tip-body">Cuando el rival construye desde atrás, cierras el pase al pivote rival o al central que tiene el balón. Objetivo: forzar el error o el balón largo. Señal para presionar: el rival tiene el balón en los pies y no hay una opción de pase directa. Señal para no presionar: el rival ya encontró el pase — repliegue inmediato.</div>
+    <div class="tip-title">1. Cobertura constante de la defensa <span class="tip-tag r">Prioridad #1</span></div>
+    <div class="tip-body">Mantén siempre una distancia de cobertura con tus centrales (8-12 metros). Nunca dejes el pasillo central abierto delante de ellos. Es tu responsabilidad número uno en cada jugada, ataque o defensa.</div>
   </div>
   <div class="tip-card def">
-    <div class="tip-title">2. Defensa en bloque medio (sin presión alta) <span class="tip-tag r">Organización</span></div>
-    <div class="tip-body">Te sitúas entre la línea del balón y tu portería, en el pasillo interior (halbraum defensivo). El objetivo es cerrar las líneas de pase interiores y obligar al rival a jugar por banda. No sigues al delantero rival — defiendes el espacio, no al jugador.</div>
+    <div class="tip-title">2. Cerrar el pase interior en la presión <span class="tip-tag r">Alta intensidad</span></div>
+    <div class="tip-body">Cuando tu delantero presiona al central rival, tú te encargas de cerrar el pase hacia el pivote o mediapunta rival. No presiones tú al portero o al central directamente — tu trabajo es tapar líneas de pase, no perseguir al balón.</div>
   </div>
   <div class="tip-card def">
-    <div class="tip-title">3. Cómo defender el 1v1 en el mediocampo <span class="tip-tag r">Técnica individual</span></div>
-    <div class="tip-body">Perfil lateral (no de frente): colócate de lado para guiar al rival hacia la banda y alejarlo del centro. No hagas la entrada hasta que el rival abra la pierna para pasar o controlar mal. Distancia de intervención: 1-1.5 metros. No te tires al suelo si puedes evitarlo — el rival pasa y queda en ventaja numérica.</div>
+    <div class="tip-title">3. Defensa en bloque medio/bajo <span class="tip-tag r">Organización</span></div>
+    <div class="tip-body">Te sitúas entre la línea del balón y tu portería, en el centro del campo. El objetivo es cerrar las líneas de pase interiores y obligar al rival a jugar por banda. No sigues al delantero rival — defiendes el espacio, no al jugador.</div>
   </div>
   <div class="tip-card def">
-    <div class="tip-title">4. Cortar líneas de pase (interceptación) <span class="tip-tag r">Lectura del juego</span></div>
-    <div class="tip-body">En lugar de marcar al jugador, posiciónate en la línea de pase entre el poseedor del balón y su receptor más peligroso. Cuando el pase se ejecuta, interceptas. Requiere escaneo constante del campo para anticipar la decisión del poseedor. Kanté y Busquets son maestros de esto.</div>
+    <div class="tip-title">4. Cómo defender el 1v1 en el centro del campo <span class="tip-tag r">Técnica individual</span></div>
+    <div class="tip-body">Perfil lateral (no de frente): colócate de lado para guiar al rival hacia la banda y alejarlo del centro. No hagas la entrada hasta que el rival abra la pierna para pasar o controlar mal. Distancia de intervención: 1-1.5 metros. No te tires al suelo si puedes evitarlo — el rival pasa y queda en ventaja numérica delante de tu defensa.</div>
   </div>
   <div class="tip-card def">
-    <div class="tip-title">5. Pressing coordinado (pressing traps) <span class="tip-tag r">Colectivo</span></div>
-    <div class="tip-body">Con el equipo: cuando el lateral rival recibe en su banda, el extremo le cierra por detrás, tú cierras el pase interior y el central del pivote cubre el desdoble. La trampa se cierra en triángulo. Requiere comunicación verbal o señal acordada con el equipo.</div>
+    <div class="tip-title">5. Cortar líneas de pase (interceptación) <span class="tip-tag r">Lectura del juego</span></div>
+    <div class="tip-body">En lugar de marcar al jugador, posiciónate en la línea de pase entre el poseedor del balón y su receptor más peligroso. Cuando el pase se ejecuta, interceptas. Requiere escaneo constante para anticipar la decisión del rival. Busquets y Kanté son maestros de esto.</div>
   </div>
   <div class="tip-card def">
     <div class="tip-title">6. Temporización (defender sin arriesgar) <span class="tip-tag r">Situaciones de riesgo</span></div>
-    <div class="tip-body">Cuando estás en inferioridad numérica (el rival tiene más jugadores que tú en la zona) no presiones — temporiza. Ralentiza el avance rival dando pasos atrás, ganando tiempo para que tus compañeros recuperen posición. Un error de temporización = gol.</div>
+    <div class="tip-body">Cuando estás en inferioridad numérica no presiones — temporiza. Ralentiza el avance rival dando pasos atrás, ganando tiempo para que tus compañeros recuperen posición. Un error de temporización delante de tu defensa suele acabar en gol.</div>
   </div>
   <div class="tip-card def">
-    <div class="tip-title">7. Transición defensa tras pérdida (pressing inmediato) <span class="tip-tag r">Transición</span></div>
-    <div class="tip-body">En el momento exacto de perder el balón, los 3-5 segundos siguientes son cruciales. Si estás a menos de 5 metros del balón, presiona de inmediato para recuperarlo. Si estás lejos, repliegue a tu posición de bloque. Esta decisión se toma en menos de 1 segundo — necesita automatización.</div>
+    <div class="tip-title">7. Transición tras pérdida — primer filtro <span class="tip-tag r">Transición</span></div>
+    <div class="tip-body">En el momento exacto de perder el balón, los 3-5 segundos siguientes son cruciales. Como pivote eres el primer filtro entre el rival y tu defensa: si estás cerca, presiona; si estás lejos, repliega a tu posición de cobertura. Esta decisión se toma en menos de 1 segundo — necesita automatización.</div>
   </div>
 
   <div class="card" style="margin-top:1rem;">
     <div class="card-title">Vídeos — Defensa y táctica <span class="badge bb">YouTube</span></div>
     <div class="vid-grid">
-      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=pressing+futbol+como+defender+mediocampista')">
+      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+jugar+de+pivote+futbol+tactica+defensiva')">
         <div class="vid-thumb-placeholder">▶</div>
-        <div class="vid-meta"><div class="vid-title">Pressing en fútbol — cómo hacerlo</div><div class="vid-sub">Coordinación y señales de presión</div></div>
+        <div class="vid-meta"><div class="vid-title">Cómo jugar de pivote</div><div class="vid-sub">Cobertura y posicionamiento</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+defender+1v1+futbol+mediocampista+perfil')">
         <div class="vid-thumb-placeholder">▶</div>
         <div class="vid-meta"><div class="vid-title">Defensa 1v1 — perfil lateral</div><div class="vid-sub">Técnica de marcaje individual</div></div>
       </div>
-      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=interceptar+pases+futbol+N+golo+Kante+analisis')">
+      <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=interceptar+pases+futbol+busquets+kante+analisis')">
         <div class="vid-thumb-placeholder">▶</div>
-        <div class="vid-meta"><div class="vid-title">Interceptar pases — análisis Kanté</div><div class="vid-sub">Lectura de líneas de pase</div></div>
+        <div class="vid-meta"><div class="vid-title">Interceptar pases — análisis Busquets/Kanté</div><div class="vid-sub">Lectura de líneas de pase</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=temporizar+en+futbol+como+defender+inferioridad+numerica')">
         <div class="vid-thumb-placeholder">▶</div>
@@ -678,17 +747,17 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <!-- ══ TÁCTICA ══ -->
 <div id="s-tactico" class="sec">
   <div class="card">
-    <div class="card-title">Principios tácticos del interior</div>
-    <div class="row"><div class="dot db"></div><div><div class="lbl">Halbraum — tu zona de creación</div><div class="desc">El espacio entre mediocampo y defensa rival en el pasillo interior. Desde aquí puedes disparar, filtrar pases o cambiar la orientación. Es la zona más difícil de defender del campo moderno.</div></div></div>
-    <div class="row"><div class="dot db"></div><div><div class="lbl">Triangulación con extremo y lateral</div><div class="desc">Si el extremo va al fondo, tú entras al espacio interior. Si el lateral sube, cubres su espacio. Crea triángulos de pase constantes.</div></div></div>
-    <div class="row"><div class="dot db"></div><div><div class="lbl">Movimientos tardíos (late runs)</div><div class="desc">Entrar al área cuando el rival no te vigila. Sale del halbraum hacia el área solo cuando el balón está al otro lado del campo.</div></div></div>
+    <div class="card-title">Principios tácticos del pivote</div>
+    <div class="row"><div class="dot db"></div><div><div class="lbl">Zona de organización — tu base</div><div class="desc">El espacio delante de la línea de centrales. Desde aquí controlas el ritmo, das el primer pase y proteges al equipo. Es la zona que nunca puedes dejar vacía.</div></div></div>
+    <div class="row"><div class="dot db"></div><div><div class="lbl">Triangulación con centrales e interiores</div><div class="desc">Si un interior sube, cubres su espacio. Si un central sale a presionar, cierras detrás de él. Crea triángulos de pase constantes con tus centrales.</div></div></div>
+    <div class="row"><div class="dot db"></div><div><div class="lbl">Reposicionamiento constante</div><div class="desc">Mantén siempre el ángulo de pase abierto para tus centrales, desplazándote lateralmente según dónde esté el balón. Tu movimiento nunca para, aunque no toques el balón.</div></div></div>
     <div class="row"><div class="dot dc"></div><div><div class="lbl">Pressing y transición defensa-ataque</div><div class="desc">Tras recuperar el balón, sal hacia adelante de inmediato. El pase de inicio de contraataque en menos de 2 segundos es tu responsabilidad.</div></div></div>
   </div>
   <div class="card">
     <div class="card-title">Sistemas donde juegas</div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">4-3-3 (el más habitual)</div><div class="desc">Dos interiores flanquean al pivote. Gran libertad hacia adelante. Alta demanda física: sube y baja los 90 min.</div></div></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">4-2-3-1</div><div class="desc">Más control defensivo. Debes mantener el bloque y proteger los espacios entre los dos pivotes.</div></div></div>
-    <div class="row"><div class="dot dg"></div><div><div class="lbl">3-4-3 / 3-5-2</div><div class="desc">Rotaciones constantes con los carrileros. El intercambio posicional debe ser lógico siempre.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">4-3-3 (pivote único)</div><div class="desc">Máxima responsabilidad: cubres tú solo el espacio delante de la defensa mientras los dos interiores flanquean. Debes tener el mejor posicionamiento del equipo.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">4-2-3-1 / 4-4-2 (doble pivote)</div><div class="desc">Compartes la cobertura con otro pivote: podéis alternar quién sube a presionar y quién cubre. Comunicación constante con tu pareja.</div></div></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">3-5-2 / 3-4-3</div><div class="desc">Eres el eje del equipo, muy cerca de los tres centrales. Das salida constante y equilibras a los carrileros cuando suben.</div></div></div>
   </div>
 </div>
 
@@ -696,12 +765,12 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <div id="s-mental" class="sec">
   <div class="card">
     <div class="card-title">Pilares de la fortaleza mental <span class="badge bp">Alto rendimiento</span></div>
-    <div class="mc"><div class="mt">Concentración sostenida</div><div class="md">El interior toma decisiones cada 3-5 segundos durante 90 min. Entrena la atención dividida: escuchar instrucciones mientras conduces el balón.</div></div>
-    <div class="mc"><div class="mt">Gestión de errores</div><div class="md">Recuperar el foco en 3 segundos: "siguiente acción". Técnica: respira, reposiciónate, olvida. El partido dura 90 min.</div></div>
-    <div class="mc"><div class="mt">Visualización previa al partido</div><div class="md">10 min antes de salir: 3 situaciones de éxito en tu posición. El cerebro ejecuta mejor lo que ya ha "vivido" mentalmente.</div></div>
-    <div class="mc"><div class="mt">Control de la ansiedad</div><div class="md">Respiración: inhala 4s, retén 4s, exhala 6s. Aplica en el vestuario. Practícala en frío para aplicarla en caliente.</div></div>
-    <div class="mc"><div class="mt">Autodiálogo positivo</div><div class="md">Reemplaza "no puedo perder el balón" por "voy a conectar bien el juego". El lenguaje interno moldea el rendimiento.</div></div>
-    <div class="mc"><div class="mt">Escaneo y lectura previa</div><div class="md">Gira la cabeza 2-3 veces antes de recibir. Ve 2-3 compañeros y 1-2 rivales. Entrénalo en cada ejercicio.</div></div>
+    <div class="mc"><div class="mt">Concentración sostenida</div><div class="md">El pivote toma decisiones cada 3-5 segundos durante 90 min, casi siempre con el balón lejos de él. Entrena la atención dividida: escuchar instrucciones mientras te reposicionas.</div></div>
+    <div class="mc"><div class="mt">Gestión de errores</div><div class="md">Recuperar el foco en 3 segundos: "siguiente acción". Un error tuyo suele acabar cerca de tu propia portería — respira, reposiciónate, olvida.</div></div>
+    <div class="mc"><div class="mt">Visualización previa al partido</div><div class="md">10 min antes de salir: 3 situaciones de éxito en tu posición (una cobertura, una salida bajo presión, un cambio de orientación). El cerebro ejecuta mejor lo que ya ha "vivido" mentalmente.</div></div>
+    <div class="mc"><div class="mt">Control de la ansiedad</div><div class="md">Respiración: inhala 4s, retén 4s, exhala 6s. Aplícala en el vestuario. Practícala en frío para usarla en caliente.</div></div>
+    <div class="mc"><div class="mt">Autodiálogo positivo</div><div class="md">Reemplaza "no puedo perder el balón" por "voy a proteger y conectar bien el juego". El lenguaje interno moldea el rendimiento.</div></div>
+    <div class="mc"><div class="mt">Escaneo y lectura previa</div><div class="md">Gira la cabeza 2-3 veces antes de recibir. Busquets y Rodri lo hacen cada 2 segundos. Entrénalo en cada ejercicio.</div></div>
   </div>
 </div>
 
@@ -709,13 +778,13 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <div id="s-casa" class="sec">
   <div class="card"><div class="card-title">Entrenamientos en casa — sin material o solo con balón <span class="badge bg">Todo nivel</span></div><div class="desc">Solo necesitas un balón, un pasillo de 3-4 metros y ganas.</div></div>
   <div class="home-ex"><span class="hcat" style="background:#E1F5EE;color:#0F6E56;">Técnica con balón</span><div class="home-title">Push-pull (planta del pie)</div><div class="home-desc">Mueve el balón de dedo a talón con la planta y cambia de pie. Mejora el tacto y coordinación. Sin apenas espacio.</div><div class="series-row"><span class="ser-tag">100 reps/pie</span><span class="ser-tag">Diario</span></div></div>
-  <div class="home-ex"><span class="hcat" style="background:#E1F5EE;color:#0F6E56;">Técnica con balón</span><div class="home-title">Malabares (dominios)</div><div class="home-desc">Pie derecho, izquierdo, muslos y cabeza. Empieza con 10 y aumenta. Mejora el toque suave y concentración.</div><div class="series-row"><span class="ser-tag">10-15 min</span><span class="ser-tag">Diario</span></div></div>
-  <div class="home-ex"><span class="hcat" style="background:#E1F5EE;color:#0F6E56;">Técnica con balón</span><div class="home-title">Toque contra la pared</div><div class="home-desc">Pasa contra la pared y controla con primer toque orientado. Alterna interior/exterior. La pared es tu mejor compañero de entrenamiento.</div><div class="series-row"><span class="ser-tag">15-20 min</span><span class="ser-tag">4x semana</span><span class="ser-tag">3m espacio</span></div></div>
-  <div class="home-ex"><span class="hcat" style="background:#EEEDFE;color:#3C3489;">Físico sin balón</span><div class="home-title">Sentadillas explosivas</div><div class="home-desc">Baja lento (3s) y sube a máxima velocidad. Replica el gesto del sprint. Fuerza explosiva sin material.</div><div class="series-row"><span class="ser-tag">4 series x 10</span><span class="ser-tag">3x semana</span></div></div>
-  <div class="home-ex"><span class="hcat" style="background:#EEEDFE;color:#3C3489;">Físico sin balón</span><div class="home-title">Plancha + rotación (core)</div><div class="home-desc">Plancha frontal 30s → lateral derecho 30s → lateral izquierdo 30s. Core estable = estabilidad en duelos y pase.</div><div class="series-row"><span class="ser-tag">3 series</span><span class="ser-tag">4x semana</span></div></div>
+  <div class="home-ex"><span class="hcat" style="background:#E1F5EE;color:#0F6E56;">Técnica con balón</span><div class="home-title">Malabares (dominios)</div><div class="home-desc">Pie derecho, izquierdo, muslos y cabeza. Empieza con 10 y aumenta. Mejora el toque suave y la concentración.</div><div class="series-row"><span class="ser-tag">10-15 min</span><span class="ser-tag">Diario</span></div></div>
+  <div class="home-ex"><span class="hcat" style="background:#E1F5EE;color:#0F6E56;">Técnica con balón</span><div class="home-title">Toque contra la pared (bajo presión imaginaria)</div><div class="home-desc">Pasa contra la pared y controla con primer toque orientado, como si tuvieras un rival detrás. Alterna interior/exterior. La pared es tu mejor compañero de entrenamiento.</div><div class="series-row"><span class="ser-tag">15-20 min</span><span class="ser-tag">4x semana</span><span class="ser-tag">3m espacio</span></div></div>
+  <div class="home-ex"><span class="hcat" style="background:#EEEDFE;color:#3C3489;">Físico sin balón</span><div class="home-title">Sentadillas explosivas</div><div class="home-desc">Baja lento (3s) y sube a máxima velocidad. Fuerza explosiva sin material, útil en duelos y arrancadas cortas.</div><div class="series-row"><span class="ser-tag">4 series x 10</span><span class="ser-tag">3x semana</span></div></div>
+  <div class="home-ex"><span class="hcat" style="background:#EEEDFE;color:#3C3489;">Físico sin balón</span><div class="home-title">Plancha + rotación (core)</div><div class="home-desc">Plancha frontal 30s → lateral derecho 30s → lateral izquierdo 30s. Core estable = estabilidad en duelos y pase largo.</div><div class="series-row"><span class="ser-tag">3 series</span><span class="ser-tag">4x semana</span></div></div>
   <div class="home-ex"><span class="hcat" style="background:#EEEDFE;color:#3C3489;">Físico sin balón</span><div class="home-title">Nórdico en casa (isquiotibiales)</div><div class="home-desc">Arrodíllate con pies anclados bajo mueble pesado. Baja el cuerpo lento (3-5s) con solo los isquiotibiales. Sube con las manos. El ejercicio más efectivo para prevenir roturas musculares.</div><div class="series-row"><span class="ser-tag">3 series x 6-8</span><span class="ser-tag">3x semana</span></div></div>
-  <div class="home-ex"><span class="hcat" style="background:#FAEEDA;color:#633806;">Agilidad</span><div class="home-title">Ladder con calcetines</div><div class="home-desc">Coloca calcetines en el suelo formando escalera de agilidad. 4 patrones: paso simple, doble, lateral y diagonal. Mejora el footwork del interior.</div><div class="series-row"><span class="ser-tag">4 patrones x 3 series</span><span class="ser-tag">Pasillo 4m</span></div></div>
-  <div class="home-ex"><span class="hcat" style="background:#FCEBEB;color:#791F1F;">Mental</span><div class="home-title">Visualización + vídeo análisis</div><div class="home-desc">10 min de visualización con ojos cerrados (3 jugadas exitosas). Luego 15 min viendo a De Bruyne, Modric o Barella anotando 2-3 movimientos a copiar.</div><div class="series-row"><span class="ser-tag">25 min</span><span class="ser-tag">Días de descanso</span></div></div>
+  <div class="home-ex"><span class="hcat" style="background:#FAEEDA;color:#633806;">Agilidad</span><div class="home-title">Ladder con calcetines</div><div class="home-desc">Coloca calcetines en el suelo formando escalera de agilidad. 4 patrones: paso simple, doble, lateral y diagonal. Mejora el footwork y el reposicionamiento del pivote.</div><div class="series-row"><span class="ser-tag">4 patrones x 3 series</span><span class="ser-tag">Pasillo 4m</span></div></div>
+  <div class="home-ex"><span class="hcat" style="background:#FCEBEB;color:#791F1F;">Mental</span><div class="home-title">Visualización + vídeo análisis</div><div class="home-desc">10 min de visualización con ojos cerrados (3 jugadas exitosas). Luego 15 min viendo a Busquets, Rodri o Kimmich anotando 2-3 movimientos a copiar.</div><div class="series-row"><span class="ser-tag">25 min</span><span class="ser-tag">Días de descanso</span></div></div>
 </div>
 
 <!-- ══ SEMANA ══ -->
@@ -732,11 +801,11 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
       <button class="db2" onclick="showDay(6,this)">Dom</button>
     </div>
     <div id="d0" class="dc2 active"><div class="ex"><div class="nm">Fuerza y prevención (60 min)</div><div class="dt">Sentadilla explosiva (4x10). Nórdico (3x8). Plancha rotación. Estiramientos.</div></div><div class="ex"><div class="nm">Técnica en casa (20 min)</div><div class="dt">Malabares + toque contra la pared. Pie no dominante.</div></div><div class="pill-row"><span class="pill bg">Fuerza</span><span class="pill bc">Prevención</span></div></div>
-    <div id="d1" class="dc2"><div class="ex"><div class="nm">Resistencia aeróbica (70 min)</div><div class="dt">Fartlek 20 min. Rondos posicionales con sprint. Partido reducido 5v5 (2x8 min).</div></div><div class="ex"><div class="nm">Análisis de vídeo (20 min)</div><div class="dt">Ver De Bruyne o Modric. Anotar 3 movimientos en el halbraum.</div></div><div class="pill-row"><span class="pill bg">Resistencia</span><span class="pill bb">Táctica</span></div></div>
+    <div id="d1" class="dc2"><div class="ex"><div class="nm">Resistencia aeróbica (70 min)</div><div class="dt">Fartlek 20 min. Rondos posicionales con reposicionamiento. Partido reducido 5v5 (2x8 min).</div></div><div class="ex"><div class="nm">Análisis de vídeo (20 min)</div><div class="dt">Ver a Busquets o Rodri. Anotar 3 movimientos de cobertura y primer pase.</div></div><div class="pill-row"><span class="pill bg">Resistencia</span><span class="pill bb">Táctica</span></div></div>
     <div id="d2" class="dc2"><div class="ex"><div class="nm">Descanso activo (30-40 min)</div><div class="dt">Paseo ligero. Estiramientos estáticos. Foam roller en isquios y gemelos.</div></div><div class="ex"><div class="nm">Entrenamiento mental en casa (25 min)</div><div class="dt">Visualización 10 min + análisis de vídeo 15 min.</div></div><div class="pill-row"><span class="pill ba">Recuperación</span><span class="pill bp">Mental</span></div></div>
-    <div id="d3" class="dc2"><div class="ex"><div class="nm">Sesión táctica con equipo (75 min)</div><div class="dt">Triangulaciones. Transiciones. Pressing coordinado. Corners y saques de banda.</div></div><div class="ex"><div class="nm">Agilidad + velocidad (20 min)</div><div class="dt">Escalera (4 variaciones). Sprints 10m x7. Cambios de dirección.</div></div><div class="pill-row"><span class="pill bb">Táctica</span><span class="pill ba">Agilidad</span></div></div>
-    <div id="d4" class="dc2"><div class="ex"><div class="nm">Sesión técnica intensa (60 min)</div><div class="dt">Control orientado + pase 1er toque (15 min). Disparo zona 14 (20 min). Rondo 7v2 (25 min).</div></div><div class="ex"><div class="nm">Rutina mental pre-partido (10 min)</div><div class="dt">Visualización + respiración 4-4-6.</div></div><div class="pill-row"><span class="pill bp">Técnica</span><span class="pill bg">Resistencia</span></div></div>
-    <div id="d5" class="dc2"><div class="ex"><div class="nm">PARTIDO (90 min)</div><div class="dt">Objetivos: 2+ pases filtrados, recuperar &lt;3s, llegar al área 3 veces, escanear antes de cada recepción.</div></div><div class="ex"><div class="nm">Análisis post-partido (15 min)</div><div class="dt">¿Qué fue bien? ¿Qué decisión mejorar? Escríbelo.</div></div><div class="pill-row"><span class="pill bg">Partido</span><span class="pill bc">Análisis</span></div></div>
+    <div id="d3" class="dc2"><div class="ex"><div class="nm">Sesión táctica con equipo (75 min)</div><div class="dt">Cobertura defensiva. Salida de balón bajo presión. Pressing coordinado. Corners y saques de banda.</div></div><div class="ex"><div class="nm">Agilidad + velocidad (20 min)</div><div class="dt">Escalera (4 variaciones). Arrancadas cortas 5-10m x7. Cambios de dirección.</div></div><div class="pill-row"><span class="pill bb">Táctica</span><span class="pill ba">Agilidad</span></div></div>
+    <div id="d4" class="dc2"><div class="ex"><div class="nm">Sesión técnica intensa (60 min)</div><div class="dt">Recepción bajo presión + pase 1er toque (20 min). Pase largo y cambio de orientación (20 min). Rondo 6v2 (20 min).</div></div><div class="ex"><div class="nm">Rutina mental pre-partido (10 min)</div><div class="dt">Visualización + respiración 4-4-6.</div></div><div class="pill-row"><span class="pill bp">Técnica</span><span class="pill bg">Resistencia</span></div></div>
+    <div id="d5" class="dc2"><div class="ex"><div class="nm">PARTIDO (90 min)</div><div class="dt">Objetivos: 0 pérdidas de balón en tu zona, 2+ cambios de orientación, cobertura constante de la defensa, recuperar &lt;3s, escanear antes de cada recepción.</div></div><div class="ex"><div class="nm">Análisis post-partido (15 min)</div><div class="dt">¿Qué fue bien? ¿Qué decisión mejorar? Escríbelo.</div></div><div class="pill-row"><span class="pill bg">Partido</span><span class="pill bc">Análisis</span></div></div>
     <div id="d6" class="dc2"><div class="ex"><div class="nm">Descanso total</div><div class="dt">Mínimo 8h de sueño. Nutrición: hidratos + proteína. Sin carga intensa.</div></div><div class="ex"><div class="nm">Planificación semanal (10 min)</div><div class="dt">Define 1 objetivo técnico, 1 físico y 1 mental para la semana que viene.</div></div><div class="pill-row"><span class="pill ba">Descanso</span><span class="pill bp">Planificación</span></div></div>
   </div>
 </div>
@@ -745,11 +814,11 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <div id="s-videos" class="sec">
   <div class="card"><div class="card-title">Vídeos recomendados <span class="badge bb">YouTube</span></div><div class="desc" style="margin-bottom:1rem;">Clic para abrir directamente en YouTube.</div></div>
   <div class="vid-grid">
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Luka+Modric+analisis+tactico+interior+halbraum')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Análisis táctico — Luka Modric</div><div class="vid-sub">Movimientos entre líneas y decisiones</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Kevin+De+Bruyne+interior+analisis+halbraum')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Kevin De Bruyne — el interior perfecto</div><div class="vid-sub">Uso del halbraum, pase y llegada</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Sergio+Busquets+analisis+tactico+pivote')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Análisis táctico — Sergio Busquets</div><div class="vid-sub">Cobertura, giro y primer pase</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Rodri+Manchester+City+analisis+pivote+tactico')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Rodri — el pivote perfecto</div><div class="vid-sub">Posicionamiento, pase largo y lectura</div></div></div>
     <div class="vid-card" onclick="openLink('https://www.youtube.com/watch?v=x9_1oIxoZ3c')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">5 ejercicios de fútbol en casa</div><div class="vid-sub">Técnica sin material</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=halbraum+futbol+interior+explicacion+tactica')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">El Halbraum explicado</div><div class="vid-sub">Zona intermedia del campo</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=escaneo+antes+de+recibir+futbol+vision+periodica')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Escaneo antes de recibir</div><div class="vid-sub">Visión periférica en el campo</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+jugar+de+pivote+mediocentro+defensivo+explicacion')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Cómo jugar de pivote</div><div class="vid-sub">Rol explicado paso a paso</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=escaneo+antes+de+recibir+futbol+vision+periferica')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Escaneo antes de recibir</div><div class="vid-sub">Visión periférica en el campo</div></div></div>
     <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=pressing+futbol+tactica+coordinacion+equipo')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Pressing coordinado en fútbol</div><div class="vid-sub">Táctica defensiva de equipo</div></div></div>
     <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=saque+de+corner+posiciones+tacticas+futbol')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Posiciones en el corner</div><div class="vid-sub">Estrategia ofensiva y defensiva</div></div></div>
     <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=rutina+fisica+futbolista+en+casa+sin+material')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Rutina física en casa</div><div class="vid-sub">Sin material, todo nivel</div></div></div>
@@ -759,28 +828,28 @@ body{font-family:system-ui,sans-serif;background:#f2f1ed;color:#1a1a18;font-size
 <!-- ══ CHECKLIST ══ -->
 <div id="s-check" class="sec">
   <div class="card">
-    <div class="card-title">Checklist del interior completo</div>
+    <div class="card-title">Checklist del pivote completo</div>
     <ul class="cl">
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Controlo el balón con ambos pies con soltura</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Realizo el control orientado antes de recibir</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Recibo protegiendo el balón cuando tengo un rival cerca</span></li>
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Escaneo el campo 2-3 veces antes de cada recepción</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Doy el pase en primer toque con precisión</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Sé filtrar pases entre la línea defensiva rival</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Me muevo constantemente en el halbraum (zona 2 y 4)</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Llego al área como segundo atacante (late run)</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Cuando el lateral sube, yo cubro su espacio</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Recupero posición en menos de 3s tras pérdida</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Nunca pierdo el balón en mi propia zona por un pase arriesgado</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Sé dar el cambio de orientación de 30-40m con precisión</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Mantengo siempre la distancia de cobertura con mis centrales</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Cubro el espacio cuando un interior o lateral sube al ataque</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Corto líneas de pase antes de que el rival las use</span></li>
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Sé cuándo presionar y cuándo temporizar en defensa</span></li>
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Defiendo el 1v1 con perfil lateral sin tirarme al suelo</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Entro limpio al balón sin cometer falta innecesaria</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Recupero posición en menos de 3s tras una pérdida</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Soy el primer pase de salida tras recuperar el balón</span></li>
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Conozco mi posición en el corner a favor y en contra</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Sé qué hacer en saque de banda a favor y en contra</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Uso el freno-arranque para superar rivales en 1v1</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Aguanto 90 min a alta intensidad sin bajar el ritmo</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Sé qué hacer en el saque de banda a favor y en contra</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Uso el giro de espaldas para salir de la presión rival</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Aguanto 90 min con concentración e intensidad constante</span></li>
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Hago trabajo preventivo (nórdico, plancha) 2x semana</span></li>
       <li><div class="chk" onclick="toggleChk(this)"></div><span>Entreno técnica en casa al menos 15 min diarios</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Visualizo jugadas antes de cada partido</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Gestiono los errores sin perder concentración</span></li>
-      <li><div class="chk" onclick="toggleChk(this)"></div><span>Conozco mi rol en el 4-3-3, 4-2-3-1 y 3-4-3</span></li>
+      <li><div class="chk" onclick="toggleChk(this)"></div><span>Conozco mi rol en el 4-3-3 (pivote único) y en doble pivote</span></li>
     </ul>
     <div style="margin-top:1rem;font-size:14px;color:#555;">Completadas: <strong id="cnt" style="color:#0F6E56;font-size:16px;">0</strong> / 20 &nbsp;·&nbsp; <span id="pct">0%</span></div>
   </div>
@@ -821,10 +890,10 @@ function showBanda(id,btn){
 }
 /* ---- zonas mapa ---- */
 const zones={
-  1:{title:"ZONA 1 — Apoyo en salida de balón (campo propio)",body:"Retrocedes para dar opciones de pase a los centrales y el pivote. Tu posición debe ser escalonada (diferente altura que el pivote). Ofrécete al lateral o central en el momento justo y luego avanza rápido."},
-  2:{title:"ZONA 2 — Mediocampo propio (organización)",body:"Organizas el juego, das salida limpia y subes el balón a campo rival. Circula rápido, combina en corto con el pivote y busca el pase hacia adelante. Esta zona exige mucho escaneo y decisión rápida."},
-  3:{title:"⭐ ZONA 3 — HALBRAUM / TU ZONA ESTRELLA",body:"El espacio entre la defensa y el mediocampo rival en el pasillo interior. Recibe girado, dispara, filtra pases al delantero o cambia la orientación. Es la zona más difícil de defender del campo moderno. Si apareces aquí constantemente, el rival no sabe si marcarte o cubrir el espacio."},
-  4:{title:"ZONA 4 — Último tercio ofensivo (llegada al área)",body:"Llegas aquí como segundo atacante con movimiento tardío (late run). El rival no te ha visto llegar. En esta zona puedes definir, asistir o crear espacios. Hazlo cuando el balón está al otro lado del campo y el defensa no puede verte."}
+  1:{title:"ZONA 1 — Salida y cobertura defensiva (campo propio)",body:"Te sitúas delante de la línea de centrales, ligeramente escalonado. Ofreces la primera opción de pase en la salida y, al mismo tiempo, proteges el espacio si el rival recupera. Es tu zona de máxima responsabilidad defensiva."},
+  2:{title:"⭐ ZONA 2 — ORGANIZACIÓN / TU ZONA ESTRELLA",body:"El corazón del mediocampo, delante de tus centrales. Aquí controlas el ritmo del partido: circulas el balón, das el cambio de orientación y proteges el pasillo central. Si apareces siempre aquí bien colocado, el equipo entero juega más seguro."},
+  3:{title:"ZONA 3 — Halbraum (apoyo puntual)",body:"El espacio entre la defensa y el mediocampo rival. No es tu zona base, pero puedes visitarla puntualmente cuando el equipo necesita un pase filtrado extra o cuando un interior deja el hueco libre. La conoces bien de tu etapa como interior."},
+  4:{title:"ZONA 4 — Último tercio ofensivo (rara vez)",body:"Solo llegas aquí en jugadas muy puntuales (falta lateral, corner en corto, marcador urgente). Tu prioridad sigue siendo estar recolocado por si el equipo pierde el balón tras el ataque."}
 };
 function showZone(n){
   const z=zones[n];
