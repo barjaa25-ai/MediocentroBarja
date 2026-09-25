@@ -144,8 +144,11 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .tl-item:last-child::before{display:none;}
 .tl-dot{position:absolute;left:-26px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff;border:2.5px solid #7F77DD;}
 .tl-dot.tl-current{border-color:#1D9E75;background:#1D9E75;box-shadow:0 0 0 4px #E1F5EE;}
+.tl-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.tl-badge{width:54px;height:54px;border-radius:13px;background:#fff;border:1px solid #e8e5db;box-shadow:0 3px 10px rgba(20,20,15,.1);object-fit:contain;padding:5px;flex-shrink:0;}
+.tl-badge-generic{width:54px;height:54px;border-radius:13px;background:linear-gradient(135deg,#0F6E56,#1D9E75);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 3px 10px rgba(15,110,86,.25);}
 .tl-club{font-size:16px;font-weight:700;color:#1a1a18;}
-.tl-period{font-size:12px;color:#888;margin:1px 0 6px;}
+.tl-period{font-size:12px;color:#888;margin-top:1px;}
 .tl-role{margin-bottom:6px;}
 .tl-desc{font-size:13px;color:#555;line-height:1.6;}
 .player-card{display:flex;align-items:center;gap:14px;}
@@ -223,24 +226,95 @@ a,button{-webkit-tap-highlight-color:transparent;}
       <div>
         <div class="player-name">Álvaro Barja</div>
         <div class="player-sub">Pivote · Dorsal 20 · CD Lourdes · Temporada 2026/27</div>
+        <div class="player-sub">🇧🇴 Nacido en 2003, Cochabamba (Bolivia)</div>
       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-title">Trayectoria y evolución de rol <span class="badge bg">De interior a pivote</span></div>
-    <div class="desc" style="margin-bottom:1rem;">Cómo he evolucionado en el campo, club a club, y qué me llevo de cada etapa.</div>
+    <div class="card-title">Trayectoria completa <span class="badge bg">De Bolivia a España</span></div>
+    <div class="desc" style="margin-bottom:1rem;">Toda mi carrera, club a club, desde mis primeros pasos en Cochabamba hasta hoy en Navarra.</div>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-club">CD Tudelano</div>
-        <div class="tl-period">Etapa anterior</div>
+        <div class="tl-head">
+          <img class="tl-badge" src="assets/clubs/independiente.png" alt="Club Independiente">
+          <div>
+            <div class="tl-club">Club Independiente</div>
+            <div class="tl-period">2011 · Edad 8 · Cochabamba, Bolivia</div>
+          </div>
+        </div>
+        <div class="tl-role"><span class="badge bp">Liga boliviana</span></div>
+        <div class="tl-desc">Con 8 años empecé a jugar de forma federada en el Club Independiente, en la liga boliviana. Aquí aprendí lo básico: control, pase y el gusto por competir.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <div class="tl-badge-generic">🏆</div>
+          <div>
+            <div class="tl-club">Selección Dpto. Sacaba</div>
+            <div class="tl-period">2015 · Edad 12</div>
+          </div>
+        </div>
+        <div class="tl-role"><span class="badge ba">Convocatoria — Torneo nacional</span></div>
+        <div class="tl-desc">Con 12 años fui convocado para representar al Departamento de Sacaba en un torneo nacional. Mi primera experiencia jugando fuera de mi club, con un nivel más exigente.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <img class="tl-badge" src="assets/clubs/fc-cochabamba.png" alt="FC Cochabamba">
+          <div>
+            <div class="tl-club">FC Cochabamba</div>
+            <div class="tl-period">2018 · Edad 15</div>
+          </div>
+        </div>
+        <div class="tl-role"><span class="badge bb">Copa Simón Bolívar</span></div>
+        <div class="tl-desc">A los 15 años jugué con FC Cochabamba la Copa Simón Bolívar, uno de los torneos juveniles más importantes de Bolivia.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <img class="tl-badge" src="assets/clubs/universitario.png" alt="Universitario de Vinto">
+          <div>
+            <div class="tl-club">Universitario de Vinto</div>
+            <div class="tl-period">2019 · Edad 16</div>
+          </div>
+        </div>
+        <div class="tl-role"><span class="badge bg">Etapa formativa</span></div>
+        <div class="tl-desc">Con 16 años pasé a Universitario de Vinto, sumando minutos y experiencia en una etapa clave de mi formación como jugador.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <img class="tl-badge" src="assets/clubs/fontellas.png" alt="CD Fontellas">
+          <div>
+            <div class="tl-club">CD Fontellas</div>
+            <div class="tl-period">2022 · Edad 19 · Navarra, España</div>
+          </div>
+        </div>
+        <div class="tl-role"><span class="badge bc">Debut en el fútbol español</span></div>
+        <div class="tl-desc">A los 19 años di el salto al fútbol español fichando por el CD Fontellas. Cambio de país, de liga y de exigencia que me obligó a adaptarme rápido.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <img class="tl-badge" src="assets/clubs/tudelano.png" alt="CD Tudelano">
+          <div>
+            <div class="tl-club">CD Tudelano</div>
+            <div class="tl-period">2025 · Edad 22</div>
+          </div>
+        </div>
         <div class="tl-role"><span class="badge bp">Interior — Mediocentro de banda</span></div>
         <div class="tl-desc">Jugué como interior, desarrollando llegada al área, pase filtrado, control orientado y juego entre líneas en el halbraum. Esa base técnica y de visión de juego construida como interior es hoy mi punto fuerte para leer el partido desde una posición más retrasada.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot tl-current"></div>
-        <div class="tl-club">CD Lourdes</div>
-        <div class="tl-period">Temporada 2026/27 · Actual</div>
+        <div class="tl-head">
+          <img class="tl-badge" src="assets/clubs/lourdes.png" alt="CD Lourdes">
+          <div>
+            <div class="tl-club">CD Lourdes</div>
+            <div class="tl-period">2026 · Edad 23 · Temporada 2026/27 · Actual</div>
+          </div>
+        </div>
         <div class="tl-role"><span class="badge bg">Pivote — Dorsal 20</span></div>
         <div class="tl-desc">Esta temporada el entrenador me pone de pivote, la posición base del equipo. Mi experiencia como interior me ayuda en el pase, el cambio de orientación y la lectura del ataque; ahora estoy trabajando la cobertura defensiva, la protección de la línea de centrales y tomar decisiones un paso más atrás en el campo.</div>
       </div>
@@ -280,32 +354,35 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <rect x="135" y="485" width="70" height="10" fill="none" stroke="#fff" stroke-width="2" opacity=".9"/>
         <rect id="z1" x="16" y="340" width="308" height="74" rx="4" fill="#1D9E75" opacity=".22" class="zone-rect" onclick="showZone(1)" style="cursor:pointer;"/>
         <rect x="16" y="340" width="308" height="74" rx="4" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
-        <text x="170" y="381" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 1 — Salida y cobertura defensiva</text>
+        <text x="170" y="362" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">ZONA 1</text>
+        <text x="170" y="384" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Salida y cobertura defensiva</text>
         <rect id="z2" x="16" y="252" width="308" height="86" rx="4" fill="#378ADD" opacity=".35" class="zone-rect" onclick="showZone(2)" style="cursor:pointer;"/>
         <rect x="16" y="252" width="308" height="86" rx="4" fill="none" stroke="#378ADD" stroke-width="2"/>
-        <text x="170" y="287" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">⭐ ZONA 2 — Organización / Distribución</text>
-        <text x="170" y="302" text-anchor="middle" fill="#fff" font-size="10" opacity=".9">TU ZONA ESTRELLA</text>
+        <text x="170" y="266" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">⭐ ZONA 2 · TU ZONA ESTRELLA</text>
+        <text x="170" y="282" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Organización / Distribución</text>
         <rect id="z3" x="16" y="170" width="308" height="80" rx="4" fill="#EF9F27" opacity=".2" class="zone-rect" onclick="showZone(3)" style="cursor:pointer;"/>
         <rect x="16" y="170" width="308" height="80" rx="4" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
-        <text x="170" y="214" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 3 — Halbraum (apoyo puntual)</text>
+        <text x="170" y="200" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">ZONA 3</text>
+        <text x="170" y="222" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Halbraum (apoyo puntual)</text>
         <rect id="z4" x="16" y="87" width="308" height="81" rx="4" fill="#D85A30" opacity=".2" class="zone-rect" onclick="showZone(4)" style="cursor:pointer;"/>
         <rect x="16" y="87" width="308" height="81" rx="4" fill="none" stroke="#D85A30" stroke-width="1.5"/>
-        <text x="170" y="128" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">ZONA 4 — Área rival (rara vez)</text>
-        <circle class="pulse-ring" cx="170" cy="295" r="10" fill="none" stroke="#6ee7b7" stroke-width="2"/>
-        <circle cx="170" cy="295" r="10" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-        <text x="170" y="299" text-anchor="middle" fill="#0F6E56" font-size="9" font-weight="700">20</text>
-        <circle cx="170" cy="330" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
-        <text x="170" y="334" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
-        <circle cx="90" cy="210" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
-        <text x="90" y="214" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">11</text>
-        <circle cx="250" cy="210" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
-        <text x="250" y="214" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">7</text>
-        <circle cx="170" cy="140" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1" opacity=".9"/>
-        <text x="170" y="144" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">9</text>
+        <text x="170" y="118" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">ZONA 4</text>
+        <text x="170" y="140" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Área rival (rara vez)</text>
+        <circle class="pulse-ring" cx="170" cy="295" r="13" fill="none" stroke="#6ee7b7" stroke-width="2"/>
+        <circle cx="170" cy="295" r="13" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
+        <text x="170" y="299" text-anchor="middle" fill="#0F6E56" font-size="12" font-weight="700">20</text>
+        <circle cx="170" cy="330" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5" opacity=".9"/>
+        <text x="170" y="334" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">5</text>
+        <circle cx="90" cy="210" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5" opacity=".9"/>
+        <text x="90" y="214" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">11</text>
+        <circle cx="250" cy="210" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5" opacity=".9"/>
+        <text x="250" y="214" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">7</text>
+        <circle cx="170" cy="140" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5" opacity=".9"/>
+        <text x="170" y="144" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">9</text>
         <circle cx="25" cy="480" r="5" fill="#fff" stroke="#0F6E56" stroke-width="1.5"/>
-        <text x="33" y="484" fill="#fff" font-size="9">Tú (20)</text>
+        <text x="33" y="484" fill="#fff" font-size="12">Tú (20)</text>
         <circle cx="73" cy="480" r="5" fill="#6ee7b7"/>
-        <text x="81" y="484" fill="#fff" font-size="9">Compañeros</text>
+        <text x="81" y="484" fill="#fff" font-size="12">Compañeros</text>
       </svg>
       <div class="zone-info" id="zone-info">
         <div class="zi-title">Toca una zona del campo para ver tu rol</div>
@@ -337,43 +414,44 @@ a,button{-webkit-tap-highlight-color:transparent;}
             <circle cx="170" cy="125" r="2" fill="#fff" opacity=".8"/>
             <!-- banderín corner -->
             <circle cx="15" cy="15" r="3" fill="#ffcc00"/>
-            <text x="3" y="10" fill="#ffcc00" font-size="8">C</text>
+            <text x="3" y="10" fill="#ffcc00" font-size="11">C</text>
             <!-- Zona primer palo -->
             <rect x="15" y="40" width="80" height="40" rx="3" fill="#D85A30" opacity=".3"/>
-            <text x="55" y="56" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">1er palo</text>
-            <text x="55" y="68" text-anchor="middle" fill="#fff" font-size="8">Delantero/central</text>
+            <text x="55" y="56" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">1er palo</text>
+            <text x="55" y="68" text-anchor="middle" fill="#fff" font-size="11">Delantero/central</text>
             <!-- Zona punto penal -->
             <rect x="120" y="95" width="100" height="40" rx="3" fill="#EF9F27" opacity=".35"/>
-            <text x="170" y="111" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Punto de penalti</text>
-            <text x="170" y="123" text-anchor="middle" fill="#fff" font-size="8">Rechace y 2ª jugada</text>
+            <text x="170" y="111" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Punto de penalti</text>
+            <text x="170" y="123" text-anchor="middle" fill="#fff" font-size="11">Rechace y 2ª jugada</text>
             <!-- Zona 2o palo -->
             <rect x="240" y="40" width="80" height="40" rx="3" fill="#7F77DD" opacity=".35"/>
-            <text x="280" y="56" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">2do palo</text>
-            <text x="280" y="68" text-anchor="middle" fill="#fff" font-size="8">Remate cruzado</text>
+            <text x="280" y="56" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">2do palo</text>
+            <text x="280" y="68" text-anchor="middle" fill="#fff" font-size="11">Remate cruzado</text>
             <!-- Borde área grande = donde está el PIVOTE -->
             <rect x="75" y="90" width="60" height="35" rx="3" fill="#1D9E75" opacity=".5"/>
-            <text x="105" y="105" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-            <text x="105" y="117" text-anchor="middle" fill="#fff" font-size="8">Seguridad + rechace</text>
+            <text x="105" y="105" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">TÚ aquí</text>
+            <text x="105" y="117" text-anchor="middle" fill="#fff" font-size="11">Seguridad + rechace</text>
             <!-- jugadores -->
-            <circle cx="105" cy="102" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-            <text x="105" y="106" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
+            <circle cx="105" cy="102" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
+            <text x="105" y="106" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
             <!-- delantero 1er palo -->
-            <circle cx="100" cy="52" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="100" y="56" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">9</text>
+            <circle cx="100" cy="52" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="100" y="56" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">9</text>
             <!-- interior 2do palo -->
-            <circle cx="270" cy="52" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="270" y="56" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">8</text>
+            <circle cx="270" cy="52" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="270" y="56" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">8</text>
             <!-- central punto penal -->
-            <circle cx="170" cy="112" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="170" y="116" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
+            <circle cx="170" cy="112" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="170" y="116" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">5</text>
             <!-- lateral borde área -->
-            <circle cx="60" cy="110" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="60" y="114" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">3</text>
+            <circle cx="60" cy="110" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="60" y="114" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">3</text>
             <!-- defensa borde campo para cortar -->
-            <circle cx="330" cy="250" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="330" y="254" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">2</text>
-            <text x="170" y="310" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Como pivote, no subes al área a rematar</text>
-            <text x="170" y="325" text-anchor="middle" fill="#fff" font-size="9" opacity=".7">Si despejan → tú y el lateral cortáis el balón para reiniciar</text>
+            <circle cx="330" cy="250" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="330" y="254" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">2</text>
+            <text x="170" y="308" text-anchor="middle" fill="#fff" font-size="13" opacity=".85">Como pivote, no subes al área a rematar</text>
+            <text x="170" y="324" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">Si despejan, tú y el lateral cortáis</text>
+            <text x="170" y="337" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">el balón para reiniciar</text>
           </svg>
         </div>
         <div class="row"><div class="dot dg"></div><div><div class="lbl">Tu posición: borde exterior del área grande</div><div class="desc">Como pivote no entras al área a rematar. Te quedas en el borde para recoger rechaces, disparar de media distancia si el balón te llega limpio, y sobre todo estar listo para frenar un contraataque.</div></div></div>
@@ -394,37 +472,38 @@ a,button{-webkit-tap-highlight-color:transparent;}
             <circle cx="170" cy="230" r="2" fill="#fff" opacity=".8"/>
             <!-- banderín corner enemigo -->
             <circle cx="325" cy="265" r="3" fill="#ff5555"/>
-            <text x="316" y="260" fill="#ff5555" font-size="8">C</text>
+            <text x="316" y="260" fill="#ff5555" font-size="11">C</text>
             <!-- zona 1er palo -->
             <rect x="240" y="270" width="80" height="35" rx="3" fill="#D85A30" opacity=".35"/>
-            <text x="280" y="284" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">1er palo</text>
-            <text x="280" y="296" text-anchor="middle" fill="#fff" font-size="8">Central/compañero</text>
+            <text x="280" y="284" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">1er palo</text>
+            <text x="280" y="296" text-anchor="middle" fill="#fff" font-size="11">Central/compañero</text>
             <!-- zona 2o palo -->
             <rect x="15" y="270" width="80" height="35" rx="3" fill="#7F77DD" opacity=".35"/>
-            <text x="55" y="284" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">2do palo</text>
-            <text x="55" y="296" text-anchor="middle" fill="#fff" font-size="8">Central/compañero</text>
+            <text x="55" y="284" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">2do palo</text>
+            <text x="55" y="296" text-anchor="middle" fill="#fff" font-size="11">Central/compañero</text>
             <!-- borde área = TÚ -->
             <rect x="75" y="248" width="70" height="28" rx="3" fill="#1D9E75" opacity=".5"/>
-            <text x="110" y="261" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-            <text x="110" y="272" text-anchor="middle" fill="#fff" font-size="8">Cobertura + salida</text>
+            <text x="110" y="261" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">TÚ aquí</text>
+            <text x="110" y="272" text-anchor="middle" fill="#fff" font-size="11">Cobertura + salida</text>
             <!-- tú -->
-            <circle cx="110" cy="258" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-            <text x="110" y="262" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
+            <circle cx="110" cy="258" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
+            <text x="110" y="262" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
             <!-- defensores en postes y zona -->
-            <circle cx="155" cy="280" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="155" y="284" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">4</text>
-            <circle cx="185" cy="280" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="185" y="284" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">5</text>
-            <circle cx="260" cy="278" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="260" y="282" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">2</text>
-            <circle cx="58" cy="278" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="58" y="282" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">3</text>
+            <circle cx="155" cy="280" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="155" y="284" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">4</text>
+            <circle cx="185" cy="280" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="185" y="284" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">5</text>
+            <circle cx="260" cy="278" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="260" y="282" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">2</text>
+            <circle cx="58" cy="278" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="58" y="282" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">3</text>
             <!-- jugador en borde campo para contra -->
-            <circle cx="290" cy="170" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-            <text x="290" y="174" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">7</text>
-            <text x="170" y="200" text-anchor="middle" fill="#fff" font-size="9" opacity=".8">Atacante arriba esperando contraataque</text>
-            <text x="170" y="60" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Tu posición: borde del área grande</text>
-            <text x="170" y="75" text-anchor="middle" fill="#fff" font-size="9" opacity=".7">Si despejan → recoges y sales rápido al contraataque</text>
+            <circle cx="290" cy="170" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+            <text x="290" y="174" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">7</text>
+            <text x="170" y="200" text-anchor="middle" fill="#fff" font-size="12" opacity=".8">Atacante arriba esperando contraataque</text>
+            <text x="170" y="60" text-anchor="middle" fill="#fff" font-size="13" opacity=".85">Tu posición: borde del área grande</text>
+            <text x="170" y="76" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">Si despejan, recoges y sales</text>
+            <text x="170" y="90" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">rápido al contraataque</text>
           </svg>
         </div>
         <div class="row"><div class="dot dc"></div><div><div class="lbl">No entras al área a defender el corner rival</div><div class="desc">Tu misión es estar en el borde del área: si se despeja largo, eres el primero en recuperar el balón y lanzar el contraataque. Es tu zona natural como pivote.</div></div></div>
@@ -452,27 +531,28 @@ a,button{-webkit-tap-highlight-color:transparent;}
           <line x1="15" y1="150" x2="325" y2="150" stroke="#fff" stroke-width="1.5" opacity=".6"/>
           <!-- sacador de banda -->
           <circle cx="325" cy="130" r="6" fill="#ffcc00" stroke="#fff" stroke-width="1"/>
-          <text x="325" y="120" text-anchor="middle" fill="#ffcc00" font-size="8">Saque</text>
+          <text x="325" y="120" text-anchor="middle" fill="#ffcc00" font-size="11">Saque</text>
           <!-- tu posición central-baja -->
           <rect x="155" y="150" width="70" height="35" rx="3" fill="#1D9E75" opacity=".45"/>
-          <text x="190" y="166" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-          <text x="190" y="178" text-anchor="middle" fill="#fff" font-size="8">Opción segura y central</text>
-          <circle cx="190" cy="162" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-          <text x="190" y="166" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
+          <text x="190" y="166" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">TÚ aquí</text>
+          <text x="190" y="178" text-anchor="middle" fill="#fff" font-size="11">Opción segura y central</text>
+          <circle cx="190" cy="162" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
+          <text x="190" y="166" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
           <!-- interior opción avanzada -->
-          <circle cx="235" cy="115" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="235" y="119" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">8</text>
+          <circle cx="235" cy="115" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+          <text x="235" y="119" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">8</text>
           <!-- delantero arriba -->
-          <circle cx="200" cy="60" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="200" y="64" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">9</text>
+          <circle cx="200" cy="60" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+          <text x="200" y="64" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">9</text>
           <!-- extremo banda -->
-          <circle cx="295" cy="90" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="295" y="94" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">11</text>
+          <circle cx="295" cy="90" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+          <text x="295" y="94" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">11</text>
           <!-- flecha saque a ti -->
           <line x1="323" y1="128" x2="220" y2="160" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4"/>
           <!-- flecha tuya de vuelta al centro -->
           <line x1="160" y1="165" x2="105" y2="180" stroke="#fff" stroke-width="1.5" stroke-dasharray="4" opacity=".7"/>
-          <text x="170" y="270" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Te ofreces algo más retrasado y centrado que el interior</text>
+          <text x="170" y="266" text-anchor="middle" fill="#fff" font-size="12" opacity=".85">Te ofreces algo más retrasado</text>
+          <text x="170" y="281" text-anchor="middle" fill="#fff" font-size="12" opacity=".85">y centrado que el interior</text>
         </svg>
       </div>
       <div class="row"><div class="dot dg"></div><div><div class="lbl">Posición retrasada y central</div><div class="desc">No subas al mismo nivel que el sacador. Ofrécete más retrasado y hacia el centro: eres la opción de seguridad que nunca falla, aunque el pase parezca menos ambicioso.</div></div></div>
@@ -487,24 +567,25 @@ a,button{-webkit-tap-highlight-color:transparent;}
           <line x1="15" y1="150" x2="325" y2="150" stroke="#fff" stroke-width="1.5" opacity=".6"/>
           <!-- sacador rival -->
           <circle cx="325" cy="130" r="6" fill="#ff5555" stroke="#fff" stroke-width="1"/>
-          <text x="325" y="120" text-anchor="middle" fill="#ff5555" font-size="8">Rival</text>
+          <text x="325" y="120" text-anchor="middle" fill="#ff5555" font-size="11">Rival</text>
           <!-- tu posición cortando el pase interior -->
           <rect x="170" y="110" width="80" height="35" rx="3" fill="#D85A30" opacity=".4"/>
-          <text x="210" y="126" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">TÚ aquí</text>
-          <text x="210" y="138" text-anchor="middle" fill="#fff" font-size="8">Cerrar el centro del campo</text>
-          <circle cx="210" cy="122" r="9" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-          <text x="210" y="126" text-anchor="middle" fill="#0F6E56" font-size="8" font-weight="700">20</text>
+          <text x="210" y="126" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">TÚ aquí</text>
+          <text x="210" y="138" text-anchor="middle" fill="#fff" font-size="11">Cerrar el centro del campo</text>
+          <circle cx="210" cy="122" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
+          <text x="210" y="126" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
           <!-- interior cierra pasillo -->
-          <circle cx="150" cy="145" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="150" y="149" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">8</text>
+          <circle cx="150" cy="145" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+          <text x="150" y="149" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">8</text>
           <!-- lateral marca exterior -->
-          <circle cx="295" cy="110" r="7" fill="#6ee7b7" stroke="#fff" stroke-width="1"/>
-          <text x="295" y="114" text-anchor="middle" fill="#0F6E56" font-size="7" font-weight="700">2</text>
+          <circle cx="295" cy="110" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
+          <text x="295" y="114" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">2</text>
           <!-- flecha rival -->
           <line x1="323" y1="128" x2="260" y2="122" stroke="#ff5555" stroke-width="1.5" stroke-dasharray="4" opacity=".7"/>
           <!-- tu zona de corte -->
           <line x1="210" y1="130" x2="210" y2="155" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="3" opacity=".6"/>
-          <text x="170" y="270" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">Tú cierras el centro, tu lateral marca en banda</text>
+          <text x="170" y="266" text-anchor="middle" fill="#fff" font-size="11" opacity=".85">Tú cierras el centro,</text>
+          <text x="170" y="281" text-anchor="middle" fill="#fff" font-size="11" opacity=".85">tu lateral marca en banda</text>
         </svg>
       </div>
       <div class="row"><div class="dot dc"></div><div><div class="lbl">Cierra el centro del campo</div><div class="desc">Tu lateral marca al extremo rival en la banda. Tú te sitúas en el centro para cortar el pase hacia el pivote o mediapunta rival. Divide la responsabilidad: él cierra la banda, tú el centro.</div></div></div>
@@ -525,29 +606,30 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <!-- 5 pasillos -->
         <!-- P1 banda izq -->
         <rect x="15" y="15" width="60" height="470" fill="#378ADD" opacity=".15"/>
-        <text x="45" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,45,260)">BANDA IZQ (1)</text>
+        <text x="45" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,45,260)">BANDA IZQ (1)</text>
         <!-- P2 halbraum izq -->
         <rect x="75" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
-        <text x="105" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,105,260)">HALBRAUM IZQ (2)</text>
+        <text x="105" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,105,260)">HALBRAUM IZQ (2)</text>
         <!-- P3 centro = TU ZONA -->
         <rect x="135" y="15" width="70" height="470" fill="#EF9F27" opacity=".3"/>
-        <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,170,260)">⭐ CENTRO (3)</text>
+        <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,170,260)">⭐ CENTRO (3)</text>
         <!-- P4 halbraum der -->
         <rect x="205" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
-        <text x="235" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,235,260)">HALBRAUM DER (4)</text>
+        <text x="235" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,235,260)">HALBRAUM DER (4)</text>
         <!-- P5 banda der -->
         <rect x="265" y="15" width="60" height="470" fill="#378ADD" opacity=".15"/>
-        <text x="295" y="260" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" transform="rotate(-90,295,260)">BANDA DER (5)</text>
+        <text x="295" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,295,260)">BANDA DER (5)</text>
         <!-- divisorias -->
         <line x1="75" y1="15" x2="75" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
         <line x1="135" y1="15" x2="135" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
         <line x1="205" y1="15" x2="205" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
         <line x1="265" y1="15" x2="265" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
-        <!-- jugador tú, centrado -->
-        <circle class="pulse-ring" cx="170" cy="250" r="10" fill="none" stroke="#6ee7b7" stroke-width="2"/>
-        <circle cx="170" cy="250" r="10" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
-        <text x="170" y="254" text-anchor="middle" fill="#0F6E56" font-size="9" font-weight="700">20</text>
-        <text x="170" y="480" text-anchor="middle" fill="#fff" font-size="10" opacity=".8">El pasillo 3 (centro) es tu territorio de influencia</text>
+        <!-- jugador tú, más abajo para no tapar la etiqueta central -->
+        <circle class="pulse-ring" cx="170" cy="360" r="13" fill="none" stroke="#6ee7b7" stroke-width="2"/>
+        <circle cx="170" cy="360" r="13" fill="#fff" stroke="#0F6E56" stroke-width="2"/>
+        <text x="170" y="364" text-anchor="middle" fill="#0F6E56" font-size="12" font-weight="700">20</text>
+        <text x="170" y="470" text-anchor="middle" fill="#fff" font-size="13" opacity=".85">El pasillo 3 (centro) es</text>
+        <text x="170" y="486" text-anchor="middle" fill="#fff" font-size="13" opacity=".85">tu territorio de influencia</text>
       </svg>
     </div>
     <div class="row"><div class="dot da"></div><div><div class="lbl">Pasillo 3 — Centro (TU ZONA)</div><div class="desc">El eje del campo, siempre delante de tus centrales. Desde aquí controlas el ritmo, das el cambio de orientación y proteges el pasillo más peligroso para el rival. Es tu base durante los 90 minutos.</div></div></div>
