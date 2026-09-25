@@ -23,14 +23,19 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,40,32,.05) 0%,rgba(8,40,32,.4) 55%,rgba(6,28,22,.93) 100%),linear-gradient(100deg,rgba(8,80,65,.55) 0%,rgba(8,80,65,0) 55%);z-index:1;}
 .hero::after{content:'';position:absolute;inset:-60% -20%;background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.08) 0 2px,transparent 2px 30px);mix-blend-mode:overlay;animation:heroShift 16s linear infinite;z-index:2;pointer-events:none;}
 @keyframes heroShift{from{transform:translate(0,0);}to{transform:translate(-60px,40px);}}
-.hero-content{position:relative;z-index:3;padding:1.5rem 1.5rem 1.4rem;width:100%;text-align:center;color:#fff;}
-.hero-content h1{font-size:24px;font-weight:800;margin-bottom:5px;letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+.hero-content{position:relative;z-index:3;padding:1.5rem 1.5rem 1.4rem;width:100%;text-align:center;color:#fff;animation:heroIntro .8s cubic-bezier(.16,.84,.44,1) both;}
+@keyframes heroIntro{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.hero-content h1{display:flex;align-items:center;justify-content:center;gap:10px;font-size:26px;font-weight:800;margin-bottom:5px;letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+.hero-content h1 .icon{width:27px;height:27px;flex-shrink:0;}
 .hero-content p{font-size:13px;opacity:.92;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.35);}
 .hdr-chips{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:14px;}
-.hchip{font-size:11px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.38);font-weight:600;backdrop-filter:blur(4px);color:#fff;}
+.hchip{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.38);font-weight:600;backdrop-filter:blur(4px);color:#fff;}
+.hchip .icon{width:13px;height:13px;}
+.icon{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 .tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:.75rem 1rem;background:#fff;border-bottom:1px solid #e5e2d9;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(20,20,15,.04);}
-.tab{padding:7px 13px;border-radius:20px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;white-space:nowrap;}
-.tab:hover{border-color:#1D9E75;color:#0F6E56;background:#F0FAF6;}
+.tab{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:20px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;white-space:nowrap;}
+.tab .icon{width:14px;height:14px;}
+.tab:hover{border-color:#1D9E75;color:#0F6E56;background:#F0FAF6;transform:translateY(-1px);}
 .tab.active{background:linear-gradient(135deg,#0F6E56,#1D9E75);color:#fff;border-color:#0F6E56;font-weight:700;box-shadow:0 3px 10px rgba(15,110,86,.3);}
 .wrap{padding:1rem;max-width:820px;margin:0 auto;}
 .sec{display:none;}.sec.active{display:block;animation:fadeIn .28s ease;}
@@ -38,6 +43,8 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .section-divider{display:flex;align-items:center;gap:10px;margin:1.6rem 0 1rem;color:#888;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;}
 .section-divider:first-child{margin-top:.2rem;}
 .section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:#e0ddd4;}
+.section-divider span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
+.section-divider .icon{width:14px;height:14px;color:#0F6E56;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
 @keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.985);}to{opacity:1;transform:translateY(0) scale(1);}}
 /* RADAR TÉCNICO */
@@ -52,7 +59,8 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .radar-label{font-family:'Outfit','Inter',system-ui,sans-serif;font-size:12px;font-weight:700;fill:#1a1a18;}
 .radar-value{font-family:'Inter',system-ui,sans-serif;font-size:10px;font-weight:600;fill:#0F6E56;}
 .radar-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:.9rem;}
-.rl-pill{font-size:11px;padding:4px 10px;border-radius:20px;background:#E1F5EE;color:#0F6E56;font-weight:700;}
+.rl-pill{font-size:11px;padding:4px 10px;border-radius:20px;background:#E1F5EE;color:#0F6E56;font-weight:700;transition:transform .15s ease;}
+.rl-pill:hover{transform:translateY(-2px);}
 /* pulso posicional en el mapa */
 .pulse-ring{animation:pulseFade 2.4s ease-out infinite;transform-box:fill-box;transform-origin:50% 50%;}
 @keyframes pulseFade{0%{transform:scale(.5);opacity:.7;}100%{transform:scale(2.1);opacity:0;}}
@@ -86,6 +94,7 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .cl li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #f0ede4;font-size:14px;line-height:1.5;}
 .cl li:last-child{border-bottom:none;}
 .chk{width:21px;height:21px;border-radius:50%;border:1.5px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;cursor:pointer;font-size:12px;font-weight:700;transition:all .15s ease;}
+.chk .icon{width:12px;height:12px;}
 .chk:hover{border-color:#1D9E75;}
 .chk.done{background:#1D9E75;color:#fff;border-color:#1D9E75;transform:scale(1.05);}
 .note{font-size:12px;color:#888;border-top:1px solid #f0ede4;padding-top:8px;margin-top:8px;line-height:1.5;}
@@ -99,8 +108,9 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .zi-body{font-size:13px;color:#444;line-height:1.5;}
 /* Sub-tabs campo */
 .sub-tabs{display:flex;gap:6px;margin-bottom:.75rem;flex-wrap:wrap;}
-.stab{padding:6px 13px;border-radius:16px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s ease;}
-.stab:hover{border-color:#1D9E75;color:#0F6E56;}
+.stab{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:16px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s ease;}
+.stab .icon{width:13px;height:13px;}
+.stab:hover{border-color:#1D9E75;color:#0F6E56;transform:translateY(-1px);}
 .stab.active{background:linear-gradient(135deg,#0F6E56,#1D9E75);color:#fff;border-color:#0F6E56;font-weight:700;box-shadow:0 3px 8px rgba(15,110,86,.28);}
 .campo-view{display:none;}.campo-view.active{display:block;animation:fadeIn .25s ease;}
 /* DECISIONES */
@@ -111,15 +121,19 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .sc-opt:hover{border-color:#1D9E75;background:#E1F5EE;}
 .sc-opt.correct{border-color:#1D9E75;background:#E1F5EE;color:#0F6E56;font-weight:600;}
 .sc-opt.wrong{border-color:#D85A30;background:#FAECE7;color:#712B13;}
-.sc-feedback{margin-top:8px;font-size:13px;padding:8px 10px;border-radius:8px;display:none;}
-.sc-feedback.show{display:block;}
+.sc-feedback{margin-top:8px;font-size:13px;padding:8px 10px;border-radius:8px;display:none;align-items:flex-start;gap:7px;line-height:1.5;}
+.sc-feedback.show{display:flex;}
+.sc-feedback .icon{width:16px;height:16px;margin-top:2px;flex-shrink:0;}
 .fb-ok{background:#E1F5EE;color:#085041;}
 .fb-ko{background:#FAECE7;color:#712B13;}
 /* VÍDEOS */
 .vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
 .vid-card{background:#fff;border:1px solid #e8e5db;border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 12px rgba(20,20,15,.04);}
 .vid-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,20,15,.1);}
-.vid-thumb-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0d1f0d,#1a2a1a);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;}
+.vid-thumb-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0d1f0d,#1a2a1a);display:flex;align-items:center;justify-content:center;color:#fff;}
+.vid-play-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;transition:all .2s ease;}
+.vid-play-btn .icon{width:20px;height:20px;margin-left:2px;}
+.vid-card:hover .vid-play-btn{background:#1D9E75;border-color:#1D9E75;transform:scale(1.08);}
 .vid-meta{padding:9px 11px;}
 .vid-title{font-size:12px;font-weight:600;color:#1a1a18;line-height:1.4;}
 .vid-sub{font-size:11px;color:#888;margin-top:2px;}
@@ -149,8 +163,10 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .tl-dot{position:absolute;left:-26px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff;border:2.5px solid #7F77DD;}
 .tl-dot.tl-current{border-color:#1D9E75;background:#1D9E75;box-shadow:0 0 0 4px #E1F5EE;}
 .tl-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
-.tl-badge{width:54px;height:54px;border-radius:13px;background:#fff;border:1px solid #e8e5db;box-shadow:0 3px 10px rgba(20,20,15,.1);object-fit:contain;padding:5px;flex-shrink:0;}
-.tl-badge-generic{width:54px;height:54px;border-radius:13px;background:linear-gradient(135deg,#0F6E56,#1D9E75);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 3px 10px rgba(15,110,86,.25);}
+.tl-badge{width:54px;height:54px;border-radius:13px;background:#fff;border:1px solid #e8e5db;box-shadow:0 3px 10px rgba(20,20,15,.1);object-fit:contain;padding:5px;flex-shrink:0;transition:transform .2s ease;}
+.tl-item:hover .tl-badge,.tl-item:hover .tl-badge-generic{transform:scale(1.07);}
+.tl-badge-generic{width:54px;height:54px;border-radius:13px;background:linear-gradient(135deg,#0F6E56,#1D9E75);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;box-shadow:0 3px 10px rgba(15,110,86,.25);}
+.tl-badge-generic .icon{width:26px;height:26px;}
 .tl-club{font-size:16px;font-weight:700;color:#1a1a18;}
 .tl-period{font-size:12px;color:#888;margin-top:1px;}
 .tl-role{margin-bottom:6px;}
@@ -158,37 +174,63 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .player-card{display:flex;align-items:center;gap:14px;}
 .player-avatar{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#085041,#1D9E75);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;box-shadow:0 4px 12px rgba(15,110,86,.3);}
 .player-name{font-size:17px;font-weight:700;color:#1a1a18;}
-.player-sub{font-size:12px;color:#666;margin-top:2px;}
+.player-sub{display:flex;align-items:center;gap:6px;font-size:12px;color:#666;margin-top:2px;}
+.player-sub .icon{width:12px;height:12px;color:#999;}
 ::selection{background:#1D9E75;color:#fff;}
 a,button{-webkit-tap-highlight-color:transparent;}
 @media(max-width:520px){.g2,.vid-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2l3.5 2.5-1.3 4.1H9.8l-1.3-4.1z"/><path d="M12 3v4.2M8.5 20.3l1.3-4.5M15.5 20.3l-1.3-4.5M3.3 9.5l5.2.2M20.7 9.5l-5.2.2"/></symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20v-1a8 8 0 0 1 16 0v1"/></symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="icon-map" viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.5-5A8 8 0 1 1 21 12Z"/></symbol>
+  <symbol id="icon-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" style="fill:currentColor;stroke:none"/></symbol>
+  <symbol id="icon-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 2 4 5.5v6C4 16.5 7.5 20.5 12 22c4.5-1.5 8-5.5 8-10.5v-6L12 2Z"/></symbol>
+  <symbol id="icon-clipboard" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 11h6M9 15h6"/></symbol>
+  <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 14 14l-5.5 1.5L10 10z"/></symbol>
+  <symbol id="icon-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h5v-5h2v5h5V10"/></symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.3v7.4l6-3.7Z" style="fill:currentColor;stroke:none"/></symbol>
+  <symbol id="icon-checksquare" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12.5l2.5 2.5L16 9"/></symbol>
+  <symbol id="icon-repeat" viewBox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"/></symbol>
+  <symbol id="icon-trophy" viewBox="0 0 24 24"><path d="M8 4h8v4a4 4 0 0 1-8 0V4Z"/><path d="M8 4H5.5A2.5 2.5 0 0 0 8 8.5M16 4h2.5A2.5 2.5 0 0 1 16 8.5"/><path d="M12 12v3M9 21h6M9.5 17h5l.5 4h-6z"/></symbol>
+  <symbol id="icon-trending" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+  <symbol id="icon-mappin" viewBox="0 0 24 24"><path d="M12 21s7-7.7 7-12.5A7 7 0 1 0 5 8.5C5 13.3 12 21 12 21Z"/><circle cx="12" cy="8.5" r="2.5"/></symbol>
+  <symbol id="icon-checkcircle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></symbol>
+  <symbol id="icon-xcircle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.2l-5.8 3.2 1.1-6.5-4.7-4.6 6.5-.9Z"/></symbol>
+</svg>
 <div class="hero-outer">
   <div class="hero">
     <div class="hero-content">
-      <h1>⚽ Álvaro Barja — Pivote</h1>
+      <h1><svg class="icon"><use href="#icon-ball"/></svg>Álvaro Barja — Pivote</h1>
       <p>Guía completa · Físico · Técnico · Táctico · Presión · Defensa · Mental · Casa</p>
       <div class="hdr-chips">
-        <span class="hchip">🏟️ CD Lourdes</span>
+        <span class="hchip"><svg class="icon"><use href="#icon-shield"/></svg>CD Lourdes</span>
         <span class="hchip">#20</span>
-        <span class="hchip">🔄 Interior → Pivote</span>
-        <span class="hchip">📅 Temporada 2026/27</span>
+        <span class="hchip"><svg class="icon"><use href="#icon-repeat"/></svg>Interior → Pivote</span>
+        <span class="hchip"><svg class="icon"><use href="#icon-calendar"/></svg>Temporada 2026/27</span>
       </div>
     </div>
   </div>
 </div>
 <div class="tabs">
-  <button class="tab active" onclick="showTab('perfil',this)">Perfil</button>
-  <button class="tab" onclick="showTab('formacion',this)">📚 Formación</button>
+  <button class="tab active" onclick="showTab('perfil',this)"><svg class="icon"><use href="#icon-user"/></svg>Perfil</button>
+  <button class="tab" onclick="showTab('formacion',this)"><svg class="icon"><use href="#icon-layers"/></svg>Formación</button>
 </div>
 
 <div class="wrap">
 
 <!-- ══ PERFIL ══ -->
 <div id="s-perfil" class="sec active">
-  <div class="section-divider"><span>👤 Perfil del jugador</span></div>
+  <div class="section-divider"><span><svg class="icon"><use href="#icon-user"/></svg>Perfil del jugador</span></div>
   <div class="card">
     <div class="card-title">¿Qué es un pivote (mediocentro defensivo)? <span class="badge bg">Posición clave</span></div>
     <div class="row"><div class="dot dg"></div><div><div class="lbl">Dorsal y rol</div><div class="desc">Álvaro Barja — dorsal 20, pivote del CD Lourdes. Es el jugador más retrasado del mediocampo: organiza el juego delante de la defensa, protege a los centrales y es la primera opción de salida de balón del equipo.</div></div></div>
@@ -209,6 +251,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
       <div class="row"><div class="dot dc"></div><div><div class="desc">Ser el primer filtro cuando los interiores o laterales suben</div></div></div>
     </div>
   </div>
+  <div class="section-divider"><span><svg class="icon"><use href="#icon-target"/></svg>Habilidades técnicas</span></div>
   <div class="card radar-card">
     <div class="card-title" style="justify-content:center;">Radar de habilidades técnicas <span class="badge bg">Escala 1-10</span></div>
     <svg class="radar-svg" viewBox="0 0 380 312" xmlns="http://www.w3.org/2000/svg">
@@ -257,14 +300,14 @@ a,button{-webkit-tap-highlight-color:transparent;}
       <span class="rl-pill">Entrada 7.5</span>
     </div>
   </div>
-  <div class="section-divider"><span>🔄 Mi recorrido</span></div>
+  <div class="section-divider"><span><svg class="icon"><use href="#icon-trending"/></svg>Mi recorrido</span></div>
   <div class="card">
     <div class="player-card">
       <div class="player-avatar">AB</div>
       <div>
         <div class="player-name">Álvaro Barja</div>
         <div class="player-sub">Pivote · Dorsal 20 · CD Lourdes · Temporada 2026/27</div>
-        <div class="player-sub">🇧🇴 Nacido en 2003, Cochabamba (Bolivia)</div>
+        <div class="player-sub"><svg class="icon"><use href="#icon-mappin"/></svg>Nacido en 2003, Cochabamba (Bolivia)</div>
       </div>
     </div>
   </div>
@@ -287,7 +330,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-head">
-          <div class="tl-badge-generic">🏆</div>
+          <div class="tl-badge-generic"><svg class="icon"><use href="#icon-trophy"/></svg></div>
           <div>
             <div class="tl-club">Selección Dpto. Sacaba</div>
             <div class="tl-period">2015 · Edad 12</div>
@@ -369,18 +412,18 @@ a,button{-webkit-tap-highlight-color:transparent;}
 <!-- ══ FORMACIÓN ══ -->
 <div id="s-formacion" class="sec">
   <div class="sub-tabs">
-    <button class="stab active" onclick="showForm('campo',this)">🗺 Mapa campo</button>
-    <button class="stab" onclick="showForm('decision',this)">🧠 Decisiones</button>
-    <button class="stab" onclick="showForm('fisico',this)">💪 Físico</button>
-    <button class="stab" onclick="showForm('tecnico',this)">⚽ Técnica</button>
-    <button class="stab" onclick="showForm('presion',this)">⚡ Bajo presión</button>
-    <button class="stab" onclick="showForm('defensa',this)">🛡 Defensa</button>
-    <button class="stab" onclick="showForm('tactico',this)">📋 Táctica</button>
-    <button class="stab" onclick="showForm('mental',this)">🎯 Mental</button>
-    <button class="stab" onclick="showForm('casa',this)">🏠 En casa</button>
-    <button class="stab" onclick="showForm('semana',this)">📅 Semana</button>
-    <button class="stab" onclick="showForm('videos',this)">▶ Vídeos</button>
-    <button class="stab" onclick="showForm('check',this)">✅ Checklist</button>
+    <button class="stab active" onclick="showForm('campo',this)"><svg class="icon"><use href="#icon-map"/></svg>Mapa campo</button>
+    <button class="stab" onclick="showForm('decision',this)"><svg class="icon"><use href="#icon-message"/></svg>Decisiones</button>
+    <button class="stab" onclick="showForm('fisico',this)"><svg class="icon"><use href="#icon-activity"/></svg>Físico</button>
+    <button class="stab" onclick="showForm('tecnico',this)"><svg class="icon"><use href="#icon-target"/></svg>Técnica</button>
+    <button class="stab" onclick="showForm('presion',this)"><svg class="icon"><use href="#icon-zap"/></svg>Bajo presión</button>
+    <button class="stab" onclick="showForm('defensa',this)"><svg class="icon"><use href="#icon-shield"/></svg>Defensa</button>
+    <button class="stab" onclick="showForm('tactico',this)"><svg class="icon"><use href="#icon-clipboard"/></svg>Táctica</button>
+    <button class="stab" onclick="showForm('mental',this)"><svg class="icon"><use href="#icon-compass"/></svg>Mental</button>
+    <button class="stab" onclick="showForm('casa',this)"><svg class="icon"><use href="#icon-home"/></svg>En casa</button>
+    <button class="stab" onclick="showForm('semana',this)"><svg class="icon"><use href="#icon-calendar"/></svg>Semana</button>
+    <button class="stab" onclick="showForm('videos',this)"><svg class="icon"><use href="#icon-play"/></svg>Vídeos</button>
+    <button class="stab" onclick="showForm('check',this)"><svg class="icon"><use href="#icon-checksquare"/></svg>Checklist</button>
   </div>
   <div id="fv-campo" class="form-view active">
   <div class="sub-tabs">
@@ -411,7 +454,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <text x="170" y="384" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Salida y cobertura defensiva</text>
         <rect id="z2" x="16" y="252" width="308" height="86" rx="4" fill="#378ADD" opacity=".35" class="zone-rect" onclick="showZone(2)" style="cursor:pointer;"/>
         <rect x="16" y="252" width="308" height="86" rx="4" fill="none" stroke="#378ADD" stroke-width="2"/>
-        <text x="170" y="266" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">⭐ ZONA 2 · TU ZONA ESTRELLA</text>
+        <text x="170" y="266" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">ZONA 2 · TU ZONA ESTRELLA</text>
         <text x="170" y="282" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Organización / Distribución</text>
         <rect id="z3" x="16" y="170" width="308" height="80" rx="4" fill="#EF9F27" opacity=".2" class="zone-rect" onclick="showZone(3)" style="cursor:pointer;"/>
         <rect x="16" y="170" width="308" height="80" rx="4" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
@@ -644,7 +687,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <text x="105" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,105,260)">HALBRAUM IZQ (2)</text>
         <!-- P3 centro = TU ZONA -->
         <rect x="135" y="15" width="70" height="470" fill="#EF9F27" opacity=".3"/>
-        <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,170,260)">⭐ CENTRO (3)</text>
+        <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,170,260)">CENTRO (3)</text>
         <!-- P4 halbraum der -->
         <rect x="205" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
         <text x="235" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,235,260)">HALBRAUM DER (4)</text>
@@ -681,8 +724,8 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <button class="sc-opt" onclick="answer(1,'c')">C) Proteges el balón, escaneas y buscas la mejor opción</button>
         <button class="sc-opt" onclick="answer(1,'d')">D) Intentas regatear al defensa de frente</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb1-ok">✓ Correcto. Proteger + escanear + decidir. Como pivote, perder el balón aquí es el error más caro del equipo — nunca arriesgues sin haber visto antes tus opciones.</div>
-      <div class="sc-feedback fb-ko" id="fb1-ko">✗ No es la mejor opción. De espaldas con presión, primero protege el balón y escanea. Perder este balón en tu zona deja a todo el equipo expuesto.</div>
+      <div class="sc-feedback fb-ok" id="fb1-ok"><svg class="icon"><use href="#icon-checkcircle"/></svg><span>Correcto. Proteger + escanear + decidir. Como pivote, perder el balón aquí es el error más caro del equipo — nunca arriesgues sin haber visto antes tus opciones.</span></div>
+      <div class="sc-feedback fb-ko" id="fb1-ko"><svg class="icon"><use href="#icon-xcircle"/></svg><span>No es la mejor opción. De espaldas con presión, primero protege el balón y escanea. Perder este balón en tu zona deja a todo el equipo expuesto.</span></div>
     </div>
     <div class="scenario">
       <div class="sc-q">2. Tu equipo pierde el balón mientras tú estás en el centro del campo. ¿Cuál es tu primera acción?</div>
@@ -692,8 +735,8 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <button class="sc-opt" onclick="answer(2,'c')">C) Quedarte esperando que el rival avance</button>
         <button class="sc-opt" onclick="answer(2,'d')">D) Protestar la jugada al árbitro</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb2-ok">✓ Correcto. Si estás cerca del balón, presiona. Como pivote, la transición defensiva inmediata es tu responsabilidad número uno: sin ti bien colocado, la defensa queda expuesta.</div>
-      <div class="sc-feedback fb-ko" id="fb2-ko">✗ La transición defensiva debe ser inmediata. Quedarse parado deja al equipo en inferioridad justo delante de tu propia defensa.</div>
+      <div class="sc-feedback fb-ok" id="fb2-ok"><svg class="icon"><use href="#icon-checkcircle"/></svg><span>Correcto. Si estás cerca del balón, presiona. Como pivote, la transición defensiva inmediata es tu responsabilidad número uno: sin ti bien colocado, la defensa queda expuesta.</span></div>
+      <div class="sc-feedback fb-ko" id="fb2-ko"><svg class="icon"><use href="#icon-xcircle"/></svg><span>La transición defensiva debe ser inmediata. Quedarse parado deja al equipo en inferioridad justo delante de tu propia defensa.</span></div>
     </div>
     <div class="scenario">
       <div class="sc-q">3. Tu interior (compañero de mediocampo) sube al ataque y deja espacio libre en el centro. ¿Qué haces tú?</div>
@@ -703,8 +746,8 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <button class="sc-opt" onclick="answer(3,'c')">C) Cubres el espacio que deja el interior, dando equilibrio</button>
         <button class="sc-opt" onclick="answer(3,'d')">D) Pides el balón para atacar tú por el centro</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb3-ok">✓ Perfecto. Principio de compensación posicional. Tú jugabas de interior y sabes que el pivote cubre cuando tú subías — ahora ese pivote eres tú. Sin esto el equipo pierde estructura defensiva.</div>
-      <div class="sc-feedback fb-ko" id="fb3-ko">✗ Si subes tú también, dejáis el centro del campo completamente vacío. El pivote da equilibrio: cuando un compañero avanza, tú cubres lo que deja.</div>
+      <div class="sc-feedback fb-ok" id="fb3-ok"><svg class="icon"><use href="#icon-checkcircle"/></svg><span>Perfecto. Principio de compensación posicional. Tú jugabas de interior y sabes que el pivote cubre cuando tú subías — ahora ese pivote eres tú. Sin esto el equipo pierde estructura defensiva.</span></div>
+      <div class="sc-feedback fb-ko" id="fb3-ko"><svg class="icon"><use href="#icon-xcircle"/></svg><span>Si subes tú también, dejáis el centro del campo completamente vacío. El pivote da equilibrio: cuando un compañero avanza, tú cubres lo que deja.</span></div>
     </div>
     <div class="scenario">
       <div class="sc-q">4. Tienes el balón en tu zona de creación, con espacio y tiempo. El interior está marcado, el extremo pide un pase seguro en banda, y el delantero se desmarca a la espalda del último defensa rival. ¿Qué pase eliges?</div>
@@ -714,8 +757,8 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <button class="sc-opt" onclick="answer(4,'c')">C) Pase filtrado a la espalda de la defensa para el delantero</button>
         <button class="sc-opt" onclick="answer(4,'d')">D) Conduces tú y buscas el área rival</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb4-ok">✓ Excelente. Leer el momento exacto en que el delantero rompe la línea es la jugada diferencial de un pivote con buena visión. Este es el pase de gol — aprovecha siempre la máxima ocasión cuando tengas tiempo para ejecutarlo bien.</div>
-      <div class="sc-feedback fb-ko" id="fb4-ko">✗ Hay un compañero rompiendo a la espalda de la defensa — ese es el pase más peligroso. Con tiempo y espacio, prioriza siempre la opción de máximo daño sobre la opción segura.</div>
+      <div class="sc-feedback fb-ok" id="fb4-ok"><svg class="icon"><use href="#icon-checkcircle"/></svg><span>Excelente. Leer el momento exacto en que el delantero rompe la línea es la jugada diferencial de un pivote con buena visión. Este es el pase de gol — aprovecha siempre la máxima ocasión cuando tengas tiempo para ejecutarlo bien.</span></div>
+      <div class="sc-feedback fb-ko" id="fb4-ko"><svg class="icon"><use href="#icon-xcircle"/></svg><span>Hay un compañero rompiendo a la espalda de la defensa — ese es el pase más peligroso. Con tiempo y espacio, prioriza siempre la opción de máximo daño sobre la opción segura.</span></div>
     </div>
     <div class="scenario">
       <div class="sc-q">5. Es el minuto 75, tu equipo gana 1-0 y el rival presiona. Recibes el balón en campo propio. ¿Qué haces?</div>
@@ -725,8 +768,8 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <button class="sc-opt" onclick="answer(5,'c')">C) Chutas largo a la banda para despejar el peligro</button>
         <button class="sc-opt" onclick="answer(5,'d')">D) Devuelves siempre al portero</button>
       </div>
-      <div class="sc-feedback fb-ok" id="fb5-ok">✓ Correcto. Inteligencia de partido. Como pivote, gestionar el ritmo del partido es tu responsabilidad principal: circular con calma, no arriesgar y consumir tiempo es la decisión correcta cuando vas ganando.</div>
-      <div class="sc-feedback fb-ko" id="fb5-ko">✗ Con el resultado a favor, la prioridad es no perder el balón. Un pase arriesgado o un balón largo regala la posesión al rival. Gestionar el ritmo del partido es una responsabilidad clave del pivote.</div>
+      <div class="sc-feedback fb-ok" id="fb5-ok"><svg class="icon"><use href="#icon-checkcircle"/></svg><span>Correcto. Inteligencia de partido. Como pivote, gestionar el ritmo del partido es tu responsabilidad principal: circular con calma, no arriesgar y consumir tiempo es la decisión correcta cuando vas ganando.</span></div>
+      <div class="sc-feedback fb-ko" id="fb5-ko"><svg class="icon"><use href="#icon-xcircle"/></svg><span>Con el resultado a favor, la prioridad es no perder el balón. Un pase arriesgado o un balón largo regala la posesión al rival. Gestionar el ritmo del partido es una responsabilidad clave del pivote.</span></div>
     </div>
   </div>
   </div>
@@ -807,19 +850,19 @@ a,button{-webkit-tap-highlight-color:transparent;}
     <div class="card-title">Vídeos — Salir de la presión <span class="badge bb">YouTube</span></div>
     <div class="vid-grid">
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=busquets+giro+de+espaldas+salida+presion+futbol')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Busquets — giro de espaldas</div><div class="vid-sub">Salir limpio de la presión</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=giro+cruyff+futbol+tutorial')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Giro de Cruyff — tutorial</div><div class="vid-sub">Técnica paso a paso</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=resistencia+a+la+presion+pivote+futbol+entrenamiento')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Resistencia a la presión</div><div class="vid-sub">Ejercicios específicos para el pivote</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=pared+y+va+futbol+como+hacerlo')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Pase-y-va: superar la presión</div><div class="vid-sub">La combinación como herramienta de salida</div></div>
       </div>
     </div>
@@ -864,27 +907,27 @@ a,button{-webkit-tap-highlight-color:transparent;}
     <div class="card-title">Vídeos — Defensa y táctica <span class="badge bb">YouTube</span></div>
     <div class="vid-grid">
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+jugar+de+pivote+futbol+tactica+defensiva')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Cómo jugar de pivote</div><div class="vid-sub">Cobertura y posicionamiento</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+defender+1v1+futbol+mediocampista+perfil')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Defensa 1v1 — perfil lateral</div><div class="vid-sub">Técnica de marcaje individual</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=interceptar+pases+futbol+busquets+kante+analisis')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Interceptar pases — análisis Busquets/Kanté</div><div class="vid-sub">Lectura de líneas de pase</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=temporizar+en+futbol+como+defender+inferioridad+numerica')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Temporización defensiva</div><div class="vid-sub">Defender en inferioridad numérica</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=bloque+medio+defensa+futbol+tactica')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Bloque medio defensivo</div><div class="vid-sub">Cerrar líneas de pase interiores</div></div>
       </div>
       <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=transicion+defensiva+futbol+automatismos')">
-        <div class="vid-thumb-placeholder">▶</div>
+        <div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div>
         <div class="vid-meta"><div class="vid-title">Transición defensiva — automatismos</div><div class="vid-sub">Los 5 segundos tras la pérdida</div></div>
       </div>
     </div>
@@ -951,14 +994,14 @@ a,button{-webkit-tap-highlight-color:transparent;}
   <div id="fv-videos" class="form-view">
   <div class="card"><div class="card-title">Vídeos recomendados <span class="badge bb">YouTube</span></div><div class="desc" style="margin-bottom:1rem;">Clic para abrir directamente en YouTube.</div></div>
   <div class="vid-grid">
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Sergio+Busquets+analisis+tactico+pivote')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Análisis táctico — Sergio Busquets</div><div class="vid-sub">Cobertura, giro y primer pase</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Rodri+Manchester+City+analisis+pivote+tactico')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Rodri — el pivote perfecto</div><div class="vid-sub">Posicionamiento, pase largo y lectura</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/watch?v=x9_1oIxoZ3c')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">5 ejercicios de fútbol en casa</div><div class="vid-sub">Técnica sin material</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+jugar+de+pivote+mediocentro+defensivo+explicacion')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Cómo jugar de pivote</div><div class="vid-sub">Rol explicado paso a paso</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=escaneo+antes+de+recibir+futbol+vision+periferica')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Escaneo antes de recibir</div><div class="vid-sub">Visión periférica en el campo</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=pressing+futbol+tactica+coordinacion+equipo')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Pressing coordinado en fútbol</div><div class="vid-sub">Táctica defensiva de equipo</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=saque+de+corner+posiciones+tacticas+futbol')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Posiciones en el corner</div><div class="vid-sub">Estrategia ofensiva y defensiva</div></div></div>
-    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=rutina+fisica+futbolista+en+casa+sin+material')"><div class="vid-thumb-placeholder">▶</div><div class="vid-meta"><div class="vid-title">Rutina física en casa</div><div class="vid-sub">Sin material, todo nivel</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Sergio+Busquets+analisis+tactico+pivote')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Análisis táctico — Sergio Busquets</div><div class="vid-sub">Cobertura, giro y primer pase</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=Rodri+Manchester+City+analisis+pivote+tactico')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Rodri — el pivote perfecto</div><div class="vid-sub">Posicionamiento, pase largo y lectura</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/watch?v=x9_1oIxoZ3c')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">5 ejercicios de fútbol en casa</div><div class="vid-sub">Técnica sin material</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=como+jugar+de+pivote+mediocentro+defensivo+explicacion')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Cómo jugar de pivote</div><div class="vid-sub">Rol explicado paso a paso</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=escaneo+antes+de+recibir+futbol+vision+periferica')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Escaneo antes de recibir</div><div class="vid-sub">Visión periférica en el campo</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=pressing+futbol+tactica+coordinacion+equipo')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Pressing coordinado en fútbol</div><div class="vid-sub">Táctica defensiva de equipo</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=saque+de+corner+posiciones+tacticas+futbol')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Posiciones en el corner</div><div class="vid-sub">Estrategia ofensiva y defensiva</div></div></div>
+    <div class="vid-card" onclick="openLink('https://www.youtube.com/results?search_query=rutina+fisica+futbolista+en+casa+sin+material')"><div class="vid-thumb-placeholder"><div class="vid-play-btn"><svg class="icon icon-fill"><use href="#icon-play"/></svg></div></div><div class="vid-meta"><div class="vid-title">Rutina física en casa</div><div class="vid-sub">Sin material, todo nivel</div></div></div>
   </div>
   </div>
   <div id="fv-check" class="form-view">
@@ -1060,7 +1103,7 @@ function showBanda(id,btn){
 /* ---- zonas mapa ---- */
 const zones={
   1:{title:"ZONA 1 — Salida y cobertura defensiva (campo propio)",body:"Te sitúas delante de la línea de centrales, ligeramente escalonado. Ofreces la primera opción de pase en la salida y, al mismo tiempo, proteges el espacio si el rival recupera. Es tu zona de máxima responsabilidad defensiva."},
-  2:{title:"⭐ ZONA 2 — ORGANIZACIÓN / TU ZONA ESTRELLA",body:"El corazón del mediocampo, delante de tus centrales. Aquí controlas el ritmo del partido: circulas el balón, das el cambio de orientación y proteges el pasillo central. Si apareces siempre aquí bien colocado, el equipo entero juega más seguro."},
+  2:{title:"ZONA 2 — ORGANIZACIÓN / TU ZONA ESTRELLA",body:"El corazón del mediocampo, delante de tus centrales. Aquí controlas el ritmo del partido: circulas el balón, das el cambio de orientación y proteges el pasillo central. Si apareces siempre aquí bien colocado, el equipo entero juega más seguro."},
   3:{title:"ZONA 3 — Halbraum (apoyo puntual)",body:"El espacio entre la defensa y el mediocampo rival. No es tu zona base, pero puedes visitarla puntualmente cuando el equipo necesita un pase filtrado extra o cuando un interior deja el hueco libre. La conoces bien de tu etapa como interior."},
   4:{title:"ZONA 4 — Último tercio ofensivo (rara vez)",body:"Solo llegas aquí en jugadas muy puntuales (falta lateral, corner en corto, marcador urgente). Tu prioridad sigue siendo estar recolocado por si el equipo pierde el balón tras el ataque."}
 };
@@ -1095,7 +1138,7 @@ function answer(q,opt){
 /* ---- checklist ---- */
 function toggleChk(el){
   el.classList.toggle('done');
-  el.textContent=el.classList.contains('done')?'✓':'';
+  el.innerHTML=el.classList.contains('done')?'<svg class="icon"><use href="#icon-check"/></svg>':'';
   const done=document.querySelectorAll('.chk.done').length;
   document.getElementById('cnt').textContent=done;
   document.getElementById('pct').textContent=Math.round(done/20*100)+'%';
