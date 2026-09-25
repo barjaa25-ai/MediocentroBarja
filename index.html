@@ -28,7 +28,7 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .hero-content p{font-size:13px;opacity:.92;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.35);}
 .hdr-chips{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:14px;}
 .hchip{font-size:11px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.38);font-weight:600;backdrop-filter:blur(4px);color:#fff;}
-.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:.75rem 1rem;background:#fff;border-bottom:1px solid #e5e2d9;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(20,20,15,.04);}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:.75rem 1rem;background:#fff;border-bottom:1px solid #e5e2d9;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(20,20,15,.04);}
 .tab{padding:7px 13px;border-radius:20px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s ease;white-space:nowrap;}
 .tab:hover{border-color:#1D9E75;color:#0F6E56;background:#F0FAF6;}
 .tab.active{background:linear-gradient(135deg,#0F6E56,#1D9E75);color:#fff;border-color:#0F6E56;font-weight:700;box-shadow:0 3px 10px rgba(15,110,86,.3);}
@@ -207,6 +207,54 @@ a,button{-webkit-tap-highlight-color:transparent;}
       <div class="row"><div class="dot dc"></div><div><div class="desc">Cortar líneas de pase hacia el delantero rival</div></div></div>
       <div class="row"><div class="dot dc"></div><div><div class="desc">Anticipar y robar antes de que llegue el peligro</div></div></div>
       <div class="row"><div class="dot dc"></div><div><div class="desc">Ser el primer filtro cuando los interiores o laterales suben</div></div></div>
+    </div>
+  </div>
+  <div class="card radar-card">
+    <div class="card-title" style="justify-content:center;">Radar de habilidades técnicas <span class="badge bg">Escala 1-10</span></div>
+    <svg class="radar-svg" viewBox="0 0 380 312" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="radarFill" cx="50%" cy="50%" r="65%">
+          <stop offset="0%" stop-color="#1D9E75" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#0F6E56" stop-opacity=".22"/>
+        </radialGradient>
+      </defs>
+      <!-- ejes -->
+      <line class="radar-axis" x1="190" y1="170" x2="190" y2="55"/>
+      <line class="radar-axis" x1="190" y1="170" x2="299.4" y2="134.5"/>
+      <line class="radar-axis" x1="190" y1="170" x2="257.6" y2="263.0"/>
+      <line class="radar-axis" x1="190" y1="170" x2="122.4" y2="263.0"/>
+      <line class="radar-axis" x1="190" y1="170" x2="80.6" y2="134.5"/>
+      <!-- anillos de la cuadrícula (20/40/60/80/100%) -->
+      <polygon class="radar-grid" points="190,152 211.9,167.9 203.5,188.6 176.5,188.6 168.1,167.9"/>
+      <polygon class="radar-grid" points="190,129 213.7,160.8 197.0,212.2 143.0,212.2 126.3,160.8"/>
+      <polygon class="radar-grid" points="190,101 235.6,153.7 210.6,225.8 149.4,225.8 124.4,153.7"/>
+      <polygon class="radar-grid" points="190,78 257.5,141.6 224.1,244.4 135.9,244.4 102.5,141.6"/>
+      <polygon class="radar-grid g100" points="190,55 299.4,134.5 257.6,263.0 122.4,263.0 80.6,134.5"/>
+      <!-- polígono de datos -->
+      <polygon class="radar-poly" points="190,66.5 283.0,139.8 240.7,239.8 129.2,253.7 102.5,141.6"/>
+      <circle class="radar-dot" cx="190" cy="66.5" r="4.5"/>
+      <circle class="radar-dot" cx="283.0" cy="139.8" r="4.5"/>
+      <circle class="radar-dot" cx="240.7" cy="239.8" r="4.5"/>
+      <circle class="radar-dot" cx="129.2" cy="253.7" r="4.5"/>
+      <circle class="radar-dot" cx="102.5" cy="141.6" r="4.5"/>
+      <!-- etiquetas -->
+      <text class="radar-label" x="190" y="34" text-anchor="middle">Escaneo</text>
+      <text class="radar-value" x="190" y="47" text-anchor="middle">9/10</text>
+      <text class="radar-label" x="313.7" y="126" text-anchor="start">Pase largo</text>
+      <text class="radar-value" x="313.7" y="139" text-anchor="start">8.5/10</text>
+      <text class="radar-label" x="267.2" y="279" text-anchor="start">Entrada</text>
+      <text class="radar-value" x="267.2" y="292" text-anchor="start">7.5/10</text>
+      <text class="radar-label" x="112.8" y="279" text-anchor="end">Pase corto</text>
+      <text class="radar-value" x="112.8" y="292" text-anchor="end">9/10</text>
+      <text class="radar-label" x="66.3" y="126" text-anchor="end">Recepción</text>
+      <text class="radar-value" x="66.3" y="139" text-anchor="end">8/10</text>
+    </svg>
+    <div class="radar-legend">
+      <span class="rl-pill">Escaneo 9</span>
+      <span class="rl-pill">Pase corto 9</span>
+      <span class="rl-pill">Pase largo 8.5</span>
+      <span class="rl-pill">Recepción 8</span>
+      <span class="rl-pill">Entrada 7.5</span>
     </div>
   </div>
   <div class="section-divider"><span>🔄 Mi recorrido</span></div>
@@ -711,54 +759,6 @@ a,button{-webkit-tap-highlight-color:transparent;}
   </div>
   </div>
   <div id="fv-tecnico" class="form-view">
-  <div class="card radar-card">
-    <div class="card-title" style="justify-content:center;">Radar de habilidades técnicas <span class="badge bg">Escala 1-10</span></div>
-    <svg class="radar-svg" viewBox="0 0 380 312" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="radarFill" cx="50%" cy="50%" r="65%">
-          <stop offset="0%" stop-color="#1D9E75" stop-opacity=".55"/>
-          <stop offset="100%" stop-color="#0F6E56" stop-opacity=".22"/>
-        </radialGradient>
-      </defs>
-      <!-- ejes -->
-      <line class="radar-axis" x1="190" y1="170" x2="190" y2="55"/>
-      <line class="radar-axis" x1="190" y1="170" x2="299.4" y2="134.5"/>
-      <line class="radar-axis" x1="190" y1="170" x2="257.6" y2="263.0"/>
-      <line class="radar-axis" x1="190" y1="170" x2="122.4" y2="263.0"/>
-      <line class="radar-axis" x1="190" y1="170" x2="80.6" y2="134.5"/>
-      <!-- anillos de la cuadrícula (20/40/60/80/100%) -->
-      <polygon class="radar-grid" points="190,152 211.9,167.9 203.5,188.6 176.5,188.6 168.1,167.9"/>
-      <polygon class="radar-grid" points="190,129 213.7,160.8 197.0,212.2 143.0,212.2 126.3,160.8"/>
-      <polygon class="radar-grid" points="190,101 235.6,153.7 210.6,225.8 149.4,225.8 124.4,153.7"/>
-      <polygon class="radar-grid" points="190,78 257.5,141.6 224.1,244.4 135.9,244.4 102.5,141.6"/>
-      <polygon class="radar-grid g100" points="190,55 299.4,134.5 257.6,263.0 122.4,263.0 80.6,134.5"/>
-      <!-- polígono de datos -->
-      <polygon class="radar-poly" points="190,66.5 283.0,139.8 240.7,239.8 129.2,253.7 102.5,141.6"/>
-      <circle class="radar-dot" cx="190" cy="66.5" r="4.5"/>
-      <circle class="radar-dot" cx="283.0" cy="139.8" r="4.5"/>
-      <circle class="radar-dot" cx="240.7" cy="239.8" r="4.5"/>
-      <circle class="radar-dot" cx="129.2" cy="253.7" r="4.5"/>
-      <circle class="radar-dot" cx="102.5" cy="141.6" r="4.5"/>
-      <!-- etiquetas -->
-      <text class="radar-label" x="190" y="34" text-anchor="middle">Escaneo</text>
-      <text class="radar-value" x="190" y="47" text-anchor="middle">9/10</text>
-      <text class="radar-label" x="313.7" y="126" text-anchor="start">Pase largo</text>
-      <text class="radar-value" x="313.7" y="139" text-anchor="start">8.5/10</text>
-      <text class="radar-label" x="267.2" y="279" text-anchor="start">Entrada</text>
-      <text class="radar-value" x="267.2" y="292" text-anchor="start">7.5/10</text>
-      <text class="radar-label" x="112.8" y="279" text-anchor="end">Pase corto</text>
-      <text class="radar-value" x="112.8" y="292" text-anchor="end">9/10</text>
-      <text class="radar-label" x="66.3" y="126" text-anchor="end">Recepción</text>
-      <text class="radar-value" x="66.3" y="139" text-anchor="end">8/10</text>
-    </svg>
-    <div class="radar-legend">
-      <span class="rl-pill">Escaneo 9</span>
-      <span class="rl-pill">Pase corto 9</span>
-      <span class="rl-pill">Pase largo 8.5</span>
-      <span class="rl-pill">Recepción 8</span>
-      <span class="rl-pill">Entrada 7.5</span>
-    </div>
-  </div>
   <div class="card">
     <div class="card-title">Habilidades técnicas esenciales</div>
     <div class="row"><div class="dot dg"></div><div><div class="lbl">Recepción protegida y semi-perfilada</div><div class="desc">Girar el cuerpo para ver el campo mientras proteges el balón del rival que presiona por detrás. Práctica: recibe con un compañero marcándote pasivo, protege 3 segundos y sal limpio.</div></div></div>
