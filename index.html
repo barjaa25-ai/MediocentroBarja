@@ -25,76 +25,62 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .hero-outer{background:#07090C;}
 .hero{
   position:relative;
-  width:100%;
-  min-height:clamp(400px,56vw,560px);
+  max-width:100%;
+  min-height:clamp(360px,52vw,520px);
+  background-image:url('assets/alvaro-hero.png');
+  background-size:cover;
+  background-position:center 15%;
+  background-repeat:no-repeat;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,9,12,.15) 0%,rgba(7,9,12,.55) 55%,rgba(7,9,12,.96) 100%),
+             linear-gradient(100deg,rgba(7,9,12,.65) 0%,transparent 60%);
+  z-index:1;
+}
+.hero::after{
+  content:'';
+  position:absolute;inset:-50% -10%;
+  background-image:repeating-linear-gradient(115deg,rgba(30,217,122,.04) 0 1px,transparent 1px 28px);
+  animation:heroShift 20s linear infinite;
+  z-index:2;pointer-events:none;
+}
+.hero-text-side{position:relative;z-index:3;width:100%;}
+
+/* ── FOTO COLLAGE (franja bajo el hero) ── */
+.hero-collage{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:160px;
+  gap:3px;
   background:#07090C;
   overflow:hidden;
 }
-
-/* collage — ocupa toda la mitad derecha con position:absolute */
-.hero-collage{
-  position:absolute;
-  top:0;right:0;bottom:0;
-  width:52%;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  grid-template-rows:1fr 1fr 1fr;
-  gap:3px;
-  overflow:hidden;
-}
-/* degradado que funde el collage con el fondo oscuro */
-.hero-collage::before{
-  content:'';
-  position:absolute;
-  inset:0;left:-1px;
-  background:linear-gradient(90deg,#07090C 0%,transparent 40%);
-  z-index:2;pointer-events:none;
-}
-.hc-photo{overflow:hidden;}
+.hc-photo{overflow:hidden;position:relative;}
 .hc-photo img{
   width:100%;height:100%;
   object-fit:cover;display:block;
-  filter:brightness(.75) saturate(.8);
+  filter:brightness(.8) saturate(.85);
   animation:slowZoom 9s ease-in-out infinite alternate;
-  transition:filter .4s ease;
+  transition:filter .35s ease;
 }
-.hc-photo:nth-child(2) img{animation-delay:.6s;}
-.hc-photo:nth-child(3) img{animation-delay:1.2s;}
-.hc-photo:nth-child(4) img{animation-delay:1.8s;}
-.hc-photo:nth-child(5) img{animation-delay:2.4s;}
-.hc-photo:nth-child(6) img{animation-delay:3s;}
-.hc-photo:nth-child(7) img{animation-delay:3.6s;}
-.hc-photo:nth-child(8) img{animation-delay:4.2s;}
-.hc-photo:nth-child(9) img{animation-delay:4.8s;}
-.hc-photo:hover img{filter:brightness(.95) saturate(1);}
-.hc-photo.tall{grid-row:span 2;}
-@keyframes slowZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
-
-/* texto encima del fondo */
-.hero-text-side{
-  position:relative;
-  z-index:3;
-  display:flex;
-  align-items:flex-end;
-  height:100%;
-  min-height:inherit;
-}
-/* líneas decorativas detrás del texto */
-.hero-outer::before{
-  content:'';
-  position:absolute;
-  inset:-30% -5%;
-  background-image:repeating-linear-gradient(115deg,rgba(30,217,122,.035) 0 1px,transparent 1px 28px);
-  animation:heroShift 20s linear infinite;
-  z-index:1;pointer-events:none;
-}
-
-/* mobile */
-@media(max-width:640px){
-  .hero-collage{position:relative;width:100%;height:180px;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr;}
-  .hero-collage::before{background:linear-gradient(180deg,transparent 60%,#07090C);}
-  .hc-photo.tall{grid-row:span 1;}
-  .hero-text-side{height:auto;}
+.hc-photo:nth-child(2) img{animation-delay:.7s;}
+.hc-photo:nth-child(3) img{animation-delay:1.4s;}
+.hc-photo:nth-child(4) img{animation-delay:2.1s;}
+.hc-photo:nth-child(5) img{animation-delay:2.8s;}
+.hc-photo:nth-child(6) img{animation-delay:3.5s;}
+.hc-photo:nth-child(7) img{animation-delay:4.2s;}
+.hc-photo:nth-child(8) img{animation-delay:4.9s;}
+.hc-photo:nth-child(9) img{animation-delay:5.6s;}
+.hc-photo:hover img{filter:brightness(1) saturate(1.1);}
+@keyframes slowZoom{from{transform:scale(1);}to{transform:scale(1.07);}}
+@media(max-width:600px){
+  .hero-collage{grid-template-columns:repeat(4,1fr) repeat(5,0);grid-template-rows:110px;}
+  .hc-photo:nth-child(n+5){display:none;}
 }
 .hero::before{
   content:'';
@@ -466,19 +452,19 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
         </div>
       </div>
     </div>
-    <!-- COLLAGE -->
-    <div class="hero-collage">
-      <div class="hc-photo tall"><img src="assets/alvaro-hero.png" alt="Álvaro Barja"></div>
-      <div class="hc-photo"><img src="assets/foto1.webp" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto2.webp" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto3.png" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto4.webp" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto5.png" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto6.png" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto7.png" alt=""></div>
-      <div class="hc-photo"><img src="assets/foto8.png" alt=""></div>
-    </div>
   </div>
+</div>
+<!-- COLLAGE (bajo el hero, dentro del mismo fondo oscuro) -->
+<div class="hero-collage">
+  <div class="hc-photo"><img src="assets/alvaro-hero.png" alt="Álvaro Barja"></div>
+  <div class="hc-photo"><img src="assets/foto1.webp" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto2.webp" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto3.png" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto4.webp" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto5.png" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto6.png" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto7.png" alt=""></div>
+  <div class="hc-photo"><img src="assets/foto8.png" alt=""></div>
 </div>
 <div class="tabs">
   <div class="mini-id"><div class="player-avatar">AB</div>Álvaro Barja · Pivote #20</div>
