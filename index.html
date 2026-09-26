@@ -51,11 +51,11 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 }
 .hero-text-side{position:relative;z-index:3;width:100%;}
 
-/* ── FOTO COLLAGE (franja bajo el hero) ── */
+/* ── FOTO COLLAGE (franja integrada dentro del hero-outer) ── */
 .hero-collage{
   display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows:160px;
+  grid-template-columns:repeat(7,1fr);
+  height:130px;
   gap:3px;
   background:#07090C;
   overflow:hidden;
@@ -64,22 +64,20 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .hc-photo img{
   width:100%;height:100%;
   object-fit:cover;display:block;
-  filter:brightness(.8) saturate(.85);
+  filter:brightness(.78) saturate(.82);
   animation:slowZoom 9s ease-in-out infinite alternate;
   transition:filter .35s ease;
 }
-.hc-photo:nth-child(2) img{animation-delay:.7s;}
-.hc-photo:nth-child(3) img{animation-delay:1.4s;}
-.hc-photo:nth-child(4) img{animation-delay:2.1s;}
-.hc-photo:nth-child(5) img{animation-delay:2.8s;}
-.hc-photo:nth-child(6) img{animation-delay:3.5s;}
-.hc-photo:nth-child(7) img{animation-delay:4.2s;}
-.hc-photo:nth-child(8) img{animation-delay:4.9s;}
-.hc-photo:nth-child(9) img{animation-delay:5.6s;}
+.hc-photo:nth-child(2) img{animation-delay:.8s;}
+.hc-photo:nth-child(3) img{animation-delay:1.6s;}
+.hc-photo:nth-child(4) img{animation-delay:2.4s;}
+.hc-photo:nth-child(5) img{animation-delay:3.2s;}
+.hc-photo:nth-child(6) img{animation-delay:4s;}
+.hc-photo:nth-child(7) img{animation-delay:4.8s;}
 .hc-photo:hover img{filter:brightness(1) saturate(1.1);}
 @keyframes slowZoom{from{transform:scale(1);}to{transform:scale(1.07);}}
 @media(max-width:600px){
-  .hero-collage{grid-template-columns:repeat(4,1fr) repeat(5,0);grid-template-rows:110px;}
+  .hero-collage{grid-template-columns:repeat(4,1fr);height:90px;}
   .hc-photo:nth-child(n+5){display:none;}
 }
 .hero::before{
@@ -453,18 +451,16 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
       </div>
     </div>
   </div>
-</div>
-<!-- COLLAGE (bajo el hero, dentro del mismo fondo oscuro) -->
-<div class="hero-collage">
-  <div class="hc-photo"><img src="assets/alvaro-hero.png" alt="Álvaro Barja"></div>
-  <div class="hc-photo"><img src="assets/foto1.webp" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto2.webp" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto3.png" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto4.webp" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto5.png" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto6.png" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto7.png" alt=""></div>
-  <div class="hc-photo"><img src="assets/foto8.png" alt=""></div>
+  <!-- COLLAGE — 7 cuadros, sin hueco, dentro del mismo bloque oscuro -->
+  <div class="hero-collage">
+    <div class="hc-photo"><img src="assets/foto2.webp" alt="Álvaro Barja"></div>
+    <div class="hc-photo"><img src="assets/foto3.png" alt=""></div>
+    <div class="hc-photo"><img src="assets/foto4.webp" alt=""></div>
+    <div class="hc-photo"><img src="assets/foto5.png" alt=""></div>
+    <div class="hc-photo"><img src="assets/foto6.png" alt=""></div>
+    <div class="hc-photo"><img src="assets/foto7.png" alt=""></div>
+    <div class="hc-photo"><img src="assets/foto8.png" alt=""></div>
+  </div>
 </div>
 <div class="tabs">
   <div class="mini-id"><div class="player-avatar">AB</div>Álvaro Barja · Pivote #20</div>
