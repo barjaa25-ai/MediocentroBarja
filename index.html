@@ -26,15 +26,22 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .hero{
   position:relative;
   max-width:100%;
-  min-height:clamp(320px,55vw,540px);
-  background-image:url('assets/alvaro-hero.png');
-  background-size:cover;
-  background-position:center 15%;
-  background-repeat:no-repeat;
+  min-height:clamp(320px,55vw,560px);
   display:flex;
   align-items:flex-end;
   overflow:hidden;
 }
+/* carrusel de slides */
+.hero-slides{position:absolute;inset:0;z-index:0;}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;
+  background-position:center 20%;
+  background-repeat:no-repeat;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+.hero-slide.active{opacity:1;}
 .hero::before{
   content:'';
   position:absolute;
@@ -394,6 +401,17 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
 </svg>
 <div class="hero-outer">
   <div class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url('assets/alvaro-hero.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto1.webp')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto2.webp')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto3.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto4.webp')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto5.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto6.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto7.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/foto8.png')"></div>
+    </div>
     <div class="hero-content">
       <p class="hero-eyebrow">Pivote · Dorsal #20 · Temporada 2026/27</p>
       <h1>ÁLVARO<br><span class="h1-accent">BARJA</span></h1>
@@ -1522,6 +1540,18 @@ function updateStatDashboard(){
   if(el4) el4.textContent=dTotal?dPct+'% de acierto':'Sin responder aún';
 }
 function openLink(url){ window.open(url,'_blank'); }
+
+// ── HERO SLIDESHOW ──
+(function(){
+  const slides=document.querySelectorAll('.hero-slide');
+  let cur=0;
+  if(slides.length<2) return;
+  setInterval(()=>{
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+  },4000);
+})();
 </script>
 </body>
 </html>
