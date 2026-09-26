@@ -25,81 +25,75 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .hero-outer{background:#07090C;}
 .hero{
   position:relative;
-  display:flex;
-  align-items:stretch;
-  min-height:clamp(400px,55vw,560px);
-  background:#07090C;
+  min-height:clamp(420px,56vw,580px);
   overflow:hidden;
-}
-/* líneas decorativas */
-.hero::after{
-  content:'';
-  position:absolute;inset:-50% -10%;
-  background-image:repeating-linear-gradient(115deg,rgba(30,217,122,.04) 0 1px,transparent 1px 28px);
-  animation:heroShift 20s linear infinite;
-  z-index:1;pointer-events:none;
 }
 @keyframes heroShift{from{transform:translate(0,0);}to{transform:translate(-60px,30px);}}
-@keyframes slowZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
+@keyframes slowZoom{from{transform:scale(1);}to{transform:scale(1.1);}}
 
-/* ── LADO TEXTO ── */
-.hero-text-side{
-  flex:0 0 46%;
-  position:relative;
-  z-index:3;
-  display:flex;
-  align-items:center;
-}
-
-/* ── COLLAGE MOSAICO (lado derecho del hero) ── */
+/* ── COLLAGE — fondo completo ── */
 .hero-collage{
-  flex:1;
-  position:relative;
+  position:absolute;
+  inset:0;
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
   grid-template-rows:1fr 1fr 1fr;
   gap:3px;
-  overflow:hidden;
-}
-/* degradado que funde con el lado oscuro del texto */
-.hero-collage::before{
-  content:'';
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,#07090C 0%,rgba(7,9,12,.3) 25%,transparent 55%);
-  z-index:2;pointer-events:none;
+  z-index:0;
 }
 .hc-photo{overflow:hidden;}
 .hc-photo img{
   width:100%;height:100%;
   object-fit:cover;display:block;
-  filter:brightness(.85) saturate(.9);
-  animation:slowZoom 9s ease-in-out infinite alternate;
+  filter:brightness(.7) saturate(.85);
+  animation:slowZoom 10s ease-in-out infinite alternate;
   transition:filter .4s ease;
 }
-/* stagger animation per photo */
-.hc-photo:nth-child(2) img{animation-delay:.8s;}
-.hc-photo:nth-child(3) img{animation-delay:1.6s;}
-.hc-photo:nth-child(4) img{animation-delay:2.4s;}
-.hc-photo:nth-child(5) img{animation-delay:3.2s;}
-.hc-photo:nth-child(6) img{animation-delay:4s;}
-.hc-photo:nth-child(7) img{animation-delay:4.8s;}
-.hc-photo:hover img{filter:brightness(1) saturate(1.1);}
-/* mosaico: foto 1 alta, foto 6 ancha */
+.hc-photo:nth-child(2) img{animation-delay:.9s;}
+.hc-photo:nth-child(3) img{animation-delay:1.8s;}
+.hc-photo:nth-child(4) img{animation-delay:2.7s;}
+.hc-photo:nth-child(5) img{animation-delay:3.6s;}
+.hc-photo:nth-child(6) img{animation-delay:4.5s;}
+.hc-photo:nth-child(7) img{animation-delay:5.4s;}
+/* foto 1: columna 1 alta (span 2 filas) */
 .hc-photo:nth-child(1){grid-row:span 2;}
+/* foto 6: ancha (span 2 cols en fila 3) */
 .hc-photo:nth-child(6){grid-column:span 2;}
 
-@media(max-width:480px){
-  .hero{flex-direction:column;}
-  .hero-text-side{flex:0 0 auto;}
-  .hero-collage{
-    height:120px;
-    grid-template-columns:repeat(4,1fr);
-    grid-template-rows:1fr;
-  }
-  .hero-collage::before{background:linear-gradient(180deg,#07090C 0%,transparent 50%);}
-  .hc-photo:nth-child(1){grid-row:span 1;}
+/* overlay oscuro sobre el collage — más denso a la izquierda */
+.hero-collage::after{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg, rgba(7,9,12,.92) 0%, rgba(7,9,12,.6) 38%, rgba(7,9,12,.25) 65%, transparent 100%),
+    linear-gradient(180deg, rgba(7,9,12,.1) 0%, rgba(7,9,12,.5) 80%, rgba(7,9,12,.8) 100%);
+  z-index:1;pointer-events:none;
+}
+/* líneas decorativas verdes */
+.hero-collage::before{
+  content:'';
+  position:absolute;inset:-50% -10%;
+  background-image:repeating-linear-gradient(115deg,rgba(30,217,122,.04) 0 1px,transparent 1px 28px);
+  animation:heroShift 20s linear infinite;
+  z-index:2;pointer-events:none;
+}
+
+/* ── TEXTO encima del collage ── */
+.hero-text-side{
+  position:relative;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  height:100%;
+  min-height:inherit;
+  max-width:52%;
+}
+
+@media(max-width:560px){
+  .hero-text-side{max-width:100%;}
+  .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr 1fr;}
+  .hc-photo:nth-child(1){grid-row:span 2;}
   .hc-photo:nth-child(6){grid-column:span 1;}
-  .hc-photo:nth-child(n+5){display:none;}
 }
 .hero-content{
   position:relative;z-index:2;
