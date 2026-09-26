@@ -101,11 +101,24 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .pill-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
 .pill{font-size:11px;padding:3px 9px;border-radius:20px;}
 /* CAMPO */
-.field-wrap{background:#2d7a3a;border-radius:14px;padding:1rem;margin-bottom:1rem;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 6px 18px rgba(20,50,20,.22);}
+.field-wrap{position:relative;background:#2d7a3a;border-radius:14px;padding:1rem;margin-bottom:1rem;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 6px 18px rgba(20,50,20,.22);}
 .field-wrap svg{width:100%;height:auto;display:block;}
-.zone-info{background:#fff;border-radius:10px;padding:.75rem 1rem;margin-top:.75rem;min-height:80px;box-shadow:0 2px 8px rgba(20,20,15,.05);}
-.zi-title{font-size:14px;font-weight:700;color:#0F6E56;margin-bottom:4px;}
-.zi-body{font-size:13px;color:#444;line-height:1.5;}
+.field-hint{display:flex;align-items:center;gap:6px;font-size:12px;color:#666;margin-bottom:.6rem;}
+.field-hint .icon{width:13px;height:13px;color:#0F6E56;flex-shrink:0;}
+.zone-rect,.field-hot{transition:opacity .18s ease;}
+.zone-rect:focus-visible,.field-hot:focus-visible{outline:2.5px solid #6ee7b7;outline-offset:2px;}
+/* tarjeta táctica flotante sobre el campo */
+.field-card-anchor{position:absolute;left:0;top:0;transform:translate(-50%,-50%);z-index:6;pointer-events:none;width:max-content;}
+.field-card{position:relative;width:230px;max-width:60vw;background:rgba(7,26,20,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:.8rem .95rem;box-shadow:0 14px 34px rgba(0,0,0,.4);opacity:0;transform:translateY(8px) scale(.97);transition:opacity .3s cubic-bezier(.16,.84,.44,1),transform .3s cubic-bezier(.16,.84,.44,1);pointer-events:none;}
+.field-card-anchor.show .field-card{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.field-card::after{content:'';position:absolute;width:13px;height:13px;background:rgba(7,26,20,.95);border:1px solid rgba(255,255,255,.14);left:var(--arrow-left,50%);margin-left:-6.5px;}
+.field-card.arrow-bottom::after{bottom:-7px;border-top:none;border-left:none;transform:rotate(45deg);}
+.field-card.arrow-top::after{top:-7px;border-bottom:none;border-right:none;transform:rotate(45deg);}
+.fc-close{position:absolute;top:5px;right:6px;background:none;border:none;color:rgba(255,255,255,.55);cursor:pointer;padding:4px;line-height:0;border-radius:50%;transition:background .15s ease,color .15s ease;}
+.fc-close:hover{background:rgba(255,255,255,.12);color:#fff;}
+.fc-close .icon{width:13px;height:13px;}
+.fc-title{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#6ee7b7;margin:0 18px 5px 0;}
+.fc-body{font-size:12.5px;line-height:1.55;color:#f2f1ed;}
 /* Sub-tabs campo */
 .sub-tabs{display:flex;gap:6px;margin-bottom:.75rem;flex-wrap:wrap;}
 .stab{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:16px;border:1px solid #dedad0;background:#fbfaf7;color:#555;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s ease;}
@@ -178,7 +191,25 @@ h1,h2,.card-title,.tab,.stab,.hero-content p,.tl-club,.player-name,.zi-title,.ti
 .player-sub .icon{width:12px;height:12px;color:#999;}
 ::selection{background:#1D9E75;color:#fff;}
 a,button{-webkit-tap-highlight-color:transparent;}
-@media(max-width:520px){.g2,.vid-grid{grid-template-columns:1fr;}}
+button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #0F6E56;outline-offset:2px;}
+/* mini-cabecera al hacer scroll */
+.mini-id{display:none;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#0F6E56;padding:0 2px 0 0;white-space:nowrap;}
+.mini-id .player-avatar{width:26px;height:26px;font-size:11px;box-shadow:none;}
+.tabs.scrolled .mini-id{display:flex;}
+.tabs.scrolled{padding-top:.55rem;padding-bottom:.55rem;}
+/* dashboard de progreso */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1rem;}
+.stat-card{background:#fff;border:1px solid #e8e5db;border-radius:14px;padding:.9rem 1rem;box-shadow:0 1px 2px rgba(20,20,15,.03),0 4px 14px rgba(20,20,15,.035);}
+.stat-label{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#888;margin-bottom:8px;}
+.stat-label .icon{width:13px;height:13px;color:#0F6E56;}
+.stat-num{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;color:#1a1a18;line-height:1;}
+.stat-num span{font-size:14px;font-weight:600;color:#999;}
+.stat-pct{font-size:12px;font-weight:700;color:#0F6E56;margin-top:4px;}
+@media(max-width:520px){.g2,.vid-grid{grid-template-columns:1fr;}
+  .sub-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-1rem;margin-right:-1rem;padding-left:1rem;padding-right:1rem;}
+  .sub-tabs::-webkit-scrollbar{display:none;}
+  .sub-tabs .stab{flex-shrink:0;}
+}
 </style>
 </head>
 <body>
@@ -205,6 +236,8 @@ a,button{-webkit-tap-highlight-color:transparent;}
   <symbol id="icon-checkcircle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></symbol>
   <symbol id="icon-xcircle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
   <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></symbol>
+  <symbol id="icon-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="icon-arrowright" viewBox="0 0 24 24"><path d="M4 12h16M13 5l7 7-7 7"/></symbol>
   <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.2l-5.8 3.2 1.1-6.5-4.7-4.6 6.5-.9Z"/></symbol>
 </svg>
 <div class="hero-outer">
@@ -222,6 +255,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
   </div>
 </div>
 <div class="tabs">
+  <div class="mini-id"><div class="player-avatar">AB</div>Álvaro Barja · Pivote #20</div>
   <button class="tab active" onclick="showTab('perfil',this)"><svg class="icon"><use href="#icon-user"/></svg>Perfil</button>
   <button class="tab" onclick="showTab('formacion',this)"><svg class="icon"><use href="#icon-layers"/></svg>Formación</button>
 </div>
@@ -411,6 +445,18 @@ a,button{-webkit-tap-highlight-color:transparent;}
 
 <!-- ══ FORMACIÓN ══ -->
 <div id="s-formacion" class="sec">
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-label"><svg class="icon"><use href="#icon-checksquare"/></svg>Checklist</div>
+      <div class="stat-num" id="dash-chk-num">0<span>/20</span></div>
+      <div class="stat-pct" id="dash-chk-pct">0% completado</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label"><svg class="icon"><use href="#icon-message"/></svg>Decisiones</div>
+      <div class="stat-num" id="dash-dec-num">0<span>/0 respondidas</span></div>
+      <div class="stat-pct" id="dash-dec-pct">Sin responder aún</div>
+    </div>
+  </div>
   <div class="sub-tabs">
     <button class="stab active" onclick="showForm('campo',this)"><svg class="icon"><use href="#icon-map"/></svg>Mapa campo</button>
     <button class="stab" onclick="showForm('decision',this)"><svg class="icon"><use href="#icon-message"/></svg>Decisiones</button>
@@ -435,6 +481,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
 
   <!-- ZONAS GENERALES -->
   <div id="cv-zonas" class="campo-view active">
+    <div class="field-hint"><svg class="icon"><use href="#icon-target"/></svg>Toca una zona del campo para ver tu función táctica</div>
     <div class="field-wrap">
       <svg viewBox="0 0 340 500" xmlns="http://www.w3.org/2000/svg">
         <rect width="340" height="500" fill="#2d7a3a"/>
@@ -448,19 +495,19 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <rect x="115" y="455" width="110" height="30" fill="none" stroke="#fff" stroke-width="1.5" opacity=".7"/>
         <rect x="135" y="10" width="70" height="10" fill="none" stroke="#fff" stroke-width="2" opacity=".9"/>
         <rect x="135" y="485" width="70" height="10" fill="none" stroke="#fff" stroke-width="2" opacity=".9"/>
-        <rect id="z1" x="16" y="340" width="308" height="74" rx="4" fill="#1D9E75" opacity=".22" class="zone-rect" onclick="showZone(1)" style="cursor:pointer;"/>
+        <rect id="z1" x="16" y="340" width="308" height="74" rx="4" fill="#1D9E75" opacity=".22" class="zone-rect" onclick="showZone(1,this)" tabindex="0" role="button" aria-label="Zona 1: salida y cobertura defensiva" style="cursor:pointer;"/>
         <rect x="16" y="340" width="308" height="74" rx="4" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
         <text x="170" y="362" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">ZONA 1</text>
         <text x="170" y="384" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Salida y cobertura defensiva</text>
-        <rect id="z2" x="16" y="252" width="308" height="86" rx="4" fill="#378ADD" opacity=".35" class="zone-rect" onclick="showZone(2)" style="cursor:pointer;"/>
+        <rect id="z2" x="16" y="252" width="308" height="86" rx="4" fill="#378ADD" opacity=".35" class="zone-rect" onclick="showZone(2,this)" tabindex="0" role="button" aria-label="Zona 2: tu zona estrella, organización y distribución" style="cursor:pointer;"/>
         <rect x="16" y="252" width="308" height="86" rx="4" fill="none" stroke="#378ADD" stroke-width="2"/>
         <text x="170" y="266" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">ZONA 2 · TU ZONA ESTRELLA</text>
         <text x="170" y="282" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Organización / Distribución</text>
-        <rect id="z3" x="16" y="170" width="308" height="80" rx="4" fill="#EF9F27" opacity=".2" class="zone-rect" onclick="showZone(3)" style="cursor:pointer;"/>
+        <rect id="z3" x="16" y="170" width="308" height="80" rx="4" fill="#EF9F27" opacity=".2" class="zone-rect" onclick="showZone(3,this)" tabindex="0" role="button" aria-label="Zona 3: halbraum, apoyo puntual" style="cursor:pointer;"/>
         <rect x="16" y="170" width="308" height="80" rx="4" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
         <text x="170" y="200" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">ZONA 3</text>
         <text x="170" y="222" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Halbraum (apoyo puntual)</text>
-        <rect id="z4" x="16" y="87" width="308" height="81" rx="4" fill="#D85A30" opacity=".2" class="zone-rect" onclick="showZone(4)" style="cursor:pointer;"/>
+        <rect id="z4" x="16" y="87" width="308" height="81" rx="4" fill="#D85A30" opacity=".2" class="zone-rect" onclick="showZone(4,this)" tabindex="0" role="button" aria-label="Zona 4: área rival, rara vez" style="cursor:pointer;"/>
         <rect x="16" y="87" width="308" height="81" rx="4" fill="none" stroke="#D85A30" stroke-width="1.5"/>
         <text x="170" y="118" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">ZONA 4</text>
         <text x="170" y="140" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Área rival (rara vez)</text>
@@ -480,9 +527,12 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <circle cx="73" cy="480" r="5" fill="#6ee7b7"/>
         <text x="81" y="484" fill="#fff" font-size="12">Compañeros</text>
       </svg>
-      <div class="zone-info" id="zone-info">
-        <div class="zi-title">Toca una zona del campo para ver tu rol</div>
-        <div class="zi-body">Cada zona del campo define qué debe hacer el pivote. La zona azul (organización, delante de la defensa) es tu base: desde ahí controlas el ritmo y proteges al equipo.</div>
+      <div class="field-card-anchor" id="fca-zonas">
+        <div class="field-card">
+          <button class="fc-close" onclick="hideFieldCard('fca-zonas')" aria-label="Cerrar"><svg class="icon"><use href="#icon-x"/></svg></button>
+          <div class="fc-title" id="fc-zonas-title"></div>
+          <div class="fc-body" id="fc-zonas-body"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -496,6 +546,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <button class="stab" onclick="showCorner('def',this)">Corner en contra</button>
       </div>
       <div id="cn-atk" class="campo-view active">
+        <div class="field-hint"><svg class="icon"><use href="#icon-target"/></svg>Toca tu zona o el punto de penalti</div>
         <div class="field-wrap" style="margin-bottom:.75rem;">
           <svg viewBox="0 0 340 360" xmlns="http://www.w3.org/2000/svg">
             <rect width="340" height="360" fill="#2d7a3a"/>
@@ -520,12 +571,12 @@ a,button{-webkit-tap-highlight-color:transparent;}
             <circle cx="282" cy="68" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
             <text x="282" y="72" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">8</text>
             <!-- Zona punto de penalti -->
-            <rect x="112" y="98" width="116" height="46" rx="4" fill="#EF9F27" opacity=".4"/>
+            <rect x="112" y="98" width="116" height="46" rx="4" fill="#EF9F27" opacity=".4" class="field-hot" onclick="showCornerAtk('penal',this)" tabindex="0" role="button" aria-label="Punto de penalti: rechace y segunda jugada" style="cursor:pointer;"/>
             <text x="170" y="116" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Punto penal</text>
             <circle cx="170" cy="132" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
             <text x="170" y="136" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">5</text>
             <!-- Zona TÚ (pivote) -->
-            <rect x="90" y="158" width="160" height="52" rx="4" fill="#1D9E75" opacity=".45"/>
+            <rect x="90" y="158" width="160" height="52" rx="4" fill="#1D9E75" opacity=".45" class="field-hot" onclick="showCornerAtk('tu',this)" tabindex="0" role="button" aria-label="Tu posición como pivote en el corner a favor" style="cursor:pointer;"/>
             <text x="170" y="177" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">TÚ · Pivote</text>
             <circle cx="170" cy="195" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
             <text x="170" y="199" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
@@ -539,6 +590,13 @@ a,button{-webkit-tap-highlight-color:transparent;}
             <text x="170" y="258" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">Si despejan, tú y el lateral cortáis</text>
             <text x="170" y="272" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">el balón para reiniciar</text>
           </svg>
+          <div class="field-card-anchor" id="fca-catk">
+            <div class="field-card">
+              <button class="fc-close" onclick="hideFieldCard('fca-catk')" aria-label="Cerrar"><svg class="icon"><use href="#icon-x"/></svg></button>
+              <div class="fc-title" id="fc-catk-title"></div>
+              <div class="fc-body" id="fc-catk-body"></div>
+            </div>
+          </div>
         </div>
         <div class="row"><div class="dot dg"></div><div><div class="lbl">Tu posición: borde exterior del área grande</div><div class="desc">Como pivote no entras al área a rematar. Te quedas en el borde para recoger rechaces, disparar de media distancia si el balón te llega limpio, y sobre todo estar listo para frenar un contraataque.</div></div></div>
         <div class="row"><div class="dot da"></div><div><div class="lbl">Si el corner es en corto</div><div class="desc">Puedes ser la opción de apoyo cercana al sacador si nadie más está disponible, aunque normalmente esa función la hace un interior. Tu prioridad sigue siendo cubrir la espalda del equipo.</div></div></div>
@@ -546,6 +604,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <div class="row"><div class="dot dc"></div><div><div class="lbl">Eres el seguro del equipo</div><div class="desc">Junto al lateral que no sube, eres la última barrera antes del contraataque rival. Esta es tu responsabilidad número uno en cada corner a favor: nunca subas tú también al área.</div></div></div>
       </div>
       <div id="cn-def" class="campo-view">
+        <div class="field-hint"><svg class="icon"><use href="#icon-target"/></svg>Toca tu zona en el borde del área</div>
         <div class="field-wrap" style="margin-bottom:.75rem;">
           <svg viewBox="0 0 340 360" xmlns="http://www.w3.org/2000/svg">
             <rect width="340" height="360" fill="#2d7a3a"/>
@@ -569,7 +628,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
             <circle cx="57" cy="304" r="9" fill="#6ee7b7" stroke="#fff" stroke-width="1.5"/>
             <text x="57" y="308" text-anchor="middle" fill="#0F6E56" font-size="10" font-weight="700">5</text>
             <!-- borde área = TÚ -->
-            <rect x="95" y="210" width="150" height="50" rx="4" fill="#1D9E75" opacity=".5"/>
+            <rect x="95" y="210" width="150" height="50" rx="4" fill="#1D9E75" opacity=".5" class="field-hot" onclick="showCornerDef(this)" tabindex="0" role="button" aria-label="Tu posición como pivote en el corner en contra" style="cursor:pointer;"/>
             <text x="170" y="228" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">TÚ · Pivote</text>
             <circle cx="170" cy="245" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
             <text x="170" y="249" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
@@ -586,6 +645,13 @@ a,button{-webkit-tap-highlight-color:transparent;}
             <text x="170" y="80" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">Si despejan, recoges y sales</text>
             <text x="170" y="94" text-anchor="middle" fill="#fff" font-size="11" opacity=".75">rápido al contraataque</text>
           </svg>
+          <div class="field-card-anchor" id="fca-cdef">
+            <div class="field-card">
+              <button class="fc-close" onclick="hideFieldCard('fca-cdef')" aria-label="Cerrar"><svg class="icon"><use href="#icon-x"/></svg></button>
+              <div class="fc-title" id="fc-cdef-title"></div>
+              <div class="fc-body" id="fc-cdef-body"></div>
+            </div>
+          </div>
         </div>
         <div class="row"><div class="dot dc"></div><div><div class="lbl">No entras al área a defender el corner rival</div><div class="desc">Tu misión es estar en el borde del área: si se despeja largo, eres el primero en recuperar el balón y lanzar el contraataque. Es tu zona natural como pivote.</div></div></div>
         <div class="row"><div class="dot da"></div><div><div class="lbl">Defiendes la segunda jugada</div><div class="desc">Si el centro llega a la frontal del área y el rival remata, tú bloqueas o interceptas. No te alejes demasiado — mantente entre 15-20 metros de tu portería.</div></div></div>
@@ -605,6 +671,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
       <button class="stab" onclick="showBanda('bcon',this)">Banda en contra</button>
     </div>
     <div id="bv-bfav" class="campo-view active">
+      <div class="field-hint"><svg class="icon"><use href="#icon-target"/></svg>Toca tu zona en el saque de banda</div>
       <div class="field-wrap" style="margin-bottom:.75rem;">
         <svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
           <rect width="340" height="300" fill="#2d7a3a"/>
@@ -625,19 +692,27 @@ a,button{-webkit-tap-highlight-color:transparent;}
           <!-- flecha saque a ti -->
           <line x1="320" y1="132" x2="215" y2="172" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="4"/>
           <!-- tu posición central-baja -->
-          <rect x="115" y="148" width="150" height="54" rx="4" fill="#1D9E75" opacity=".45"/>
+          <rect x="115" y="148" width="150" height="54" rx="4" fill="#1D9E75" opacity=".45" class="field-hot" onclick="showBandaFav(this)" tabindex="0" role="button" aria-label="Tu posición como pivote en el saque de banda a favor" style="cursor:pointer;"/>
           <text x="190" y="167" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">TÚ · Pivote</text>
           <circle cx="190" cy="184" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
           <text x="190" y="188" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
           <text x="170" y="230" text-anchor="middle" fill="#fff" font-size="12" opacity=".85">Te ofreces algo más retrasado</text>
           <text x="170" y="245" text-anchor="middle" fill="#fff" font-size="12" opacity=".85">y centrado que el interior</text>
         </svg>
+        <div class="field-card-anchor" id="fca-bfav">
+          <div class="field-card">
+            <button class="fc-close" onclick="hideFieldCard('fca-bfav')" aria-label="Cerrar"><svg class="icon"><use href="#icon-x"/></svg></button>
+            <div class="fc-title" id="fc-bfav-title"></div>
+            <div class="fc-body" id="fc-bfav-body"></div>
+          </div>
+        </div>
       </div>
       <div class="row"><div class="dot dg"></div><div><div class="lbl">Posición retrasada y central</div><div class="desc">No subas al mismo nivel que el sacador. Ofrécete más retrasado y hacia el centro: eres la opción de seguridad que nunca falla, aunque el pase parezca menos ambicioso.</div></div></div>
       <div class="row"><div class="dot da"></div><div><div class="lbl">Tras recibir: reorganiza, no arriesgues</div><div class="desc">Si recibes con presión, da un pase corto y seguro a un central o cambia de orientación con calma. No es tu función buscar el pase vertical arriesgado en esta jugada.</div></div></div>
       <div class="row"><div class="dot db"></div><div><div class="lbl">Saque de banda en campo rival</div><div class="desc">Aquí puedes subir algo más como segunda opción, pero siempre pensando en cubrir una pérdida rápida — sigue siendo tu prioridad como pivote.</div></div></div>
     </div>
     <div id="bv-bcon" class="campo-view">
+      <div class="field-hint"><svg class="icon"><use href="#icon-target"/></svg>Toca tu zona de cobertura</div>
       <div class="field-wrap" style="margin-bottom:.75rem;">
         <svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
           <rect width="340" height="300" fill="#2d7a3a"/>
@@ -655,13 +730,20 @@ a,button{-webkit-tap-highlight-color:transparent;}
           <!-- flecha rival -->
           <line x1="320" y1="132" x2="255" y2="140" stroke="#ff5555" stroke-width="1.5" stroke-dasharray="4" opacity=".7"/>
           <!-- tu posición cortando el pase interior -->
-          <rect x="135" y="138" width="150" height="54" rx="4" fill="#D85A30" opacity=".42"/>
+          <rect x="135" y="138" width="150" height="54" rx="4" fill="#D85A30" opacity=".42" class="field-hot" onclick="showBandaCon(this)" tabindex="0" role="button" aria-label="Tu posición como pivote en el saque de banda en contra" style="cursor:pointer;"/>
           <text x="210" y="157" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">TÚ · Pivote</text>
           <circle cx="210" cy="174" r="12" fill="#fff" stroke="#0F6E56" stroke-width="2.5"/>
           <text x="210" y="178" text-anchor="middle" fill="#0F6E56" font-size="11" font-weight="700">20</text>
           <text x="170" y="230" text-anchor="middle" fill="#fff" font-size="11" opacity=".85">Tú cierras el centro,</text>
           <text x="170" y="245" text-anchor="middle" fill="#fff" font-size="11" opacity=".85">tu lateral marca en banda</text>
         </svg>
+        <div class="field-card-anchor" id="fca-bcon">
+          <div class="field-card">
+            <button class="fc-close" onclick="hideFieldCard('fca-bcon')" aria-label="Cerrar"><svg class="icon"><use href="#icon-x"/></svg></button>
+            <div class="fc-title" id="fc-bcon-title"></div>
+            <div class="fc-body" id="fc-bcon-body"></div>
+          </div>
+        </div>
       </div>
       <div class="row"><div class="dot dc"></div><div><div class="lbl">Cierra el centro del campo</div><div class="desc">Tu lateral marca al extremo rival en la banda. Tú te sitúas en el centro para cortar el pase hacia el pivote o mediapunta rival. Divide la responsabilidad: él cierra la banda, tú el centro.</div></div></div>
         <div class="row"><div class="dot da"></div><div><div class="lbl">No te vayas a la banda</div><div class="desc">Error habitual: ir a ayudar al lateral en la banda y dejar libre el centro del campo. Confía en tu lateral y mantén tu posición de corte en el centro.</div></div></div>
@@ -671,6 +753,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
 
   <!-- PASILLOS VERTICALES -->
   <div id="cv-pasillos" class="campo-view">
+    <div class="field-hint"><svg class="icon"><use href="#icon-target"/></svg>Toca cada pasillo para ver tu función</div>
     <div class="field-wrap">
       <svg viewBox="0 0 340 500" xmlns="http://www.w3.org/2000/svg">
         <rect width="340" height="500" fill="#2d7a3a"/>
@@ -680,19 +763,19 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <rect x="75" y="415" width="190" height="70" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/>
         <!-- 5 pasillos -->
         <!-- P1 banda izq -->
-        <rect x="15" y="15" width="60" height="470" fill="#378ADD" opacity=".15"/>
+        <rect x="15" y="15" width="60" height="470" fill="#378ADD" opacity=".15" class="field-hot" onclick="showPasillo(1,this)" tabindex="0" role="button" aria-label="Pasillo 1: banda izquierda" style="cursor:pointer;"/>
         <text x="45" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,45,260)">BANDA IZQ (1)</text>
         <!-- P2 halbraum izq -->
-        <rect x="75" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
+        <rect x="75" y="15" width="60" height="470" fill="#1D9E75" opacity=".15" class="field-hot" onclick="showPasillo(2,this)" tabindex="0" role="button" aria-label="Pasillo 2: halbraum izquierdo" style="cursor:pointer;"/>
         <text x="105" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,105,260)">HALBRAUM IZQ (2)</text>
         <!-- P3 centro = TU ZONA -->
-        <rect x="135" y="15" width="70" height="470" fill="#EF9F27" opacity=".3"/>
+        <rect x="135" y="15" width="70" height="470" fill="#EF9F27" opacity=".3" class="field-hot" onclick="showPasillo(3,this)" tabindex="0" role="button" aria-label="Pasillo 3: centro, tu zona" style="cursor:pointer;"/>
         <text x="170" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,170,260)">CENTRO (3)</text>
         <!-- P4 halbraum der -->
-        <rect x="205" y="15" width="60" height="470" fill="#1D9E75" opacity=".15"/>
+        <rect x="205" y="15" width="60" height="470" fill="#1D9E75" opacity=".15" class="field-hot" onclick="showPasillo(4,this)" tabindex="0" role="button" aria-label="Pasillo 4: halbraum derecho" style="cursor:pointer;"/>
         <text x="235" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,235,260)">HALBRAUM DER (4)</text>
         <!-- P5 banda der -->
-        <rect x="265" y="15" width="60" height="470" fill="#378ADD" opacity=".15"/>
+        <rect x="265" y="15" width="60" height="470" fill="#378ADD" opacity=".15" class="field-hot" onclick="showPasillo(5,this)" tabindex="0" role="button" aria-label="Pasillo 5: banda derecha" style="cursor:pointer;"/>
         <text x="295" y="260" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" transform="rotate(-90,295,260)">BANDA DER (5)</text>
         <!-- divisorias -->
         <line x1="75" y1="15" x2="75" y2="485" stroke="#fff" stroke-width="1" stroke-dasharray="5" opacity=".4"/>
@@ -706,6 +789,13 @@ a,button{-webkit-tap-highlight-color:transparent;}
         <text x="170" y="470" text-anchor="middle" fill="#fff" font-size="13" opacity=".85">El pasillo 3 (centro) es</text>
         <text x="170" y="486" text-anchor="middle" fill="#fff" font-size="13" opacity=".85">tu territorio de influencia</text>
       </svg>
+      <div class="field-card-anchor" id="fca-pasillos">
+        <div class="field-card">
+          <button class="fc-close" onclick="hideFieldCard('fca-pasillos')" aria-label="Cerrar"><svg class="icon"><use href="#icon-x"/></svg></button>
+          <div class="fc-title" id="fc-pasillos-title"></div>
+          <div class="fc-body" id="fc-pasillos-body"></div>
+        </div>
+      </div>
     </div>
     <div class="row"><div class="dot da"></div><div><div class="lbl">Pasillo 3 — Centro (TU ZONA)</div><div class="desc">El eje del campo, siempre delante de tus centrales. Desde aquí controlas el ritmo, das el cambio de orientación y proteges el pasillo más peligroso para el rival. Es tu base durante los 90 minutos.</div></div></div>
     <div class="row"><div class="dot dg"></div><div><div class="lbl">Pasillos 2 y 4 — Halbraum</div><div class="desc">Apoyas aquí de forma puntual: cuando un interior sube y deja espacio, o cuando el equipo necesita un pase filtrado desde una posición más adelantada. No es tu zona base, pero debes saber ocuparla si hace falta — la conoces bien de tu etapa como interior.</div></div></div>
@@ -1058,6 +1148,21 @@ function animateBars(){
 document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.pfill').forEach(el=>{ el.dataset.w=el.style.width; });
   staggerReveal(document.getElementById('s-perfil'));
+  document.querySelectorAll('.zone-rect,.field-hot').forEach(el=>{
+    el.addEventListener('keydown',(e)=>{
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.dispatchEvent(new Event('click',{bubbles:true})); }
+    });
+  });
+  const hero=document.querySelector('.hero');
+  const tabsBar=document.querySelector('.tabs');
+  if(hero&&tabsBar&&'IntersectionObserver' in window){
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(en=>tabsBar.classList.toggle('scrolled',!en.isIntersecting));
+    },{threshold:0,rootMargin:'-1px 0px 0px 0px'});
+    io.observe(hero);
+  }
+  initChecklistStorage();
+  initDecisionsStorage();
 });
 /* ---- tabs principales ---- */
 function showTab(id,btn){
@@ -1100,18 +1205,84 @@ function showBanda(id,btn){
   btn.closest('.sub-tabs').querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
 }
+/* ---- tarjeta táctica flotante sobre el campo ---- */
+function positionFieldCard(anchorId,svgEl,targetEl){
+  const anchor=document.getElementById(anchorId);
+  const wrap=svgEl.closest('.field-wrap');
+  const card=anchor.querySelector('.field-card');
+  const bbox=targetEl.getBBox();
+  const ctm=svgEl.getScreenCTM();
+  const pt=svgEl.createSVGPoint();
+  pt.x=bbox.x+bbox.width/2; pt.y=bbox.y+bbox.height/2;
+  const screenPt=pt.matrixTransform(ctm);
+  const wrapRect=wrap.getBoundingClientRect();
+  const cardRect=card.getBoundingClientRect();
+  const cw=cardRect.width||230, ch=cardRect.height||90, margin=10;
+  let x=screenPt.x-wrapRect.left, y=screenPt.y-wrapRect.top;
+  x=Math.max(cw/2+margin,Math.min(x,wrapRect.width-cw/2-margin));
+  y=Math.max(ch/2+margin,Math.min(y,wrapRect.height-ch/2-margin));
+  anchor.style.left=x+'px';
+  anchor.style.top=y+'px';
+  requestAnimationFrame(()=>anchor.classList.add('show'));
+}
+function hideFieldCard(anchorId){
+  const anchor=document.getElementById(anchorId);
+  if(anchor) anchor.classList.remove('show');
+}
+document.addEventListener('click',(e)=>{
+  document.querySelectorAll('.field-card-anchor.show').forEach(a=>{
+    if(!a.contains(e.target) && !e.target.closest('.zone-rect,.field-hot')) a.classList.remove('show');
+  });
+});
+window.addEventListener('resize',()=>{
+  document.querySelectorAll('.field-card-anchor.show').forEach(a=>a.classList.remove('show'));
+});
 /* ---- zonas mapa ---- */
 const zones={
-  1:{title:"ZONA 1 — Salida y cobertura defensiva (campo propio)",body:"Te sitúas delante de la línea de centrales, ligeramente escalonado. Ofreces la primera opción de pase en la salida y, al mismo tiempo, proteges el espacio si el rival recupera. Es tu zona de máxima responsabilidad defensiva."},
-  2:{title:"ZONA 2 — ORGANIZACIÓN / TU ZONA ESTRELLA",body:"El corazón del mediocampo, delante de tus centrales. Aquí controlas el ritmo del partido: circulas el balón, das el cambio de orientación y proteges el pasillo central. Si apareces siempre aquí bien colocado, el equipo entero juega más seguro."},
+  1:{title:"ZONA 1 — Salida y cobertura defensiva",body:"Te sitúas delante de la línea de centrales, ligeramente escalonado. Ofreces la primera opción de pase en la salida y, al mismo tiempo, proteges el espacio si el rival recupera. Es tu zona de máxima responsabilidad defensiva."},
+  2:{title:"ZONA 2 — Organización · tu zona estrella",body:"El corazón del mediocampo, delante de tus centrales. Aquí controlas el ritmo del partido: circulas el balón, das el cambio de orientación y proteges el pasillo central. Si apareces siempre aquí bien colocado, el equipo entero juega más seguro."},
   3:{title:"ZONA 3 — Halbraum (apoyo puntual)",body:"El espacio entre la defensa y el mediocampo rival. No es tu zona base, pero puedes visitarla puntualmente cuando el equipo necesita un pase filtrado extra o cuando un interior deja el hueco libre. La conoces bien de tu etapa como interior."},
-  4:{title:"ZONA 4 — Último tercio ofensivo (rara vez)",body:"Solo llegas aquí en jugadas muy puntuales (falta lateral, corner en corto, marcador urgente). Tu prioridad sigue siendo estar recolocado por si el equipo pierde el balón tras el ataque."}
+  4:{title:"ZONA 4 — Último tercio ofensivo",body:"Solo llegas aquí en jugadas muy puntuales (falta lateral, corner en corto, marcador urgente). Tu prioridad sigue siendo estar recolocado por si el equipo pierde el balón tras el ataque."}
 };
-function showZone(n){
+function showZone(n,el){
   const z=zones[n];
-  document.getElementById('zone-info').innerHTML='<div class="zi-title">'+z.title+'</div><div class="zi-body">'+z.body+'</div>';
-  document.querySelectorAll('.zone-rect').forEach(r=>r.setAttribute('opacity','.12'));
-  document.getElementById('z'+n).setAttribute('opacity','.45');
+  document.getElementById('fc-zonas-title').textContent=z.title;
+  document.getElementById('fc-zonas-body').textContent=z.body;
+  document.querySelectorAll('#cv-zonas .zone-rect').forEach(r=>r.setAttribute('opacity','.12'));
+  document.getElementById('z'+n).setAttribute('opacity','.5');
+  positionFieldCard('fca-zonas',el.closest('svg'),el);
+}
+/* ---- puntos calientes: corner y banda ---- */
+function showSpot(anchorId,titleId,bodyId,el,title,body){
+  document.getElementById(titleId).textContent=title;
+  document.getElementById(bodyId).textContent=body;
+  positionFieldCard(anchorId,el.closest('svg'),el);
+}
+const cornerAtkData={
+  tu:{title:"Tu posición · borde del área",body:"Como pivote no entras al área a rematar. Te quedas en el borde para recoger rechaces, disparar de media distancia si el balón te llega limpio, y sobre todo estar listo para frenar un contraataque. Eres el seguro del equipo ante el contraataque rival."},
+  penal:{title:"Punto de penalti",body:"Si el balón sale despejado hacia ti, controla y decide con calma: disparo si hay hueco, o circular el balón para organizar un segundo ataque."}
+};
+function showCornerAtk(k,el){ const d=cornerAtkData[k]; showSpot('fca-catk','fc-catk-title','fc-catk-body',el,d.title,d.body); }
+function showCornerDef(el){
+  showSpot('fca-cdef','fc-cdef-title','fc-cdef-body',el,"Tu posición · borde del área","No entras al área a defender el corner rival. Tu misión es estar en el borde: si se despeja largo, eres el primero en recuperar el balón y lanzar el contraataque. Es tu zona natural como pivote.");
+}
+function showBandaFav(el){
+  showSpot('fca-bfav','fc-bfav-title','fc-bfav-body',el,"Posición retrasada y central","No subas al mismo nivel que el sacador. Ofrécete más retrasado y hacia el centro: eres la opción de seguridad que nunca falla, aunque el pase parezca menos ambicioso.");
+}
+function showBandaCon(el){
+  showSpot('fca-bcon','fc-bcon-title','fc-bcon-body',el,"Cierra el centro del campo","Tu lateral marca al extremo rival en la banda. Tú te sitúas en el centro para cortar el pase hacia el pivote o mediapunta rival. Divide la responsabilidad: él cierra la banda, tú el centro.");
+}
+const pasilloData={
+  1:{title:"Pasillo 1 — Banda izquierda",body:"Rara vez llegas aquí. Solo en situaciones defensivas puntuales, para ayudar a doblar sobre el extremo rival si tu lateral queda superado."},
+  2:{title:"Pasillo 2 — Halbraum izquierdo",body:"Apoyas aquí de forma puntual: cuando un interior sube y deja espacio, o cuando el equipo necesita un pase filtrado desde una posición más adelantada. No es tu zona base, pero debes saber ocuparla si hace falta — la conoces bien de tu etapa como interior."},
+  3:{title:"Pasillo 3 — Centro (tu zona)",body:"El eje del campo, siempre delante de tus centrales. Desde aquí controlas el ritmo, das el cambio de orientación y proteges el pasillo más peligroso para el rival. Es tu base durante los 90 minutos."},
+  4:{title:"Pasillo 4 — Halbraum derecho",body:"Apoyas aquí de forma puntual: cuando un interior sube y deja espacio, o cuando el equipo necesita un pase filtrado desde una posición más adelantada. No es tu zona base, pero debes saber ocuparla si hace falta — la conoces bien de tu etapa como interior."},
+  5:{title:"Pasillo 5 — Banda derecha",body:"Rara vez llegas aquí. Solo en situaciones defensivas puntuales, para ayudar a doblar sobre el extremo rival si tu lateral queda superado."}
+};
+function showPasillo(n,el){
+  const d=pasilloData[n];
+  showSpot('fca-pasillos','fc-pasillos-title','fc-pasillos-body',el,d.title,d.body);
+  document.querySelectorAll('#cv-pasillos .field-hot').forEach(r=>r.setAttribute('opacity',r===el?'.4':'.12'));
 }
 /* ---- semana ---- */
 function showDay(idx,btn){
@@ -1120,12 +1291,16 @@ function showDay(idx,btn){
   document.getElementById('d'+idx).classList.add('active');
   btn.classList.add('sel');
 }
-/* ---- decisiones ---- */
+/* ---- decisiones (con persistencia) ---- */
 const answers={1:'c',2:'a',3:'c',4:'c',5:'b'};
-const answered={};
-function answer(q,opt){
-  if(answered[q]) return;
-  answered[q]=true;
+let answered={};
+function loadDecisions(){
+  try{ return JSON.parse(localStorage.getItem('mcb_decisions')||'{}'); }catch(e){ return {}; }
+}
+function saveDecisions(){
+  try{ localStorage.setItem('mcb_decisions',JSON.stringify(answered)); }catch(e){}
+}
+function applyAnswer(q,opt,silent){
   const sc=document.querySelectorAll('.scenario')[q-1];
   sc.querySelectorAll('.sc-opt').forEach((o,i)=>{
     const l=String.fromCharCode(97+i);
@@ -1134,14 +1309,64 @@ function answer(q,opt){
   });
   const ok=opt===answers[q];
   document.getElementById('fb'+q+(ok?'-ok':'-ko')).classList.add('show');
+  return ok;
 }
-/* ---- checklist ---- */
+function answer(q,opt){
+  if(answered[q]) return;
+  const ok=applyAnswer(q,opt);
+  answered[q]={opt:opt,ok:ok};
+  saveDecisions();
+  updateStatDashboard();
+}
+function initDecisionsStorage(){
+  answered=loadDecisions();
+  Object.keys(answered).forEach(q=>{ applyAnswer(Number(q),answered[q].opt); });
+  updateStatDashboard();
+}
+/* ---- checklist (con persistencia) ---- */
+function loadChecklist(){
+  try{ return JSON.parse(localStorage.getItem('mcb_checklist')||'[]'); }catch(e){ return []; }
+}
+function saveChecklist(){
+  const state=[...document.querySelectorAll('.chk')].map(c=>c.classList.contains('done'));
+  try{ localStorage.setItem('mcb_checklist',JSON.stringify(state)); }catch(e){}
+}
+function setChkVisual(el,done){
+  el.classList.toggle('done',done);
+  el.innerHTML=done?'<svg class="icon"><use href="#icon-check"/></svg>':'';
+}
 function toggleChk(el){
-  el.classList.toggle('done');
-  el.innerHTML=el.classList.contains('done')?'<svg class="icon"><use href="#icon-check"/></svg>':'';
+  const done=!el.classList.contains('done');
+  setChkVisual(el,done);
+  saveChecklist();
+  updateChecklistCount();
+  updateStatDashboard();
+}
+function updateChecklistCount(){
   const done=document.querySelectorAll('.chk.done').length;
-  document.getElementById('cnt').textContent=done;
-  document.getElementById('pct').textContent=Math.round(done/20*100)+'%';
+  const cnt=document.getElementById('cnt'), pct=document.getElementById('pct');
+  if(cnt) cnt.textContent=done;
+  if(pct) pct.textContent=Math.round(done/20*100)+'%';
+}
+function initChecklistStorage(){
+  const saved=loadChecklist();
+  document.querySelectorAll('.chk').forEach((el,i)=>{ if(saved[i]) setChkVisual(el,true); });
+  updateChecklistCount();
+  updateStatDashboard();
+}
+/* ---- dashboard de progreso ---- */
+function updateStatDashboard(){
+  const done=document.querySelectorAll('.chk.done').length;
+  const cPct=Math.round(done/20*100);
+  const dTotal=Object.keys(answered).length;
+  const dOk=Object.values(answered).filter(a=>a.ok).length;
+  const dPct=dTotal?Math.round(dOk/dTotal*100):0;
+  const el1=document.getElementById('dash-chk-num'), el2=document.getElementById('dash-chk-pct');
+  const el3=document.getElementById('dash-dec-num'), el4=document.getElementById('dash-dec-pct');
+  if(el1) el1.innerHTML=done+'<span>/20</span>';
+  if(el2) el2.textContent=cPct+'% completado';
+  if(el3) el3.innerHTML=dOk+'<span>/'+dTotal+' respondidas</span>';
+  if(el4) el4.textContent=dTotal?dPct+'% de acierto':'Sin responder aún';
 }
 function openLink(url){ window.open(url,'_blank'); }
 </script>
