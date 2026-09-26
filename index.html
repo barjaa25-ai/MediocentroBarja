@@ -25,6 +25,8 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .hero-outer{background:#07090C;}
 .hero{
   position:relative;
+  display:flex;
+  align-items:stretch;
   min-height:clamp(420px,56vw,580px);
   overflow:hidden;
 }
@@ -80,13 +82,11 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 
 /* ── TEXTO encima del collage ── */
 .hero-text-side{
+  flex:0 0 52%;
   position:relative;
   z-index:3;
   display:flex;
   align-items:center;
-  height:100%;
-  min-height:inherit;
-  max-width:52%;
 }
 
 @media(max-width:560px){
