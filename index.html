@@ -398,6 +398,59 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .stat-num span{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,.35);}
 .stat-pct{font-size:12px;font-weight:600;color:rgba(255,255,255,.5);margin-top:4px;}
 
+/* ══ RUTINA ══ */
+.rut-sub{display:none;}.rut-sub.active{display:block;}
+.sem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.75rem;margin-bottom:1.5rem;}
+.sem-item{background:var(--c2);border-radius:12px;padding:.9rem .75rem;text-align:center;cursor:pointer;transition:transform .15s,box-shadow .15s;border:2px solid transparent;}
+.sem-item:hover{transform:translateY(-2px);box-shadow:0 4px 16px #0004;}
+.sem-item .sem-circle{width:40px;height:40px;border-radius:50%;margin:0 auto .5rem;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.sem-item .sem-label{font-size:11px;color:#aaa;line-height:1.3;}
+.sem-item .sem-val{font-size:1.1rem;font-weight:700;margin:.2rem 0;}
+.sem-g{background:#1ED97A22;border-color:#1ED97A44;}.sem-g .sem-circle{background:#1ED97A33;}
+.sem-y{background:#F5C54222;border-color:#F5C54244;}.sem-y .sem-circle{background:#F5C54233;}
+.sem-r{background:#E5484D22;border-color:#E5484D44;}.sem-r .sem-circle{background:#E5484D33;}
+.sem-modal{position:fixed;inset:0;background:#000a;z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.sem-modal-box{background:#131518;border:1px solid #2a2d31;border-radius:16px;padding:1.5rem;max-width:380px;width:100%;}
+.sem-modal-box h3{margin:0 0 1rem;font-size:1rem;}
+.sem-modal-box .sem-btns{display:flex;gap:.5rem;margin-top:1rem;}
+.sem-btn{flex:1;padding:.6rem;border-radius:8px;border:none;cursor:pointer;font-weight:600;font-size:.85rem;}
+.sem-btn-g{background:#1ED97A;color:#06100A;}.sem-btn-y{background:#F5C542;color:#06100A;}.sem-btn-r{background:#E5484D;color:#fff;}
+.rpe-form{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.rpe-form input,.rpe-form select{background:var(--c2);border:1px solid #2a2d31;color:inherit;border-radius:8px;padding:.5rem .75rem;font-size:.85rem;flex:1;min-width:100px;}
+.rpe-form button{padding:.5rem 1rem;border-radius:8px;background:#1ED97A;color:#06100A;border:none;cursor:pointer;font-weight:700;}
+.rpe-log{list-style:none;margin:0;padding:0;font-size:.83rem;color:#bbb;}
+.rpe-log li{display:flex;justify-content:space-between;padding:.4rem .5rem;border-bottom:1px solid #1e2023;}
+.rpe-log li:last-child{border-bottom:none;}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:1rem;}
+.wday{background:var(--c2);border-radius:8px;padding:.5rem .3rem;min-height:80px;}
+.wday .wd-label{font-size:10px;color:#888;text-align:center;margin-bottom:.3rem;}
+.wday .wd-session{font-size:10px;background:#1ED97A22;color:#1ED97A;border-radius:4px;padding:2px 4px;margin-bottom:2px;cursor:pointer;word-break:break-word;}
+.wday-add{font-size:18px;color:#444;text-align:center;cursor:pointer;margin-top:.25rem;}
+.wday-add:hover{color:#1ED97A;}
+.ex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.ex-card{background:var(--c2);border-radius:12px;padding:1rem;border-left:3px solid #1ED97A;}
+.ex-card.yellow{border-color:#F5C542;}.ex-card.blue{border-color:#4A9EFF;}.ex-card.orange{border-color:#FF7A30;}
+.ex-card h4{margin:0 0 .3rem;font-size:.95rem;}
+.ex-card .ex-meta{font-size:.78rem;color:#888;margin-bottom:.5rem;}
+.ex-card .ex-desc{font-size:.8rem;color:#bbb;line-height:1.5;}
+.ex-tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:10px;background:#1ED97A22;color:#1ED97A;margin-right:3px;}
+.ex-tag.y{background:#F5C54222;color:#F5C542;}.ex-tag.b{background:#4A9EFF22;color:#4A9EFF;}.ex-tag.o{background:#FF7A3022;color:#FF7A30;}
+.timer-box{background:var(--c2);border-radius:12px;padding:1.25rem;text-align:center;margin-bottom:1rem;}
+.timer-display{font-size:2.5rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.05em;margin:.5rem 0;}
+.timer-btns{display:flex;gap:.5rem;justify-content:center;}
+.timer-btn{padding:.5rem 1.2rem;border-radius:8px;border:none;cursor:pointer;font-weight:600;}
+.timer-start{background:#1ED97A;color:#06100A;}.timer-reset{background:#2a2d31;color:#fff;}
+.recov-steps{display:flex;flex-direction:column;gap:.75rem;}
+.recov-step{display:flex;gap:.75rem;background:var(--c2);border-radius:10px;padding:.9rem;}
+.recov-step .rs-num{width:28px;height:28px;min-width:28px;border-radius:50%;background:#1ED97A22;color:#1ED97A;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;}
+.recov-step .rs-body h4{margin:0 0 .15rem;font-size:.9rem;}
+.recov-step .rs-body p{margin:0;font-size:.8rem;color:#aaa;}
+.zone-bar-wrap{margin-bottom:.75rem;}
+.zone-lbl{display:flex;justify-content:space-between;font-size:.78rem;color:#aaa;margin-bottom:3px;}
+.zone-bar{height:8px;border-radius:4px;background:#1e2023;overflow:hidden;}
+.zone-fill{height:100%;border-radius:4px;transition:width 1s ease;}
+@media(max-width:520px){.week-grid{grid-template-columns:repeat(4,1fr);}.sem-grid{grid-template-columns:repeat(3,1fr);}
+  .ex-grid{grid-template-columns:1fr;}}
 /* ── MISC ── */
 ::selection{background:#1ED97A;color:#06100A;}
 a,button{-webkit-tap-highlight-color:transparent;}
@@ -470,6 +523,7 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
   <div class="mini-id"><div class="player-avatar">AB</div>Álvaro Barja · Pivote #20</div>
   <button class="tab active" onclick="showTab('perfil',this)"><svg class="icon"><use href="#icon-user"/></svg>Perfil</button>
   <button class="tab" onclick="showTab('formacion',this)"><svg class="icon"><use href="#icon-layers"/></svg>Formación</button>
+  <button class="tab" onclick="showTab('rutina',this)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Rutina</button>
 </div>
 
 <div class="wrap">
@@ -1338,11 +1392,152 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
 
 </div>
 
+<!-- ══ RUTINA ══ -->
+<div id="s-rutina" class="sec">
+  <div class="sub-tabs">
+    <button class="stab active" onclick="showRut('recov',this)">🟢 Recuperación</button>
+    <button class="stab" onclick="showRut('resist',this)">🏃 Resistencia</button>
+    <button class="stab" onclick="showRut('semana',this)">📅 Semana</button>
+    <button class="stab" onclick="showRut('prog',this)">📈 Progresión</button>
+  </div>
+
+  <!-- RECUPERACIÓN -->
+  <div id="rut-recov" class="rut-sub active">
+    <div class="card">
+      <div class="card-title">🚦 Semáforo de Recuperación</div>
+      <p style="font-size:.83rem;color:#888;margin:0 0 1rem">Actualiza tras cada partido o sesión exigente. Guía tu siguiente entrenamiento.</p>
+      <div class="sem-grid" id="sem-grid"></div>
+      <div style="display:flex;gap:1rem;font-size:.78rem;color:#888;">
+        <span style="color:#1ED97A">● Verde</span> Listo para entrenar
+        <span style="color:#F5C542">● Amarillo</span> Precaución
+        <span style="color:#E5484D">● Rojo</span> Recuperar primero
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">⏱ Temporizador de Protocolo</div>
+      <div class="timer-box">
+        <div style="font-size:.8rem;color:#888" id="timer-label">Rodillo fascial — 30s por grupo</div>
+        <div class="timer-display" id="timer-disp">02:00</div>
+        <div class="timer-btns">
+          <button class="timer-btn timer-start" id="timer-toggle" onclick="timerToggle()">▶ Iniciar</button>
+          <button class="timer-btn timer-reset" onclick="timerReset()">↺ Reset</button>
+        </div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:.75rem;">
+          <button class="timer-btn timer-reset" onclick="setTimer(30,'Rodillo 30s')">30s</button>
+          <button class="timer-btn timer-reset" onclick="setTimer(60,'Estiramiento 1min')">1min</button>
+          <button class="timer-btn timer-reset" onclick="setTimer(120,'Protocolo 2min')">2min</button>
+          <button class="timer-btn timer-reset" onclick="setTimer(300,'Sesión hielo 5min')">5min</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Protocolo post-partido (0-24h)</div>
+      <div class="recov-steps">
+        <div class="recov-step"><div class="rs-num">1</div><div class="rs-body"><h4>0-30 min · Rehidratación activa</h4><p>500 ml agua + sodio. Batido proteico 20-30g. No ayunar aunque no tengas hambre.</p></div></div>
+        <div class="recov-step"><div class="rs-num">2</div><div class="rs-body"><h4>30-60 min · Enfriamiento activo</h4><p>Trote 5 min a ≤120 ppm + estiramientos dinámicos suaves. Baja FC gradualmente.</p></div></div>
+        <div class="recov-step"><div class="rs-num">3</div><div class="rs-body"><h4>1-2h · Liberación miofascial</h4><p>Rodillo espuma: cuádriceps, isquios, glúteos, sóleo. 30-45s por grupo × 2 series.</p></div></div>
+        <div class="recov-step"><div class="rs-num">4</div><div class="rs-body"><h4>2-4h · Nutrición de recuperación</h4><p>Comida completa: CH complejos + proteína + verdura. Evitar grasas saturadas y alcohol.</p></div></div>
+        <div class="recov-step"><div class="rs-num">5</div><div class="rs-body"><h4>Noche · Sueño reparador</h4><p>7-9h. Habitación fría (17-19°C). Sin pantallas 45min antes. Magnesio si calambres.</p></div></div>
+        <div class="recov-step"><div class="rs-num">6</div><div class="rs-body"><h4>+24h · Sesión de regeneración</h4><p>Bicicleta estática o natación 20-25 min a ≤130 ppm. Activa circulación sin dañar fibra.</p></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Cuidado muscular preventivo</div>
+      <div class="ex-grid">
+        <div class="ex-card yellow"><h4>Nórdico excéntrico</h4><div class="ex-meta">2×5 rep · 3× semana</div><div class="ex-desc">Protección isquiotibial fundamental para el pivote. Baja lento (3-4s), sube con ayuda.</div><span class="ex-tag y">Preventivo</span></div>
+        <div class="ex-card"><h4>Plancha isométrica</h4><div class="ex-meta">3×45s · 2× semana</div><div class="ex-desc">Core estabilizador. Clave para transferencia de fuerza y protección lumbar. Respiración nasal.</div><span class="ex-tag">Core</span></div>
+        <div class="ex-card blue"><h4>Puente de glúteo</h4><div class="ex-meta">3×12 · cadencia lenta</div><div class="ex-desc">Activa glúteo mayor antes de entrenar. Reduce sobrecarga en isquios durante sprints.</div><span class="ex-tag b">Activación</span></div>
+        <div class="ex-card orange"><h4>Estiramiento de psoas</h4><div class="ex-meta">30s × lado · post-entreno</div><div class="ex-desc">El pivote pasa horas en postura semiflexionada. Acorta el psoas → lumbalgia. Estira diario.</div><span class="ex-tag o">Movilidad</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESISTENCIA -->
+  <div id="rut-resist" class="rut-sub">
+    <div class="card">
+      <div class="card-title">Zonas de trabajo del medio centro</div>
+      <p style="font-size:.83rem;color:#888;margin:0 0 1rem">Un partido de 90 min ≈ 10-11km · 60-70% en Z2 · 8-12 sprints cortos (&lt;20m)</p>
+      <div class="zone-bar-wrap"><div class="zone-lbl"><span>Z1 Regenerativa (&lt;65% FCmáx)</span><span>10%</span></div><div class="zone-bar"><div class="zone-fill" style="width:0%;background:#4A9EFF" data-w="10%"></div></div></div>
+      <div class="zone-bar-wrap"><div class="zone-lbl"><span>Z2 Base aeróbica (65-75%)</span><span>55%</span></div><div class="zone-bar"><div class="zone-fill" style="width:0%;background:#1ED97A" data-w="55%"></div></div></div>
+      <div class="zone-bar-wrap"><div class="zone-lbl"><span>Z3 Tempo (75-85%)</span><span>20%</span></div><div class="zone-bar"><div class="zone-fill" style="width:0%;background:#F5C542" data-w="20%"></div></div></div>
+      <div class="zone-bar-wrap"><div class="zone-lbl"><span>Z4 Umbral (85-92%)</span><span>10%</span></div><div class="zone-bar"><div class="zone-fill" style="width:0%;background:#FF7A30" data-w="10%"></div></div></div>
+      <div class="zone-bar-wrap"><div class="zone-lbl"><span>Z5 VO2max / HIIT (&gt;92%)</span><span>5%</span></div><div class="zone-bar"><div class="zone-fill" style="width:0%;background:#E5484D" data-w="5%"></div></div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Sesiones específicas del pivote</div>
+      <div class="ex-grid">
+        <div class="ex-card"><h4>Fútbol-tenis / rondo 4×4</h4><div class="ex-meta">20 min · 2× semana</div><div class="ex-desc">Mejor herramienta para mezclar resistencia, técnica y decisión. FC 75-85%. Prioridad #1.</div><span class="ex-tag">Z3</span><span class="ex-tag b">Técnica</span></div>
+        <div class="ex-card blue"><h4>Carrera continua Z2</h4><div class="ex-meta">25-35 min · 65-72% FC</div><div class="ex-desc">Base aeróbica: mejora recuperación entre esfuerzos y reduce fatiga en la segunda parte.</div><span class="ex-tag b">Z2</span></div>
+        <div class="ex-card yellow"><h4>Series 30-30 (HIIT corto)</h4><div class="ex-meta">8-10 rep · 1× semana</div><div class="ex-desc">30s a 90-95% + 30s pasivo. Mejora VO2max y potencia aeróbica. Tras 6 sem de base.</div><span class="ex-tag y">Z5</span></div>
+        <div class="ex-card orange"><h4>Aceleraciones 10-20m</h4><div class="ex-meta">6×20m · recuperación 90s</div><div class="ex-desc">Velocidad de reacción defensiva. Arranque desde posición de espera (escaneo + explosión).</div><span class="ex-tag o">Velocidad</span></div>
+        <div class="ex-card"><h4>Cambios de dirección (COD)</h4><div class="ex-meta">4×5 rep · con balón</div><div class="ex-desc">Zigzag 5m + pase. Simula cobertura lateral cuando el rival supera al interior.</div><span class="ex-tag">Agilidad</span></div>
+        <div class="ex-card yellow"><h4>Test yo-yo nivel 1</h4><div class="ex-meta">Cada 4-6 semanas</div><div class="ex-desc">Referencia: pivote amateur → nivel 17+ (distancia ≥1120m). Mide tu progreso real.</div><span class="ex-tag y">Evaluación</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLANIFICACIÓN SEMANAL -->
+  <div id="rut-semana" class="rut-sub">
+    <div class="card">
+      <div class="card-title">Planificador semanal</div>
+      <p style="font-size:.83rem;color:#888;margin:0 0 1rem">Pulsa en un día para añadir sesión. Se guarda automáticamente.</p>
+      <div class="week-grid" id="week-grid"></div>
+      <button onclick="clearWeek()" style="background:#2a2d31;color:#aaa;border:none;border-radius:8px;padding:.4rem 1rem;cursor:pointer;font-size:.8rem;margin-top:.5rem;">Limpiar semana</button>
+    </div>
+    <div class="card">
+      <div class="card-title">Modelo de semana tipo (con partido sábado)</div>
+      <div class="recov-steps">
+        <div class="recov-step"><div class="rs-num" style="background:#E5484D22;color:#E5484D">SA</div><div class="rs-body"><h4>Sábado → PARTIDO</h4><p>Máxima exigencia. Protocolo de recuperación post-partido inmediatamente después.</p></div></div>
+        <div class="recov-step"><div class="rs-num" style="background:#4A9EFF22;color:#4A9EFF">DO</div><div class="rs-body"><h4>Domingo → Regeneración activa</h4><p>Bicicleta/natación 20min ≤130ppm o descanso total. Sin impacto.</p></div></div>
+        <div class="recov-step"><div class="rs-num" style="background:#1ED97A22;color:#1ED97A">LU</div><div class="rs-body"><h4>Lunes → Base aeróbica Z2</h4><p>30min carrera tranquila + nórdico 2×5 + plancha 3×40s.</p></div></div>
+        <div class="recov-step"><div class="rs-num" style="background:#1ED97A22;color:#1ED97A">MA</div><div class="rs-body"><h4>Martes → Entrenamiento equipo</h4><p>Sesión táctica + rondo. Intensidad media-alta.</p></div></div>
+        <div class="recov-step"><div class="rs-num" style="background:#F5C54222;color:#F5C542">MI</div><div class="rs-body"><h4>Miércoles → Técnica individual</h4><p>15min toques + trabajo de pivote (giros, salidas) + estiramientos.</p></div></div>
+        <div class="recov-step"><div class="rs-num" style="background:#FF7A3022;color:#FF7A30">JU</div><div class="rs-body"><h4>Jueves → HIIT / COD</h4><p>30-30s ×8 + aceleraciones 6×15m. FC alta 20min. Máximo 60min total.</p></div></div>
+        <div class="recov-step"><div class="rs-num" style="background:#4A9EFF22;color:#4A9EFF">VI</div><div class="rs-body"><h4>Viernes → Activación pre-partido</h4><p>15min técnica suave + estiramientos dinámicos + visualización táctica.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESIÓN RPE -->
+  <div id="rut-prog" class="rut-sub">
+    <div class="card">
+      <div class="card-title">Registro de carga (RPE)</div>
+      <p style="font-size:.83rem;color:#888;margin:0 .5rem 1rem">RPE 1-10: cómo de dura fue la sesión percibida. Monotonía = misma carga día tras día (riesgo lesión).</p>
+      <div class="rpe-form">
+        <input type="date" id="rpe-date">
+        <select id="rpe-type">
+          <option>Partido</option><option>Entreno equipo</option><option>HIIT</option><option>Z2</option><option>Técnica</option><option>Regeneración</option>
+        </select>
+        <input type="number" id="rpe-val" min="1" max="10" placeholder="RPE 1-10" style="max-width:100px">
+        <input type="number" id="rpe-dur" min="10" max="180" placeholder="Min" style="max-width:80px">
+        <button onclick="addRPE()">+ Añadir</button>
+      </div>
+      <canvas id="rpe-canvas" height="160" style="width:100%;border-radius:8px;background:var(--c2);"></canvas>
+      <ul class="rpe-log" id="rpe-log" style="margin-top:.75rem;max-height:180px;overflow-y:auto;"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- semáforo modal -->
+<div class="sem-modal" id="sem-modal" style="display:none" onclick="closeSemModal(event)">
+  <div class="sem-modal-box">
+    <h3 id="sem-modal-title">Estado</h3>
+    <p style="font-size:.82rem;color:#aaa" id="sem-modal-tip"></p>
+    <div class="sem-btns">
+      <button class="sem-btn sem-btn-g" onclick="setSem('g')">🟢 Bien</button>
+      <button class="sem-btn sem-btn-y" onclick="setSem('y')">🟡 Regular</button>
+      <button class="sem-btn sem-btn-r" onclick="setSem('r')">🔴 Mal</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
 <script>
 /* ---- animación en cascada al mostrar contenido ---- */
 function staggerReveal(container){
   if(!container) return;
-  const els=container.querySelectorAll('.card,.tip-card,.home-ex,.scenario,.vid-card,.mc,.tl-item,.field-wrap');
+  const els=container.querySelectorAll('.card,.tip-card,.home-ex,.scenario,.vid-card,.mc,.tl-item,.field-wrap,.ex-card,.recov-step');
   els.forEach((el,i)=>{
     el.style.animation='none';
     void el.offsetWidth;
@@ -1581,6 +1776,196 @@ function updateStatDashboard(){
   if(el4) el4.textContent=dTotal?dPct+'% de acierto':'Sin responder aún';
 }
 function openLink(url){ window.open(url,'_blank'); }
+
+/* ══ RUTINA ══ */
+function showRut(id,btn){
+  document.querySelectorAll('.rut-sub').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('#s-rutina .stab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('rut-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='resist') animateZoneBars();
+  if(id==='prog'){renderRPELog();drawRPEChart();}
+  if(id==='semana') renderWeek();
+}
+
+/* ── SEMÁFORO ── */
+const SEM_METRICS=[
+  {id:'piernas',icon:'🦵',label:'Piernas / isquios',tip:'¿Sientes tensión o pesadez en cuádriceps e isquios?'},
+  {id:'lumbar',icon:'🔵',label:'Zona lumbar',tip:'¿Dolor o rigidez en la zona baja de la espalda?'},
+  {id:'energia',icon:'⚡',label:'Nivel de energía',tip:'¿Tienes ganas de entrenar o estás mentalmente bajo?'},
+  {id:'sueno',icon:'😴',label:'Calidad sueño',tip:'¿Has dormido bien? Menos de 7h o sueño fragmentado = rojo.'},
+  {id:'hidra',icon:'💧',label:'Hidratación',tip:'¿Orina oscura o sensación de sed constante?'},
+  {id:'humor',icon:'😊',label:'Estado de ánimo',tip:'El humor es indicador clave de sobreentrenamiento.'},
+  {id:'fc',icon:'❤️',label:'FC reposo',tip:'Si tu FC en reposo es >8 ppm sobre lo normal → rojo.'},
+  {id:'apetito',icon:'🍽️',label:'Apetito',tip:'Pérdida de apetito = señal de sobrecarga del sistema nervioso.'},
+];
+let semState={};
+function loadSem(){try{return JSON.parse(localStorage.getItem('sem_state')||'{}')}catch{return {};}}
+function saveSem(){localStorage.setItem('sem_state',JSON.stringify(semState));}
+function initSem(){
+  semState=loadSem();
+  const g=document.getElementById('sem-grid');
+  if(!g) return;
+  g.innerHTML='';
+  SEM_METRICS.forEach(m=>{
+    const v=semState[m.id]||'n';
+    const cls=v==='g'?'sem-g':v==='y'?'sem-y':v==='r'?'sem-r':'';
+    const col=v==='g'?'#1ED97A':v==='y'?'#F5C542':v==='r'?'#E5484D':'#444';
+    const el=document.createElement('div');
+    el.className='sem-item '+cls;
+    el.innerHTML=`<div class="sem-circle" style="background:${col}22">${m.icon}</div><div class="sem-label">${m.label}</div>`;
+    el.onclick=()=>openSemModal(m.id);
+    g.appendChild(el);
+  });
+}
+let activeSemId=null;
+function openSemModal(id){
+  const m=SEM_METRICS.find(x=>x.id===id);
+  activeSemId=id;
+  document.getElementById('sem-modal-title').textContent=m.icon+' '+m.label;
+  document.getElementById('sem-modal-tip').textContent=m.tip;
+  document.getElementById('sem-modal').style.display='flex';
+}
+function closeSemModal(e){
+  if(e.target===document.getElementById('sem-modal')) document.getElementById('sem-modal').style.display='none';
+}
+function setSem(v){
+  if(!activeSemId) return;
+  semState[activeSemId]=v;
+  saveSem();
+  document.getElementById('sem-modal').style.display='none';
+  initSem();
+}
+
+/* ── TIMER ── */
+let timerSec=120,timerRunning=false,timerInterval=null;
+function setTimer(s,lbl){
+  timerReset();timerSec=s;
+  document.getElementById('timer-label').textContent=lbl;
+  updateTimerDisp();
+}
+function updateTimerDisp(){
+  const m=String(Math.floor(timerSec/60)).padStart(2,'0');
+  const s=String(timerSec%60).padStart(2,'0');
+  document.getElementById('timer-disp').textContent=m+':'+s;
+}
+function timerToggle(){
+  if(timerRunning){
+    clearInterval(timerInterval);timerRunning=false;
+    document.getElementById('timer-toggle').textContent='▶ Continuar';
+  } else {
+    if(timerSec===0){timerReset();return;}
+    timerRunning=true;
+    document.getElementById('timer-toggle').textContent='⏸ Pausa';
+    timerInterval=setInterval(()=>{
+      timerSec--;updateTimerDisp();
+      if(timerSec<=0){clearInterval(timerInterval);timerRunning=false;document.getElementById('timer-toggle').textContent='✅ Listo';}
+    },1000);
+  }
+}
+function timerReset(){
+  clearInterval(timerInterval);timerRunning=false;timerSec=120;
+  const btn=document.getElementById('timer-toggle');
+  if(btn) btn.textContent='▶ Iniciar';
+  updateTimerDisp();
+}
+
+/* ── ZONE BARS ── */
+function animateZoneBars(){
+  const fills=document.querySelectorAll('#rut-resist .zone-fill');
+  fills.forEach(f=>{f.style.width='0%';});
+  setTimeout(()=>fills.forEach(f=>{f.style.width=f.dataset.w;}),80);
+}
+
+/* ── WEEK PLANNER ── */
+const WEEK_DAYS=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+function loadWeek(){try{return JSON.parse(localStorage.getItem('week_plan')||'{}')}catch{return {};}}
+function saveWeek(d){localStorage.setItem('week_plan',JSON.stringify(d));}
+function renderWeek(){
+  const g=document.getElementById('week-grid');
+  if(!g) return;
+  const data=loadWeek();
+  g.innerHTML='';
+  WEEK_DAYS.forEach((day,i)=>{
+    const div=document.createElement('div');div.className='wday';
+    const sessions=data[i]||[];
+    let html=`<div class="wd-label">${day}</div>`;
+    sessions.forEach((s,si)=>{html+=`<div class="wd-session" onclick="removeWeekSession(${i},${si})" title="Clic para eliminar">${s}</div>`;});
+    html+=`<div class="wday-add" onclick="addWeekSession(${i})">+</div>`;
+    div.innerHTML=html;g.appendChild(div);
+  });
+}
+function addWeekSession(dayIdx){
+  const name=prompt('Sesión del '+WEEK_DAYS[dayIdx]+':\n(ej: HIIT, Z2, Partido, Técnica)');
+  if(!name||!name.trim()) return;
+  const data=loadWeek();
+  if(!data[dayIdx]) data[dayIdx]=[];
+  data[dayIdx].push(name.trim().slice(0,20));
+  saveWeek(data);renderWeek();
+}
+function removeWeekSession(dayIdx,si){
+  const data=loadWeek();
+  if(data[dayIdx]) data[dayIdx].splice(si,1);
+  saveWeek(data);renderWeek();
+}
+function clearWeek(){if(confirm('¿Borrar toda la semana?')){localStorage.removeItem('week_plan');renderWeek();}}
+
+/* ── RPE LOG ── */
+function loadRPE(){try{return JSON.parse(localStorage.getItem('rpe_log')||'[]')}catch{return [];}}
+function saveRPE(d){localStorage.setItem('rpe_log',JSON.stringify(d));}
+function addRPE(){
+  const date=document.getElementById('rpe-date').value;
+  const type=document.getElementById('rpe-type').value;
+  const val=parseInt(document.getElementById('rpe-val').value);
+  const dur=parseInt(document.getElementById('rpe-dur').value);
+  if(!date||isNaN(val)||val<1||val>10||isNaN(dur)) return alert('Rellena todos los campos (fecha, tipo, RPE 1-10, duración min)');
+  const d=loadRPE();
+  d.push({date,type,val,dur,load:val*dur});
+  d.sort((a,b)=>a.date.localeCompare(b.date));
+  saveRPE(d);renderRPELog();drawRPEChart();
+}
+function renderRPELog(){
+  const d=loadRPE().slice(-10).reverse();
+  const ul=document.getElementById('rpe-log');
+  if(!ul) return;
+  ul.innerHTML=d.map(e=>`<li><span>${e.date} · ${e.type}</span><span>RPE ${e.val} · ${e.dur}min · Carga ${e.load}</span></li>`).join('');
+}
+function drawRPEChart(){
+  const canvas=document.getElementById('rpe-canvas');
+  if(!canvas) return;
+  const d=loadRPE().slice(-14);
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=(canvas.offsetWidth||400)*dpr;
+  canvas.height=160*dpr;
+  ctx.scale(dpr,dpr);
+  const W=canvas.offsetWidth||400,H=160;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#1a1d21';ctx.fillRect(0,0,W,H);
+  if(!d.length){ctx.fillStyle='#555';ctx.font='13px sans-serif';ctx.textAlign='center';ctx.fillText('Sin datos — añade tu primera sesión arriba',W/2,H/2);return;}
+  const pad=24,bw=Math.max(10,Math.min(30,(W-pad*2)/d.length-6));
+  const maxLoad=Math.max(...d.map(e=>e.load),100);
+  d.forEach((e,i)=>{
+    const x=pad+(i*(W-pad*2)/d.length)+2;
+    const bh=((e.load/maxLoad)*(H-44));
+    const y=H-22-bh;
+    const col=e.val>=8?'#E5484D':e.val>=6?'#FF7A30':e.val>=4?'#F5C542':'#1ED97A';
+    ctx.fillStyle=col+'bb';ctx.beginPath();
+    if(ctx.roundRect) ctx.roundRect(x,y,bw,bh,3); else ctx.rect(x,y,bw,bh);
+    ctx.fill();
+    ctx.fillStyle='#666';ctx.font=`9px sans-serif`;ctx.textAlign='center';
+    ctx.fillText(e.date.slice(5),x+bw/2,H-5);
+    if(bh>14){ctx.fillStyle='#fff';ctx.font='bold 9px sans-serif';ctx.fillText(e.val,x+bw/2,y+11);}
+  });
+  ctx.fillStyle='#555';ctx.font='10px sans-serif';ctx.textAlign='left';
+  ctx.fillText('Últimas '+d.length+' sesiones · color = RPE (verde bajo → rojo alto)',pad,14);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  initSem();renderRPELog();drawRPEChart();renderWeek();
+  const rpeDate=document.getElementById('rpe-date');
+  if(rpeDate) rpeDate.value=new Date().toISOString().slice(0,10);
+});
 
 </script>
 </body>
