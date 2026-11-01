@@ -23,7 +23,8 @@
 /* ── RESET ── */
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:#F0F4EE;color:#0D1409;font-size:15px;line-height:1.45;}
+:root{--bg:#07090C;--c1:#131518;--c2:#1a1d21;--c3:#22262b;--green:#1ED97A;--yellow:#F5C542;--red:#E5484D;--blue:#4A9EFF;--orange:#FF7A30;--text:#E0E6E0;--text2:#aab4aa;--border:#2a2f35;--card:#131518;}
+body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg);color:var(--text);font-size:15px;line-height:1.45;}
 
 /* ── ICON BASE ── */
 .icon{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
@@ -192,67 +193,67 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 
 /* ── CARDS ── */
 .card{
-  background:#fff;
-  border:1px solid #DDE5D9;
+  background:var(--card);
+  border:1px solid var(--border);
   border-radius:14px;
   padding:1.2rem 1.4rem;
   margin-bottom:1rem;
-  box-shadow:0 1px 3px rgba(13,20,9,.04),0 6px 18px rgba(13,20,9,.05);
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
 }
 .card-title{
   font-family:'Outfit','Inter',sans-serif;
-  font-size:16px;font-weight:700;color:#0D1409;
+  font-size:16px;font-weight:700;color:var(--text);
   margin-bottom:.8rem;
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
   letter-spacing:-.01em;
 }
 .badge{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:700;letter-spacing:.02em;}
-.bg{background:#D7F5E8;color:#0D6640;}
-.bp{background:#EEEDFE;color:#3C3489;}
-.ba{background:#FEF3D7;color:#7A4A00;}
-.bc{background:#FDEAE4;color:#8B2800;}
-.bb{background:#E0EFFE;color:#0A3F80;}
-.br{background:#FEECEC;color:#8B1C1C;}
+.bg{background:#1ED97A22;color:#1ED97A;}
+.bp{background:#7F77DD22;color:#a89cf7;}
+.ba{background:#F5C54222;color:#F5C542;}
+.bc{background:#E5484D22;color:#ff8080;}
+.bb{background:#4A9EFF22;color:#4A9EFF;}
+.br{background:#E5484D22;color:#ff8080;}
 
 /* ── ROWS ── */
-.row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #EEF2EB;}
+.row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
 .row:last-child{border-bottom:none;padding-bottom:0;}
 .dot{width:8px;height:8px;border-radius:50%;margin-top:7px;flex-shrink:0;}
 .dg{background:#1ED97A;}.dp{background:#7F77DD;}.da{background:#EF9F27;}.dc{background:#E05535;}.db{background:#3A8FE0;}
-.lbl{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#0D1409;}
-.desc{font-size:13px;color:#4A5645;line-height:1.65;margin-top:2px;}
+.lbl{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:var(--text);}
+.desc{font-size:13px;color:var(--text2);line-height:1.65;margin-top:2px;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
 
 /* ── EXERCISE BLOCKS ── */
-.ex{background:#F4F7F1;border-radius:9px;padding:10px 13px;margin-bottom:8px;border:1px solid #DDE5D9;}
-.ex .nm{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#0D1409;}
-.ex .dt{font-size:12px;color:#5A6654;margin-top:3px;line-height:1.5;}
+.ex{background:var(--c2);border-radius:9px;padding:10px 13px;margin-bottom:8px;border:1px solid var(--border);}
+.ex .nm{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:var(--text);}
+.ex .dt{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.5;}
 .pb{margin-bottom:10px;}
-.pl{display:flex;justify-content:space-between;font-size:12px;color:#5A6654;margin-bottom:3px;}
-.pbar{height:7px;border-radius:4px;background:#DDE5D9;overflow:hidden;}
+.pl{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:3px;}
+.pbar{height:7px;border-radius:4px;background:var(--c3);overflow:hidden;}
 .pfill{height:100%;border-radius:4px;transition:width .6s ease;}
 
 /* mental */
-.mc{border-left:3px solid #7F77DD;padding:10px 13px;background:#F2F0FE;border-radius:0 9px 9px 0;margin-bottom:8px;}
-.mc .mt{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#3C3489;}
-.mc .md{font-size:13px;color:#534AB7;margin-top:2px;line-height:1.6;}
+.mc{border-left:3px solid #7F77DD;padding:10px 13px;background:#7F77DD11;border-radius:0 9px 9px 0;margin-bottom:8px;}
+.mc .mt{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#a89cf7;}
+.mc .md{font-size:13px;color:#b0a8e0;margin-top:2px;line-height:1.6;}
 
 /* week bar */
 .wbar{display:flex;gap:4px;margin-bottom:1rem;flex-wrap:wrap;}
-.db2{flex:1;min-width:38px;padding:7px 3px;font-size:12px;border-radius:7px;border:1px solid #DDE5D9;background:#F4F7F1;color:#4A5645;cursor:pointer;text-align:center;font-weight:600;transition:all .15s ease;}
-.db2:hover{border-color:#1ED97A;color:#0D6640;}
+.db2{flex:1;min-width:38px;padding:7px 3px;font-size:12px;border-radius:7px;border:1px solid var(--border);background:var(--c2);color:var(--text2);cursor:pointer;text-align:center;font-weight:600;transition:all .15s ease;}
+.db2:hover{border-color:#1ED97A;color:#1ED97A;}
 .db2.sel{background:#1ED97A;color:#06100A;border-color:#1ED97A;font-weight:700;}
 .dc2{display:none;}.dc2.active{display:block;animation:fadeIn .25s ease;}
 
 /* ── CHECKLIST ── */
 .cl{list-style:none;}
-.cl li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #EEF2EB;font-size:14px;line-height:1.5;color:#1E2B1A;}
+.cl li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;color:var(--text);}
 .cl li:last-child{border-bottom:none;}
-.chk{width:22px;height:22px;border-radius:50%;border:2px solid #BEC9B9;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;cursor:pointer;transition:all .15s ease;}
+.chk{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;cursor:pointer;transition:all .15s ease;}
 .chk .icon{width:12px;height:12px;}
 .chk:hover{border-color:#1ED97A;}
 .chk.done{background:#1ED97A;color:#06100A;border-color:#1ED97A;transform:scale(1.05);}
-.note{font-size:12px;color:#7A8A74;border-top:1px solid #EEF2EB;padding-top:8px;margin-top:8px;line-height:1.5;}
+.note{font-size:12px;color:var(--text2);border-top:1px solid var(--border);padding-top:8px;margin-top:8px;line-height:1.5;}
 .pill-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
 .pill{font-size:11px;padding:3px 9px;border-radius:20px;}
 
@@ -282,74 +283,74 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .stab{
   display:inline-flex;align-items:center;gap:6px;
   padding:6px 14px;border-radius:6px;
-  border:1px solid #DDE5D9;background:#F4F7F1;
-  color:#4A5645;font-size:12px;font-weight:600;
+  border:1px solid var(--border);background:var(--c2);
+  color:var(--text2);font-size:12px;font-weight:600;
   cursor:pointer;transition:all .15s ease;
 }
 .stab .icon{width:13px;height:13px;}
-.stab:hover{border-color:#1ED97A;color:#0D6640;}
+.stab:hover{border-color:#1ED97A;color:#1ED97A;}
 .stab.active{background:#1ED97A;color:#06100A;border-color:#1ED97A;font-weight:700;}
 .campo-view{display:none;}.campo-view.active{display:block;animation:fadeIn .25s ease;}
 
 /* ── DECISIONS ── */
-.scenario{background:#fff;border:1px solid #DDE5D9;border-radius:14px;padding:1.1rem;margin-bottom:.8rem;box-shadow:0 2px 10px rgba(13,20,9,.05);}
-.sc-q{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#0D1409;margin-bottom:.75rem;}
+.scenario{background:var(--c2);border:1px solid var(--border);border-radius:14px;padding:1.1rem;margin-bottom:.8rem;}
+.sc-q{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:.75rem;}
 .sc-opts{display:flex;flex-direction:column;gap:6px;}
-.sc-opt{padding:9px 13px;border-radius:8px;border:1.5px solid #DDE5D9;background:#F4F7F1;font-size:13px;cursor:pointer;transition:all .15s;text-align:left;}
-.sc-opt:hover{border-color:#1ED97A;background:#E8FAF1;}
-.sc-opt.correct{border-color:#1ED97A;background:#E8FAF1;color:#0D6640;font-weight:600;}
-.sc-opt.wrong{border-color:#E05535;background:#FDEAE4;color:#8B2800;}
+.sc-opt{padding:9px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--c3);font-size:13px;cursor:pointer;transition:all .15s;text-align:left;color:var(--text);}
+.sc-opt:hover{border-color:#1ED97A;background:#1ED97A11;}
+.sc-opt.correct{border-color:#1ED97A;background:#1ED97A22;color:#1ED97A;font-weight:600;}
+.sc-opt.wrong{border-color:#E5484D;background:#E5484D22;color:#ff8080;}
 .sc-feedback{margin-top:8px;font-size:13px;padding:8px 10px;border-radius:8px;display:none;align-items:flex-start;gap:7px;line-height:1.5;}
 .sc-feedback.show{display:flex;}
 .sc-feedback .icon{width:16px;height:16px;margin-top:2px;flex-shrink:0;}
-.fb-ok{background:#E8FAF1;color:#0A4228;}
-.fb-ko{background:#FDEAE4;color:#8B2800;}
+.fb-ok{background:#1ED97A22;color:#1ED97A;}
+.fb-ko{background:#E5484D22;color:#ff8080;}
 
 /* ── VIDEOS ── */
 .vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.vid-card{background:#fff;border:1px solid #DDE5D9;border-radius:13px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;box-shadow:0 2px 10px rgba(13,20,9,.05);}
-.vid-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(13,20,9,.1);}
+.vid-card{background:var(--c2);border:1px solid var(--border);border-radius:13px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;}
+.vid-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.4);}
 .vid-thumb-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#07090C,#0E1810);display:flex;align-items:center;justify-content:center;color:#fff;}
 .vid-play-btn{width:46px;height:46px;border-radius:50%;background:rgba(30,217,122,.15);border:2px solid rgba(30,217,122,.6);display:flex;align-items:center;justify-content:center;transition:all .2s ease;}
 .vid-play-btn .icon{width:20px;height:20px;margin-left:2px;color:#1ED97A;}
 .vid-card:hover .vid-play-btn{background:#1ED97A;border-color:#1ED97A;transform:scale(1.08);}
 .vid-card:hover .vid-play-btn .icon{color:#06100A;}
 .vid-meta{padding:9px 11px;}
-.vid-title{font-family:'Outfit','Inter',sans-serif;font-size:12px;font-weight:700;color:#0D1409;line-height:1.4;}
-.vid-sub{font-size:11px;color:#7A8A74;margin-top:2px;}
+.vid-title{font-family:'Outfit','Inter',sans-serif;font-size:12px;font-weight:700;color:var(--text);line-height:1.4;}
+.vid-sub{font-size:11px;color:var(--text2);margin-top:2px;}
 
 /* ── TIPS (presion/defensa) ── */
-.tip-card{background:#fff;border-left:4px solid #1ED97A;border-radius:0 13px 13px 0;padding:1rem 1.1rem;margin-bottom:.8rem;border-top:1px solid #DDE5D9;border-right:1px solid #DDE5D9;border-bottom:1px solid #DDE5D9;box-shadow:0 2px 10px rgba(13,20,9,.05);transition:transform .15s ease;}
+.tip-card{background:var(--c2);border-left:4px solid #1ED97A;border-radius:0 13px 13px 0;padding:1rem 1.1rem;margin-bottom:.8rem;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:transform .15s ease;}
 .tip-card:hover{transform:translateX(3px);}
 .tip-card.def{border-left-color:#E05535;}
 .tip-card.purple{border-left-color:#7F77DD;}
-.tip-title{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#0D1409;margin-bottom:4px;}
-.tip-body{font-size:13px;color:#4A5645;line-height:1.65;}
-.tip-tag{font-size:11px;padding:2px 7px;border-radius:5px;background:#D7F5E8;color:#0D6640;font-weight:700;margin-left:6px;}
-.tip-tag.r{background:#FDEAE4;color:#8B2800;}
-.tip-tag.p{background:#EEEDFE;color:#3C3489;}
+.tip-title{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.tip-body{font-size:13px;color:var(--text2);line-height:1.65;}
+.tip-tag{font-size:11px;padding:2px 7px;border-radius:5px;background:#1ED97A22;color:#1ED97A;font-weight:700;margin-left:6px;}
+.tip-tag.r{background:#E5484D22;color:#ff8080;}
+.tip-tag.p{background:#7F77DD22;color:#a89cf7;}
 
 /* ── HOME EXERCISES ── */
-.home-ex{background:#fff;border-radius:13px;border:1px solid #DDE5D9;padding:1rem 1.1rem;margin-bottom:.8rem;box-shadow:0 2px 10px rgba(13,20,9,.05);}
+.home-ex{background:var(--c2);border-radius:13px;border:1px solid var(--border);padding:1rem 1.1rem;margin-bottom:.8rem;}
 .hcat{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:.5rem;display:inline-block;letter-spacing:.04em;}
-.home-title{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:#0D1409;margin-bottom:4px;}
-.home-desc{font-size:13px;color:#4A5645;line-height:1.5;}
+.home-title{font-family:'Outfit','Inter',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.home-desc{font-size:13px;color:var(--text2);line-height:1.5;}
 .series-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
-.ser-tag{font-size:11px;padding:2px 8px;border-radius:5px;background:#EEF2EB;color:#2E3D28;font-weight:600;}
+.ser-tag{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--c3);color:var(--text2);font-weight:600;}
 
 /* ── RADAR ── */
 .radar-card{text-align:center;}
 .radar-svg{width:100%;max-width:380px;height:auto;display:block;margin:0 auto;}
-.radar-grid{fill:none;stroke:#DDE5D9;stroke-width:1;}
-.radar-grid.g100{stroke:#BEC9B9;}
-.radar-axis{stroke:#DDE5D9;stroke-width:1;}
+.radar-grid{fill:none;stroke:var(--border);stroke-width:1;}
+.radar-grid.g100{stroke:#3a3f46;}
+.radar-axis{stroke:var(--border);stroke-width:1;}
 .radar-poly{fill:url(#radarFill);stroke:#1ED97A;stroke-width:2.5;stroke-linejoin:round;transform-box:fill-box;transform-origin:50% 50%;animation:radarGrow .9s cubic-bezier(.16,.84,.44,1) both;}
 @keyframes radarGrow{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
-.radar-dot{fill:#fff;stroke:#1ED97A;stroke-width:2.5;animation:radarGrow 1s cubic-bezier(.16,.84,.44,1) both;transform-box:fill-box;transform-origin:50% 50%;}
-.radar-label{font-family:'Outfit','Inter',system-ui,sans-serif;font-size:12px;font-weight:700;fill:#0D1409;}
+.radar-dot{fill:#131518;stroke:#1ED97A;stroke-width:2.5;animation:radarGrow 1s cubic-bezier(.16,.84,.44,1) both;transform-box:fill-box;transform-origin:50% 50%;}
+.radar-label{font-family:'Outfit','Inter',system-ui,sans-serif;font-size:12px;font-weight:700;fill:#E0E6E0;}
 .radar-value{font-family:'Inter',system-ui,sans-serif;font-size:10px;font-weight:600;fill:#1ED97A;}
 .radar-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:.9rem;}
-.rl-pill{font-size:11px;padding:4px 11px;border-radius:6px;background:#D7F5E8;color:#0D6640;font-weight:700;transition:transform .15s ease;}
+.rl-pill{font-size:11px;padding:4px 11px;border-radius:6px;background:#1ED97A22;color:#1ED97A;font-weight:700;transition:transform .15s ease;}
 .rl-pill:hover{transform:translateY(-2px);}
 
 /* ── PULSE RING ── */
@@ -360,19 +361,19 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .timeline{position:relative;padding-left:26px;}
 .tl-item{position:relative;padding-bottom:1.4rem;}
 .tl-item:last-child{padding-bottom:0;}
-.tl-item::before{content:'';position:absolute;left:-19px;top:16px;bottom:-14px;width:2px;background:#DDE5D9;}
+.tl-item::before{content:'';position:absolute;left:-19px;top:16px;bottom:-14px;width:2px;background:var(--border);}
 .tl-item:last-child::before{display:none;}
-.tl-dot{position:absolute;left:-26px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff;border:2.5px solid #7F77DD;}
+.tl-dot{position:absolute;left:-26px;top:2px;width:13px;height:13px;border-radius:50%;background:var(--c2);border:2.5px solid #7F77DD;}
 .tl-dot.tl-current{border-color:#1ED97A;background:#1ED97A;box-shadow:0 0 0 4px rgba(30,217,122,.18);}
 .tl-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
-.tl-badge{width:54px;height:54px;border-radius:12px;background:#fff;border:1px solid #DDE5D9;box-shadow:0 3px 10px rgba(13,20,9,.08);object-fit:contain;padding:5px;flex-shrink:0;transition:transform .2s ease;}
+.tl-badge{width:54px;height:54px;border-radius:12px;background:var(--c2);border:1px solid var(--border);object-fit:contain;padding:5px;flex-shrink:0;transition:transform .2s ease;}
 .tl-item:hover .tl-badge,.tl-item:hover .tl-badge-generic{transform:scale(1.07);}
-.tl-badge-generic{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#07090C,#1A2E22);display:flex;align-items:center;justify-content:center;color:#1ED97A;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.2);}
+.tl-badge-generic{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#07090C,#1A2E22);display:flex;align-items:center;justify-content:center;color:#1ED97A;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.3);}
 .tl-badge-generic .icon{width:26px;height:26px;}
-.tl-club{font-family:'Outfit','Inter',sans-serif;font-size:16px;font-weight:700;color:#0D1409;}
-.tl-period{font-size:12px;color:#7A8A74;margin-top:1px;}
+.tl-club{font-family:'Outfit','Inter',sans-serif;font-size:16px;font-weight:700;color:var(--text);}
+.tl-period{font-size:12px;color:var(--text2);margin-top:1px;}
 .tl-role{margin-bottom:6px;}
-.tl-desc{font-size:13px;color:#4A5645;line-height:1.65;}
+.tl-desc{font-size:13px;color:var(--text2);line-height:1.65;}
 
 /* ── PLAYER CARD ── */
 .player-card{display:flex;align-items:center;gap:14px;}
@@ -385,9 +386,9 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
   flex-shrink:0;
   box-shadow:0 0 0 3px rgba(30,217,122,.25);
 }
-.player-name{font-family:'Outfit','Inter',sans-serif;font-size:17px;font-weight:700;color:#0D1409;}
-.player-sub{display:flex;align-items:center;gap:6px;font-size:12px;color:#7A8A74;margin-top:2px;}
-.player-sub .icon{width:12px;height:12px;color:#BEC9B9;}
+.player-name{font-family:'Outfit','Inter',sans-serif;font-size:17px;font-weight:700;color:var(--text);}
+.player-sub{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);margin-top:2px;}
+.player-sub .icon{width:12px;height:12px;color:var(--text2);}
 
 /* ── STAT DASHBOARD ── */
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1rem;}
@@ -525,11 +526,15 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
     </div>
   </div>
 </div>
-<div class="tabs">
+<div class="tabs" id="mainTabs">
   <div class="mini-id"><div class="player-avatar">AB</div>Álvaro Barja · Pivote #20</div>
+  <button class="tab" onclick="showTab('inicio',this)" id="tab-inicio"><svg class="icon"><use href="#icon-home"/></svg>Inicio</button>
   <button class="tab active" onclick="showTab('perfil',this)"><svg class="icon"><use href="#icon-user"/></svg>Perfil</button>
   <button class="tab" onclick="showTab('formacion',this)"><svg class="icon"><use href="#icon-layers"/></svg>Formación</button>
-  <button class="tab" onclick="showTab('rutina',this)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Rutina</button>
+  <button class="tab" onclick="showTab('rutina',this)"><svg class="icon"><use href="#icon-zap"/></svg>Rutina</button>
+  <button class="tab" onclick="showTab('disciplina',this)"><svg class="icon"><use href="#icon-checksquare"/></svg>Disciplina</button>
+  <button class="tab" onclick="showTab('cuidado',this)"><svg class="icon"><use href="#icon-shield"/></svg>Cuidado</button>
+  <button class="tab" onclick="showTab('entrenador',this)"><svg class="icon"><use href="#icon-clipboard"/></svg>Entrenador</button>
 </div>
 
 <div class="wrap">
@@ -1537,6 +1542,216 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
   </div>
 </div>
 
+<!-- ══ INICIO — DASHBOARD ══ -->
+<div id="s-inicio" class="sec">
+  <div id="dash-greeting" style="margin-bottom:1rem;"></div>
+  <div class="g2" style="margin-bottom:.75rem;">
+    <div class="card" style="text-align:center;cursor:pointer;" onclick="showTab('rutina',document.querySelector('.tab:nth-child(5)'))">
+      <div style="font-size:2rem;">⚡</div>
+      <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:.3rem;">Comenzar sesión</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:2px;" id="dash-next-session">Cargando...</div>
+    </div>
+    <div class="card" style="text-align:center;cursor:pointer;" onclick="showTab('rutina',document.querySelectorAll('.tab')[4])">
+      <div style="font-size:2rem;">🚦</div>
+      <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:.3rem;">Semáforo</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:2px;" id="dash-recov-status">Registrar recuperación</div>
+    </div>
+  </div>
+  <div class="g2" style="margin-bottom:.75rem;">
+    <div class="card" style="text-align:center;cursor:pointer;" onclick="showTab('rutina',document.querySelectorAll('.tab')[4]);setTimeout(()=>showRut('prog',document.querySelector('#s-rutina .stab:nth-child(4)')),100)">
+      <div style="font-size:2rem;">📈</div>
+      <div style="font-size:13px;font-weight:700;color:var(--blue);margin-top:.3rem;">Mi progreso</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:2px;" id="dash-rpe-count">Ver análisis</div>
+    </div>
+    <div class="card" style="text-align:center;cursor:pointer;" onclick="showTab('entrenador',document.querySelectorAll('.tab')[7])">
+      <div style="font-size:2rem;">📓</div>
+      <div style="font-size:13px;font-weight:700;color:var(--yellow);margin-top:.3rem;">Cuaderno</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Ejercicios y sesiones</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Esta semana</div>
+    <div id="dash-week-summary" style="font-size:13px;color:var(--text2);">Cargando resumen semanal...</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Exportar / Importar datos</div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <button onclick="exportJSON()" style="padding:.5rem 1rem;border-radius:8px;background:var(--green);color:#06100A;border:none;cursor:pointer;font-weight:700;font-size:.85rem;">⬇ Exportar JSON</button>
+      <button onclick="exportCSV()" style="padding:.5rem 1rem;border-radius:8px;background:var(--blue);color:#fff;border:none;cursor:pointer;font-weight:700;font-size:.85rem;">⬇ Exportar CSV</button>
+      <label style="padding:.5rem 1rem;border-radius:8px;background:var(--c3);color:var(--text);border:1px solid var(--border);cursor:pointer;font-weight:700;font-size:.85rem;">⬆ Importar JSON<input type="file" accept=".json" style="display:none" onchange="importJSON(event)"></label>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DISCIPLINA ══ -->
+<div id="s-disciplina" class="sec">
+  <div class="section-divider"><span>🎯 Objetivos y hábitos</span></div>
+  <div class="card">
+    <div class="card-title">Objetivos de la temporada <span class="badge bg">2026/27</span></div>
+    <div class="row"><div class="dot dg"></div><div><div class="lbl">Técnico</div><div class="desc">Consolidar el pase largo con ambos pies. Mejorar la precisión a más de 30 metros.</div></div></div>
+    <div class="row"><div class="dot db"></div><div><div class="lbl">Físico</div><div class="desc">Aumentar la capacidad de sprint repetido. Mejorar la fuerza de piernas y la resistencia lumbar.</div></div></div>
+    <div class="row"><div class="dot dp"></div><div><div class="lbl">Mental</div><div class="desc">Mantener la concentración los 90 minutos. Mejorar la lectura defensiva anticipatoria.</div></div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Prioridades del día <span class="badge ba">Máx. 3</span></div>
+    <div id="daily-priorities">
+      <div style="display:flex;gap:.5rem;margin-bottom:.5rem;">
+        <input id="prio-input" placeholder="Añadir prioridad..." style="flex:1;background:var(--c2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.5rem .75rem;font-size:.85rem;" onkeydown="if(event.key==='Enter')addPriority()">
+        <button onclick="addPriority()" style="padding:.5rem 1rem;background:var(--green);color:#06100A;border:none;border-radius:8px;cursor:pointer;font-weight:700;">+</button>
+      </div>
+      <ul id="prio-list" style="list-style:none;"></ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Rutina pre-entrenamiento</div>
+    <div class="ex"><div class="nm">Hidratación</div><div class="dt">Beber 500ml de agua 30 min antes. Llenar la botella para el entreno.</div></div>
+    <div class="ex"><div class="nm">Calentamiento mental</div><div class="dt">5 min de visualización: el primer pase del partido, una cobertura, un cambio de orientación.</div></div>
+    <div class="ex"><div class="nm">Material listo</div><div class="dt">Botas, espinilleras, camiseta del equipo, botella, vendaje si necesario.</div></div>
+    <div class="ex"><div class="nm">Llegada puntual</div><div class="dt">Llegar 15 min antes al entrenamiento para el calentamiento individual.</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Racha de entrenamiento <span class="badge bg" id="streak-badge">0 días</span></div>
+    <p style="font-size:.83rem;color:var(--text2);margin-bottom:.75rem;">Los días de descanso planificado no rompen la racha.</p>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <button onclick="markTrainingDay()" style="padding:.5rem 1rem;background:var(--green);color:#06100A;border:none;border-radius:8px;cursor:pointer;font-weight:700;">✓ Marcar hoy</button>
+      <button onclick="markRestDay()" style="padding:.5rem 1rem;background:var(--c3);color:var(--text2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-weight:700;">💤 Descanso planificado</button>
+    </div>
+    <div id="streak-log" style="margin-top:.75rem;font-size:.8rem;color:var(--text2);"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Reflexión diaria (2 min)</div>
+    <div style="margin-bottom:.5rem;">
+      <label style="font-size:.8rem;color:var(--text2);">¿Qué salió bien hoy?</label>
+      <textarea id="reflect-good" rows="2" style="width:100%;background:var(--c2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.5rem;font-size:.83rem;margin-top:.25rem;resize:vertical;"></textarea>
+    </div>
+    <div style="margin-bottom:.5rem;">
+      <label style="font-size:.8rem;color:var(--text2);">¿Qué mejorar mañana?</label>
+      <textarea id="reflect-improve" rows="2" style="width:100%;background:var(--c2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.5rem;font-size:.83rem;margin-top:.25rem;resize:vertical;"></textarea>
+    </div>
+    <button onclick="saveReflection()" style="padding:.5rem 1rem;background:var(--green);color:#06100A;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;">Guardar reflexión</button>
+    <div id="reflect-saved" style="font-size:.78rem;color:var(--green);margin-top:.35rem;display:none;">✓ Guardado</div>
+  </div>
+</div>
+
+<!-- ══ CUIDADO PERSONAL ══ -->
+<div id="s-cuidado" class="sec">
+  <div class="section-divider"><span>💆 Cuidado personal</span></div>
+  <div class="card">
+    <div class="card-title">Ergonomía cervical <span class="badge bb">Trabajo 08-17</span></div>
+    <div class="ex"><div class="nm">Postura en el escritorio</div><div class="dt">Pantalla a la altura de los ojos. Espalda apoyada en el respaldo. Pies planos en el suelo. Cada hora, levantarse 2 min.</div></div>
+    <div class="ex"><div class="nm">Regla 20-20-20</div><div class="dt">Cada 20 min, mirar a 20 pies (6m) de distancia durante 20 segundos. Reduce la fatiga ocular.</div></div>
+    <div class="ex"><div class="nm">Micro-pausa activa</div><div class="dt">Cada 2 horas: 10 círculos de cuello, 10 retracciones escapulares, 10 elevaciones de hombros. Total: 2 min.</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Movilidad cuello y hombros</div>
+    <div class="ex"><div class="nm">Flexión lateral de cuello</div><div class="dt">Inclina la cabeza lateralmente hacia cada hombro. Mantén 20-30s. Repite 3 veces por lado. Sin forzar.</div></div>
+    <div class="ex"><div class="nm">Retracción cervical</div><div class="dt">Lleva la barbilla hacia atrás sin bajarla (doble mentón). 10 repeticiones suaves. Activa los profundos del cuello.</div></div>
+    <div class="ex"><div class="nm">Apertura de pecho</div><div class="dt">Manos entrelazadas detrás, abre el pecho y mira al techo. 3×15s. Contrarresta la postura de escritorio.</div></div>
+    <div class="ex"><div class="nm">Rotación escapular</div><div class="dt">Círculos de hombros hacia atrás, grandes y lentos. 10 círculos. Libera la tensión del trapecio.</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Relajación mandibular</div>
+    <div class="ex"><div class="nm">Posición de reposo</div><div class="dt">Dientes separados, labios cerrados, lengua tocando suavemente el paladar. Mantén esta posición en reposo.</div></div>
+    <div class="ex"><div class="nm">Masaje masetero</div><div class="dt">Con los dedos índice y corazón, masajea suavemente los músculos de la mandíbula (justo delante de las orejas). 1 min.</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Respiración y sueño</div>
+    <div class="ex"><div class="nm">Técnica 4-7-8</div><div class="dt">Inhala 4s, retén 7s, exhala 8s. Repite 4 veces antes de dormir. Activa el parasimpático.</div></div>
+    <div class="ex"><div class="nm">Registro de sueño</div><div class="dt">Objetivo: 8 horas. Acostarse a las 23h para levantarse a las 7h con margen. Sin pantallas 30 min antes.</div></div>
+    <div style="display:flex;gap:.5rem;margin-top:.75rem;align-items:center;flex-wrap:wrap;">
+      <span style="font-size:.83rem;color:var(--text2);">Horas de sueño anoche:</span>
+      <select id="sleep-hours" style="background:var(--c2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.4rem .6rem;font-size:.83rem;">
+        <option>5</option><option>6</option><option selected>7</option><option>8</option><option>9</option><option>9+</option>
+      </select>
+      <button onclick="logSleep()" style="padding:.4rem .8rem;background:var(--blue);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:.83rem;">Registrar</button>
+      <span id="sleep-saved" style="font-size:.78rem;color:var(--green);display:none;">✓</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Hidratación diaria</div>
+    <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.5rem;">
+      <span style="font-size:.83rem;color:var(--text2);">Vasos bebidos hoy:</span>
+      <span id="hydra-count" style="font-size:1.3rem;font-weight:700;color:var(--blue);">0</span>
+      <button onclick="addHydra()" style="padding:.4rem .8rem;background:var(--blue);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:700;">+1 vaso</button>
+      <button onclick="resetHydra()" style="padding:.4rem .8rem;background:var(--c3);color:var(--text2);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.8rem;">Reset</button>
+    </div>
+    <div class="pbar"><div class="pfill" id="hydra-bar" style="width:0%;background:var(--blue);"></div></div>
+    <div style="font-size:.78rem;color:var(--text2);margin-top:.3rem;">Objetivo: 8 vasos (2L aprox). <span id="hydra-msg"></span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Rutina de cuidado de piel</div>
+    <div class="ex"><div class="nm">Mañana (2 min)</div><div class="dt">Limpieza suave con agua tibia. Hidratante SPF30+ antes de salir. No olvidar el cuello.</div></div>
+    <div class="ex"><div class="nm">Noche (3 min)</div><div class="dt">Limpieza de residuos del día. Crema hidratante nocturna. Bálsamo de labios si es necesario.</div></div>
+    <div class="ex"><div class="nm">Post-entreno</div><div class="dt">Ducha en menos de 30 min tras el entreno. Limpiar el equipo. Crema en zonas de roce si necesario.</div></div>
+  </div>
+</div>
+
+<!-- ══ CUADERNO DE ENTRENADOR ══ -->
+<div id="s-entrenador" class="sec">
+  <div class="section-divider"><span>📓 Cuaderno de entrenador</span></div>
+  <div class="card">
+    <div class="card-title">Biblioteca de ejercicios — Fútbol base</div>
+    <div class="ex-card" style="margin-bottom:.75rem;border-left:3px solid var(--green);background:var(--c2);border-radius:12px;padding:1rem;">
+      <h4 style="color:var(--text);margin:0 0 .25rem;">Rondo 4v1</h4>
+      <div class="ex-meta" style="color:var(--text2);">Posesión · 10-15 min · Todos los niveles</div>
+      <div class="ex-desc" style="color:var(--text2);">4 jugadores en círculo, 1 en el centro. El del centro intenta robar. Al perder, entra el que pierde. Objetivo: toque rápido, visión periférica.</div>
+    </div>
+    <div class="ex-card" style="margin-bottom:.75rem;border-left:3px solid var(--blue);background:var(--c2);border-radius:12px;padding:1rem;">
+      <h4 style="color:var(--text);margin:0 0 .25rem;">Presión 3v3+2 pivotes</h4>
+      <div class="ex-meta" style="color:var(--text2);">Presión · 12-18 min · Intermedio</div>
+      <div class="ex-desc" style="color:var(--text2);">3 atacantes vs 3 defensores en cuadrado. 2 pivotes neutrales en las bandas. Equipo en posesión usa pivotes. Objetivo: pressing coordinado y salida de balón.</div>
+    </div>
+    <div class="ex-card" style="margin-bottom:.75rem;border-left:3px solid var(--yellow);background:var(--c2);border-radius:12px;padding:1rem;">
+      <h4 style="color:var(--text);margin:0 0 .25rem;">Conducción con obstáculos</h4>
+      <div class="ex-meta" style="color:var(--text2);">Técnica individual · 8-10 min · Iniciación</div>
+      <div class="ex-desc" style="color:var(--text2);">Slalom con conos. Variantes: pie derecho, pie izquierdo, alternando. Finalizar con tiro o pase. Objetivo: control del balón a distintas velocidades.</div>
+    </div>
+    <div class="ex-card" style="border-left:3px solid var(--orange);background:var(--c2);border-radius:12px;padding:1rem;">
+      <h4 style="color:var(--text);margin:0 0 .25rem;">Partido posicional 5v5</h4>
+      <div class="ex-meta" style="color:var(--text2);">Juego · 20-30 min · Todos los niveles</div>
+      <div class="ex-desc" style="color:var(--text2);">Campo reducido. Goles solo con pase al compañero libre en zona base. Favorece la búsqueda del hombre libre y la creación de superioridad.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Constructor de sesión <span class="badge ba">5 bloques</span></div>
+    <div id="session-builder">
+      <div style="font-size:.83rem;color:var(--text2);margin-bottom:.75rem;">Construye tu sesión de entrenamiento con los 5 bloques estándar.</div>
+      <div id="session-blocks">
+        <div class="ex" style="margin-bottom:.5rem;">
+          <div class="nm">1. Calentamiento (10-15 min)</div>
+          <textarea placeholder="Describe el calentamiento..." rows="2" style="width:100%;background:var(--c3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.4rem .5rem;font-size:.8rem;margin-top:.4rem;resize:vertical;" id="block1"></textarea>
+        </div>
+        <div class="ex" style="margin-bottom:.5rem;">
+          <div class="nm">2. Técnica individual (15 min)</div>
+          <textarea placeholder="Ejercicios de técnica..." rows="2" style="width:100%;background:var(--c3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.4rem .5rem;font-size:.8rem;margin-top:.4rem;resize:vertical;" id="block2"></textarea>
+        </div>
+        <div class="ex" style="margin-bottom:.5rem;">
+          <div class="nm">3. Táctica / Ejercicio principal (20-25 min)</div>
+          <textarea placeholder="Ejercicio táctico o de grupo..." rows="2" style="width:100%;background:var(--c3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.4rem .5rem;font-size:.8rem;margin-top:.4rem;resize:vertical;" id="block3"></textarea>
+        </div>
+        <div class="ex" style="margin-bottom:.5rem;">
+          <div class="nm">4. Partido reducido (15-20 min)</div>
+          <textarea placeholder="Formato del partido reducido..." rows="2" style="width:100%;background:var(--c3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.4rem .5rem;font-size:.8rem;margin-top:.4rem;resize:vertical;" id="block4"></textarea>
+        </div>
+        <div class="ex" style="margin-bottom:.75rem;">
+          <div class="nm">5. Vuelta a la calma (10 min)</div>
+          <textarea placeholder="Estiramientos, reflexión..." rows="2" style="width:100%;background:var(--c3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.4rem .5rem;font-size:.8rem;margin-top:.4rem;resize:vertical;" id="block5"></textarea>
+        </div>
+      </div>
+      <button onclick="saveSession()" style="padding:.5rem 1rem;background:var(--green);color:#06100A;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;">💾 Guardar sesión</button>
+    </div>
+    <div id="saved-sessions" style="margin-top:1rem;"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Diario de aprendizaje</div>
+    <div style="margin-bottom:.75rem;">
+      <textarea id="coach-diary" rows="4" placeholder="Anota lo que has aprendido, una observación táctica, o una idea para tu próxima sesión..." style="width:100%;background:var(--c2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.6rem .75rem;font-size:.83rem;resize:vertical;"></textarea>
+      <button onclick="saveCoachDiary()" style="margin-top:.4rem;padding:.5rem 1rem;background:var(--green);color:#06100A;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;">Guardar nota</button>
+    </div>
+    <div id="coach-diary-entries" style=""></div>
+  </div>
+</div>
+
 </div>
 
 <script>
@@ -1560,7 +1775,11 @@ function animateBars(){
 }
 document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.pfill').forEach(el=>{ el.dataset.w=el.style.width; });
-  staggerReveal(document.getElementById('s-perfil'));
+  initSem();renderRPELog();drawRPEChart();renderWeek();
+  initStickFigs();initVidWraps();
+  const rpeDate=document.getElementById('rpe-date');
+  if(rpeDate) rpeDate.value=new Date().toISOString().slice(0,10);
+  staggerReveal(document.getElementById('s-inicio'));
   document.querySelectorAll('.zone-rect,.field-hot').forEach(el=>{
     el.addEventListener('keydown',(e)=>{
       if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.dispatchEvent(new Event('click',{bubbles:true})); }
@@ -1576,6 +1795,21 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
   initChecklistStorage();
   initDecisionsStorage();
+  initDashboard();
+  renderPriorities();
+  updateStreakBadge();
+  updateHydraUI();
+  renderSavedSessions();
+  renderCoachDiary();
+  /* Activar tab Inicio por defecto */
+  const tabInicio=document.getElementById('tab-inicio');
+  if(tabInicio){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    tabInicio.classList.add('active');
+    document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+    const sInicio=document.getElementById('s-inicio');
+    if(sInicio) sInicio.classList.add('active');
+  }
 });
 /* ---- tabs principales ---- */
 function showTab(id,btn){
@@ -1804,6 +2038,12 @@ const SEM_METRICS=[
   {id:'humor',icon:'😊',label:'Estado de ánimo',tip:'El humor es indicador clave de sobreentrenamiento.'},
   {id:'fc',icon:'❤️',label:'FC reposo',tip:'Si tu FC en reposo es >8 ppm sobre lo normal → rojo.'},
   {id:'apetito',icon:'🍽️',label:'Apetito',tip:'Pérdida de apetito = señal de sobrecarga del sistema nervioso.'},
+  {id:'minutos',icon:'⏱️',label:'Minutos jugados',tip:'¿Cuánto jugaste en el último partido? >80 min = carga alta.'},
+  {id:'rpe_ses',icon:'🔥',label:'RPE sesión',tip:'¿Cómo de duro fue el último entreno? (1=muy suave, 10=máximo)'},
+  {id:'fatiga',icon:'😮',label:'Fatiga general',tip:'¿Sientes cansancio general, más allá de los músculos?'},
+  {id:'dolor_mus',icon:'💪',label:'Dolor muscular',tip:'¿Agujetas o dolor muscular difuso?'},
+  {id:'articular',icon:'🦴',label:'Molestias articulares',tip:'¿Dolor en rodillas, tobillos, caderas o columna?'},
+  {id:'sem_fecha',icon:'📅',label:'Última actualización',tip:'Fecha de la última vez que actualizaste el semáforo.'},
 ];
 let semState={};
 function loadSem(){try{return JSON.parse(localStorage.getItem('sem_state')||'{}')}catch{return {};}}
@@ -2135,12 +2375,201 @@ function drawRPEChart(){
   };
 })();
 
-document.addEventListener('DOMContentLoaded',()=>{
-  initSem();renderRPELog();drawRPEChart();renderWeek();
-  initStickFigs();initVidWraps();
-  const rpeDate=document.getElementById('rpe-date');
-  if(rpeDate) rpeDate.value=new Date().toISOString().slice(0,10);
-});
+/* ══ DASHBOARD ══ */
+function initDashboard(){
+  const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const now=new Date();
+  const h=now.getHours();
+  const greeting=h<12?'Buenos días':h<18?'Buenas tardes':'Buenas noches';
+  const el=document.getElementById('dash-greeting');
+  if(el) el.innerHTML=`<div class="card"><div style="font-size:1.3rem;font-weight:700;color:var(--text)">${greeting}, Álvaro 👋</div><div style="font-size:.83rem;color:var(--text2);margin-top:.25rem;">${days[now.getDay()]}, ${now.toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'})}</div></div>`;
+  /* RPE count */
+  try{
+    const rpe=JSON.parse(localStorage.getItem('rpe_log')||'[]');
+    const rcEl=document.getElementById('dash-rpe-count');
+    if(rcEl) rcEl.textContent=rpe.length+' sesiones registradas';
+  }catch(e){}
+  /* recovery summary */
+  try{
+    const sem=JSON.parse(localStorage.getItem('sem_state')||'{}');
+    const reds=Object.values(sem).filter(v=>v==='r').length;
+    const yellows=Object.values(sem).filter(v=>v==='y').length;
+    const rsEl=document.getElementById('dash-recov-status');
+    if(rsEl){
+      if(reds>0) rsEl.textContent=reds+' zona(s) en rojo ⚠️';
+      else if(yellows>0) rsEl.textContent=yellows+' zona(s) en amarillo';
+      else rsEl.textContent='Todo verde ✓';
+    }
+  }catch(e){}
+  /* week summary */
+  try{
+    const wp=JSON.parse(localStorage.getItem('week_plan')||'[]');
+    const wEl=document.getElementById('dash-week-summary');
+    if(wEl){
+      const count=wp.filter(s=>s&&s.name).length;
+      wEl.textContent=count>0?count+' sesiones planificadas esta semana':'Sin sesiones planificadas todavía. Ve a Rutina → Semana para añadir.';
+    }
+  }catch(e){}
+  /* session suggestion */
+  const sessionMap={0:'Descanso / Análisis de vídeo',1:'Entrenamiento — Resistencia + Táctica',2:'Fuerza y prevención',3:'Entrenamiento — Táctica + Velocidad',4:'Entrenamiento — Técnica pre-partido',5:'⚽ PARTIDO — CD Lourdes',6:'Descanso total'};
+  const nsEl=document.getElementById('dash-next-session');
+  if(nsEl) nsEl.textContent=sessionMap[now.getDay()]||'Día libre';
+}
+
+/* ══ DISCIPLINA — PRIORIDADES ══ */
+function loadPriorities(){try{return JSON.parse(localStorage.getItem('mcb_priorities')||'[]')}catch{return[];}}
+function savePriorities(d){localStorage.setItem('mcb_priorities',JSON.stringify(d));}
+function renderPriorities(){
+  const list=document.getElementById('prio-list');
+  if(!list) return;
+  const items=loadPriorities();
+  list.innerHTML=items.map((p,i)=>`<li style="display:flex;align-items:center;gap:.5rem;padding:.4rem 0;border-bottom:1px solid var(--border);"><span style="flex:1;font-size:.85rem;color:var(--text);">${p}</span><button onclick="removePriority(${i})" style="background:none;border:none;cursor:pointer;color:var(--text2);font-size:.8rem;">✕</button></li>`).join('');
+}
+function addPriority(){
+  const inp=document.getElementById('prio-input');
+  if(!inp||!inp.value.trim()) return;
+  const items=loadPriorities();
+  if(items.length>=3){alert('Máximo 3 prioridades por día.');return;}
+  items.push(inp.value.trim());
+  savePriorities(items);
+  inp.value='';
+  renderPriorities();
+}
+function removePriority(i){
+  const items=loadPriorities();items.splice(i,1);savePriorities(items);renderPriorities();
+}
+
+/* ══ DISCIPLINA — RACHA ══ */
+function loadStreak(){try{return JSON.parse(localStorage.getItem('mcb_streak')||'{"count":0,"lastDate":"","log":[]}')}catch{return{count:0,lastDate:'',log:[]};}}
+function saveStreak(d){localStorage.setItem('mcb_streak',JSON.stringify(d));}
+function updateStreakBadge(){
+  const s=loadStreak();
+  const el=document.getElementById('streak-badge');
+  if(el) el.textContent=s.count+' días';
+  const log=document.getElementById('streak-log');
+  if(log) log.textContent=s.log.slice(-5).reverse().map(e=>(e.type==='rest'?'💤 ':'✓ ')+e.date).join(' · ');
+}
+function markTrainingDay(){
+  const s=loadStreak();
+  const today=new Date().toISOString().slice(0,10);
+  if(s.lastDate===today){alert('Ya registrado hoy.');return;}
+  s.count++;s.lastDate=today;
+  s.log=s.log||[];s.log.push({date:today,type:'train'});
+  saveStreak(s);updateStreakBadge();
+}
+function markRestDay(){
+  const s=loadStreak();
+  const today=new Date().toISOString().slice(0,10);
+  if(s.lastDate===today){alert('Ya registrado hoy.');return;}
+  s.lastDate=today;
+  s.log=s.log||[];s.log.push({date:today,type:'rest'});
+  saveStreak(s);updateStreakBadge();
+}
+
+/* ══ DISCIPLINA — REFLEXIÓN ══ */
+function saveReflection(){
+  const good=document.getElementById('reflect-good').value;
+  const improve=document.getElementById('reflect-improve').value;
+  const date=new Date().toISOString().slice(0,10);
+  let data;try{data=JSON.parse(localStorage.getItem('mcb_reflections')||'[]')}catch{data=[];}
+  data.push({date,good,improve});
+  localStorage.setItem('mcb_reflections',JSON.stringify(data));
+  const saved=document.getElementById('reflect-saved');
+  if(saved){saved.style.display='block';setTimeout(()=>saved.style.display='none',2000);}
+}
+
+/* ══ CUIDADO — HIDRATACIÓN ══ */
+function loadHydra(){try{const d=JSON.parse(localStorage.getItem('mcb_hydra')||'{}');const today=new Date().toISOString().slice(0,10);return d.date===today?d.count:0;}catch{return 0;}}
+function saveHydra(n){const today=new Date().toISOString().slice(0,10);localStorage.setItem('mcb_hydra',JSON.stringify({date:today,count:n}));}
+function updateHydraUI(){
+  const n=loadHydra();
+  const el=document.getElementById('hydra-count');if(el) el.textContent=n;
+  const bar=document.getElementById('hydra-bar');if(bar) bar.style.width=Math.min(n/8*100,100)+'%';
+  const msg=document.getElementById('hydra-msg');if(msg) msg.textContent=n>=8?'🎉 Objetivo cumplido!':`Faltan ${8-n} vasos`;
+}
+function addHydra(){saveHydra(loadHydra()+1);updateHydraUI();}
+function resetHydra(){saveHydra(0);updateHydraUI();}
+function logSleep(){
+  const h=document.getElementById('sleep-hours').value;
+  const today=new Date().toISOString().slice(0,10);
+  let data;try{data=JSON.parse(localStorage.getItem('mcb_sleep')||'[]')}catch{data=[];}
+  data.push({date:today,hours:h});
+  localStorage.setItem('mcb_sleep',JSON.stringify(data));
+  const el=document.getElementById('sleep-saved');if(el){el.style.display='inline';setTimeout(()=>el.style.display='none',2000);}
+}
+
+/* ══ ENTRENADOR — SESIONES ══ */
+function saveSession(){
+  const blocks=['block1','block2','block3','block4','block5'].map(id=>document.getElementById(id)?.value||'');
+  const date=new Date().toISOString().slice(0,10);
+  let sessions;try{sessions=JSON.parse(localStorage.getItem('mcb_sessions')||'[]')}catch{sessions=[];}
+  sessions.push({date,blocks});
+  localStorage.setItem('mcb_sessions',JSON.stringify(sessions));
+  renderSavedSessions();
+  ['block1','block2','block3','block4','block5'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  alert('Sesión guardada ✓');
+}
+function renderSavedSessions(){
+  const el=document.getElementById('saved-sessions');
+  if(!el) return;
+  let sessions;try{sessions=JSON.parse(localStorage.getItem('mcb_sessions')||'[]')}catch{sessions=[];}
+  if(!sessions.length){el.innerHTML='';return;}
+  el.innerHTML='<div style="font-weight:700;font-size:.85rem;color:var(--text2);margin-bottom:.4rem;">Sesiones guardadas:</div>'+
+    sessions.slice(-3).reverse().map((s,i)=>`<div style="background:var(--c3);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;margin-bottom:.4rem;font-size:.78rem;color:var(--text2);">${s.date} — ${s.blocks[0].slice(0,40)||'Sin calentamiento'}...</div>`).join('');
+}
+function saveCoachDiary(){
+  const text=document.getElementById('coach-diary')?.value;
+  if(!text?.trim()) return;
+  const date=new Date().toISOString().slice(0,10);
+  let entries;try{entries=JSON.parse(localStorage.getItem('mcb_coach_diary')||'[]')}catch{entries=[];}
+  entries.push({date,text});
+  localStorage.setItem('mcb_coach_diary',JSON.stringify(entries));
+  document.getElementById('coach-diary').value='';
+  renderCoachDiary();
+}
+function renderCoachDiary(){
+  const el=document.getElementById('coach-diary-entries');
+  if(!el) return;
+  let entries;try{entries=JSON.parse(localStorage.getItem('mcb_coach_diary')||'[]')}catch{entries=[];}
+  el.innerHTML=entries.slice(-5).reverse().map(e=>`<div style="background:var(--c2);border:1px solid var(--border);border-radius:8px;padding:.6rem .75rem;margin-bottom:.4rem;"><div style="font-size:.75rem;color:var(--text2);margin-bottom:.2rem;">${e.date}</div><div style="font-size:.83rem;color:var(--text);line-height:1.5;">${e.text}</div></div>`).join('');
+}
+
+/* ══ EXPORT / IMPORT ══ */
+function exportJSON(){
+  const keys=['mcb_decisions','mcb_checklist','sem_state','week_plan','rpe_log','ex_vids','mcb_priorities','mcb_streak','mcb_reflections','mcb_hydra','mcb_sleep','mcb_sessions','mcb_coach_diary'];
+  const data={};
+  keys.forEach(k=>{try{data[k]=JSON.parse(localStorage.getItem(k)||'null')}catch{data[k]=null;}});
+  data._exported=new Date().toISOString();
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mediocentrobarja_backup_'+new Date().toISOString().slice(0,10)+'.json';a.click();
+}
+function importJSON(event){
+  const file=event.target.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      const data=JSON.parse(e.target.result);
+      Object.entries(data).forEach(([k,v])=>{
+        if(k.startsWith('_')) return;
+        if(v!==null) localStorage.setItem(k,JSON.stringify(v));
+      });
+      alert('Datos importados correctamente ✓');
+      location.reload();
+    }catch{alert('Error al leer el archivo JSON.');}
+  };
+  reader.readAsText(file);
+}
+function exportCSV(){
+  let data;try{data=JSON.parse(localStorage.getItem('rpe_log')||'[]')}catch{data=[];}
+  if(!data.length){alert('No hay datos de RPE para exportar.');return;}
+  const header='Fecha,Tipo,RPE,Duración(min),Carga\n';
+  const rows=data.map(r=>`${r.date},${r.type},${r.val},${r.dur},${r.load}`).join('\n');
+  const blob=new Blob([header+rows],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='rpe_log_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+}
+
+/* init llamado desde el DOMContentLoaded principal arriba */
 
 </script>
 </body>
