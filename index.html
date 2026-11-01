@@ -445,10 +445,16 @@ body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased
 .recov-step .rs-num{width:28px;height:28px;min-width:28px;border-radius:50%;background:#1ED97A22;color:#1ED97A;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;}
 .recov-step .rs-body h4{margin:0 0 .15rem;font-size:.9rem;}
 .recov-step .rs-body p{margin:0;font-size:.8rem;color:#aaa;}
+.ex-figure{display:block;width:120px;height:90px;margin:0 auto .6rem;border-radius:8px;background:#0d0f11;}
 .zone-bar-wrap{margin-bottom:.75rem;}
 .zone-lbl{display:flex;justify-content:space-between;font-size:.78rem;color:#aaa;margin-bottom:3px;}
 .zone-bar{height:8px;border-radius:4px;background:#1e2023;overflow:hidden;}
 .zone-fill{height:100%;border-radius:4px;transition:width 1s ease;}
+.vid-add-wrap{margin-top:.6rem;}
+.vid-add-btn{font-size:.72rem;color:#555;background:none;border:1px dashed #333;border-radius:6px;padding:3px 8px;cursor:pointer;width:100%;}
+.vid-add-btn:hover{color:#1ED97A;border-color:#1ED97A;}
+.vid-embed{margin-top:.5rem;border-radius:8px;overflow:hidden;aspect-ratio:16/9;width:100%;}
+.vid-embed iframe{width:100%;height:100%;border:none;}
 @media(max-width:520px){.week-grid{grid-template-columns:repeat(4,1fr);}.sem-grid{grid-template-columns:repeat(3,1fr);}
   .ex-grid{grid-template-columns:1fr;}}
 /* ── MISC ── */
@@ -1444,10 +1450,10 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
     <div class="card">
       <div class="card-title">Cuidado muscular preventivo</div>
       <div class="ex-grid">
-        <div class="ex-card yellow"><h4>Nórdico excéntrico</h4><div class="ex-meta">2×5 rep · 3× semana</div><div class="ex-desc">Protección isquiotibial fundamental para el pivote. Baja lento (3-4s), sube con ayuda.</div><span class="ex-tag y">Preventivo</span></div>
-        <div class="ex-card"><h4>Plancha isométrica</h4><div class="ex-meta">3×45s · 2× semana</div><div class="ex-desc">Core estabilizador. Clave para transferencia de fuerza y protección lumbar. Respiración nasal.</div><span class="ex-tag">Core</span></div>
-        <div class="ex-card blue"><h4>Puente de glúteo</h4><div class="ex-meta">3×12 · cadencia lenta</div><div class="ex-desc">Activa glúteo mayor antes de entrenar. Reduce sobrecarga en isquios durante sprints.</div><span class="ex-tag b">Activación</span></div>
-        <div class="ex-card orange"><h4>Estiramiento de psoas</h4><div class="ex-meta">30s × lado · post-entreno</div><div class="ex-desc">El pivote pasa horas en postura semiflexionada. Acorta el psoas → lumbalgia. Estira diario.</div><span class="ex-tag o">Movilidad</span></div>
+        <div class="ex-card yellow"><canvas class="ex-figure" data-anim="nordic"></canvas><h4>Nórdico excéntrico</h4><div class="ex-meta">2×5 rep · 3× semana</div><div class="ex-desc">Protección isquiotibial fundamental para el pivote. Baja lento (3-4s), sube con ayuda.</div><span class="ex-tag y">Preventivo</span><div class="vid-add-wrap" data-key="nordic"></div></div>
+        <div class="ex-card"><canvas class="ex-figure" data-anim="plank"></canvas><h4>Plancha isométrica</h4><div class="ex-meta">3×45s · 2× semana</div><div class="ex-desc">Core estabilizador. Clave para transferencia de fuerza y protección lumbar. Respiración nasal.</div><span class="ex-tag">Core</span><div class="vid-add-wrap" data-key="plank"></div></div>
+        <div class="ex-card blue"><canvas class="ex-figure" data-anim="bridge"></canvas><h4>Puente de glúteo</h4><div class="ex-meta">3×12 · cadencia lenta</div><div class="ex-desc">Activa glúteo mayor antes de entrenar. Reduce sobrecarga en isquios durante sprints.</div><span class="ex-tag b">Activación</span><div class="vid-add-wrap" data-key="bridge"></div></div>
+        <div class="ex-card orange"><canvas class="ex-figure" data-anim="lunge"></canvas><h4>Estiramiento de psoas</h4><div class="ex-meta">30s × lado · post-entreno</div><div class="ex-desc">El pivote pasa horas en postura semiflexionada. Acorta el psoas → lumbalgia. Estira diario.</div><span class="ex-tag o">Movilidad</span><div class="vid-add-wrap" data-key="lunge_psoas"></div></div>
       </div>
     </div>
   </div>
@@ -1466,12 +1472,12 @@ button:focus-visible,.tl-badge:focus-visible{outline:2.5px solid #1ED97A;outline
     <div class="card">
       <div class="card-title">Sesiones específicas del pivote</div>
       <div class="ex-grid">
-        <div class="ex-card"><h4>Fútbol-tenis / rondo 4×4</h4><div class="ex-meta">20 min · 2× semana</div><div class="ex-desc">Mejor herramienta para mezclar resistencia, técnica y decisión. FC 75-85%. Prioridad #1.</div><span class="ex-tag">Z3</span><span class="ex-tag b">Técnica</span></div>
-        <div class="ex-card blue"><h4>Carrera continua Z2</h4><div class="ex-meta">25-35 min · 65-72% FC</div><div class="ex-desc">Base aeróbica: mejora recuperación entre esfuerzos y reduce fatiga en la segunda parte.</div><span class="ex-tag b">Z2</span></div>
-        <div class="ex-card yellow"><h4>Series 30-30 (HIIT corto)</h4><div class="ex-meta">8-10 rep · 1× semana</div><div class="ex-desc">30s a 90-95% + 30s pasivo. Mejora VO2max y potencia aeróbica. Tras 6 sem de base.</div><span class="ex-tag y">Z5</span></div>
-        <div class="ex-card orange"><h4>Aceleraciones 10-20m</h4><div class="ex-meta">6×20m · recuperación 90s</div><div class="ex-desc">Velocidad de reacción defensiva. Arranque desde posición de espera (escaneo + explosión).</div><span class="ex-tag o">Velocidad</span></div>
-        <div class="ex-card"><h4>Cambios de dirección (COD)</h4><div class="ex-meta">4×5 rep · con balón</div><div class="ex-desc">Zigzag 5m + pase. Simula cobertura lateral cuando el rival supera al interior.</div><span class="ex-tag">Agilidad</span></div>
-        <div class="ex-card yellow"><h4>Test yo-yo nivel 1</h4><div class="ex-meta">Cada 4-6 semanas</div><div class="ex-desc">Referencia: pivote amateur → nivel 17+ (distancia ≥1120m). Mide tu progreso real.</div><span class="ex-tag y">Evaluación</span></div>
+        <div class="ex-card"><canvas class="ex-figure" data-anim="rondo"></canvas><h4>Fútbol-tenis / rondo 4×4</h4><div class="ex-meta">20 min · 2× semana</div><div class="ex-desc">Mejor herramienta para mezclar resistencia, técnica y decisión. FC 75-85%. Prioridad #1.</div><span class="ex-tag">Z3</span><span class="ex-tag b">Técnica</span><div class="vid-add-wrap" data-key="rondo"></div></div>
+        <div class="ex-card blue"><canvas class="ex-figure" data-anim="run"></canvas><h4>Carrera continua Z2</h4><div class="ex-meta">25-35 min · 65-72% FC</div><div class="ex-desc">Base aeróbica: mejora recuperación entre esfuerzos y reduce fatiga en la segunda parte.</div><span class="ex-tag b">Z2</span><div class="vid-add-wrap" data-key="run_z2"></div></div>
+        <div class="ex-card yellow"><canvas class="ex-figure" data-anim="sprint"></canvas><h4>Series 30-30 (HIIT corto)</h4><div class="ex-meta">8-10 rep · 1× semana</div><div class="ex-desc">30s a 90-95% + 30s pasivo. Mejora VO2max y potencia aeróbica. Tras 6 sem de base.</div><span class="ex-tag y">Z5</span><div class="vid-add-wrap" data-key="hiit30"></div></div>
+        <div class="ex-card orange"><canvas class="ex-figure" data-anim="sprint"></canvas><h4>Aceleraciones 10-20m</h4><div class="ex-meta">6×20m · recuperación 90s</div><div class="ex-desc">Velocidad de reacción defensiva. Arranque desde posición de espera (escaneo + explosión).</div><span class="ex-tag o">Velocidad</span><div class="vid-add-wrap" data-key="accel"></div></div>
+        <div class="ex-card"><canvas class="ex-figure" data-anim="cod"></canvas><h4>Cambios de dirección (COD)</h4><div class="ex-meta">4×5 rep · con balón</div><div class="ex-desc">Zigzag 5m + pase. Simula cobertura lateral cuando el rival supera al interior.</div><span class="ex-tag">Agilidad</span><div class="vid-add-wrap" data-key="cod"></div></div>
+        <div class="ex-card yellow"><canvas class="ex-figure" data-anim="run"></canvas><h4>Test yo-yo nivel 1</h4><div class="ex-meta">Cada 4-6 semanas</div><div class="ex-desc">Referencia: pivote amateur → nivel 17+ (distancia ≥1120m). Mide tu progreso real.</div><span class="ex-tag y">Evaluación</span><div class="vid-add-wrap" data-key="yoyo"></div></div>
       </div>
     </div>
   </div>
@@ -1961,8 +1967,177 @@ function drawRPEChart(){
   ctx.fillText('Últimas '+d.length+' sesiones · color = RPE (verde bajo → rojo alto)',pad,14);
 }
 
+/* ══ STICK FIGURE ENGINE ══ */
+(function(){
+  const ACC='#1ED97A',GRD='#252830';
+  function ln(ctx,x1,y1,x2,y2){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+  function ci(ctx,x,y,r,fill){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);if(fill){ctx.fillStyle=fill;ctx.fill();}else ctx.stroke();}
+  function ground(ctx,W,H){ctx.save();ctx.strokeStyle=GRD;ctx.lineWidth=1.5;ln(ctx,8,H-8,W-8,H-8);ctx.restore();}
+
+  const ANIMS={
+    run:(ctx,t,W,H)=>{
+      const cx=W/2,hy=H*.18;
+      ground(ctx,W,H);
+      ci(ctx,cx,hy,7);
+      ln(ctx,cx,hy+7,cx-2,hy+27);
+      const sh={x:cx,y:hy+15},hip={x:cx-2,y:hy+27};
+      const al=Math.sin(t)*.4,ar=-Math.sin(t)*.4;
+      ln(ctx,sh.x,sh.y,sh.x+Math.sin(al)*13,sh.y+Math.cos(al)*11);
+      ln(ctx,sh.x,sh.y,sh.x+Math.sin(ar)*13,sh.y+Math.cos(ar)*11);
+      const ll=Math.sin(t)*.55,lr=-Math.sin(t)*.55,L=18,S=14;
+      const lk={x:hip.x+Math.sin(ll)*L,y:hip.y+Math.cos(ll)*L};
+      ln(ctx,hip.x,hip.y,lk.x,lk.y);
+      ln(ctx,lk.x,lk.y,lk.x+Math.sin(ll+Math.max(0,Math.sin(t+.7))*.5)*S,lk.y+Math.cos(ll+Math.max(0,Math.sin(t+.7))*.5)*S);
+      const rk={x:hip.x+Math.sin(lr)*L,y:hip.y+Math.cos(lr)*L};
+      ln(ctx,hip.x,hip.y,rk.x,rk.y);
+      ln(ctx,rk.x,rk.y,rk.x+Math.sin(lr+Math.max(0,-Math.sin(t+.7))*.5)*S,rk.y+Math.cos(lr+Math.max(0,-Math.sin(t+.7))*.5)*S);
+    },
+    sprint:(ctx,t,W,H)=>{
+      const cx=W/2-3,hy=H*.2;
+      ground(ctx,W,H);
+      ci(ctx,cx-2,hy,7);
+      ln(ctx,cx-2,hy+7,cx-7,hy+27);
+      const sh={x:cx-2,y:hy+14},hip={x:cx-7,y:hy+27};
+      const al=Math.sin(t)*.7,ar=-Math.sin(t)*.7;
+      ln(ctx,sh.x,sh.y,sh.x+Math.sin(al)*15,sh.y+Math.cos(al)*13);
+      ln(ctx,sh.x,sh.y,sh.x+Math.sin(ar)*15,sh.y+Math.cos(ar)*13);
+      const ll=Math.sin(t)*.75,lr=-Math.sin(t)*.75,L=20,S=16;
+      const lk={x:hip.x+Math.sin(ll)*L,y:hip.y+Math.cos(ll)*L};
+      ln(ctx,hip.x,hip.y,lk.x,lk.y);ln(ctx,lk.x,lk.y,lk.x+Math.sin(ll+.3)*S,lk.y+Math.cos(ll+.3)*S);
+      const rk={x:hip.x+Math.sin(lr)*L,y:hip.y+Math.cos(lr)*L};
+      ln(ctx,hip.x,hip.y,rk.x,rk.y);ln(ctx,rk.x,rk.y,rk.x+Math.sin(lr+.3)*S,rk.y+Math.cos(lr+.3)*S);
+    },
+    plank:(ctx,t,W,H)=>{
+      const y=H*.56+Math.sin(t*.35)*.8;
+      ground(ctx,W,H);
+      ln(ctx,28,y,82,y);
+      ci(ctx,21,y-1,6);
+      ln(ctx,42,y,42,H-8);ln(ctx,62,y,62,H-8);
+      ln(ctx,82,y,96,y+2);ln(ctx,82,y,96,y-2);
+    },
+    nordic:(ctx,t,W,H)=>{
+      const ang=.1+Math.abs(Math.sin(t*.5))*.85;
+      const kx=55,ky=H*.72;
+      ground(ctx,W,H);
+      ln(ctx,kx-6,ky,kx-6,H-8);ln(ctx,kx+6,ky,kx+6,H-8);
+      const tx=kx-Math.sin(ang)*30,ty=ky-Math.cos(ang)*30;
+      ln(ctx,kx,ky,tx,ty);
+      ci(ctx,tx,ty-8,6);
+      ln(ctx,tx,ty-3,tx-10+Math.sin(ang)*6,ty+8);
+      ln(ctx,tx,ty-3,tx+8+Math.sin(ang)*6,ty+8);
+    },
+    bridge:(ctx,t,W,H)=>{
+      const hipH=H*.52-Math.sin(t*.7)*10;
+      ground(ctx,W,H);
+      ci(ctx,20,H*.73,6);
+      ln(ctx,28,H*.72,62,hipH);
+      ln(ctx,62,hipH,80,H*.72);ln(ctx,80,H*.72,80,H-8);
+      ln(ctx,28,H*.72,42,H*.72+2);ln(ctx,28,H*.72,42,H*.72-2);
+    },
+    lunge:(ctx,t,W,H)=>{
+      const sway=Math.sin(t*.4)*2,cx=W/2+sway;
+      ground(ctx,W,H);
+      ci(ctx,cx,H*.18,7);
+      ln(ctx,cx,H*.25,cx,H*.48);
+      ln(ctx,cx,H*.34,cx-13,H*.29);ln(ctx,cx,H*.34,cx+13,H*.29);
+      ln(ctx,cx,H*.48,cx-18,H*.65);ln(ctx,cx-18,H*.65,cx-18,H-8);
+      ln(ctx,cx,H*.48,cx+22,H*.68);ln(ctx,cx+22,H*.68,cx+24,H-8);
+    },
+    cod:(ctx,t,W,H)=>{
+      const side=Math.sin(t*.6);
+      const cx=W/2+side*12,dir=Math.sign(Math.cos(t*.6));
+      ground(ctx,W,H);
+      ci(ctx,cx,H*.2,7);
+      ln(ctx,cx,H*.27,cx+dir*4,H*.47);
+      const sh={x:cx+dir*1,y:H*.34},hip={x:cx+dir*4,y:H*.47};
+      ln(ctx,sh.x,sh.y,sh.x-dir*14,sh.y+4);ln(ctx,sh.x,sh.y,sh.x+dir*10,sh.y+8);
+      ln(ctx,hip.x,hip.y,hip.x-16,H*.65);ln(ctx,hip.x-16,H*.65,hip.x-14,H-8);
+      ln(ctx,hip.x,hip.y,hip.x+14,H*.62);ln(ctx,hip.x+14,H*.62,hip.x+16,H-8);
+    },
+    rondo:(ctx,t,W,H)=>{
+      const n=3;
+      for(let i=0;i<n;i++){
+        const a=t*.4+i*(Math.PI*2/n);
+        const px=W/2+Math.cos(a)*28,py=H/2+Math.sin(a)*20;
+        ci(ctx,px,py-12,5);ln(ctx,px,py-7,px,py+8);
+        const la=a+.3,ra=a-.3;
+        ln(ctx,px,py+.5,px+Math.sin(la)*8,py+8+Math.cos(la)*5);
+        ln(ctx,px,py+.5,px+Math.sin(ra)*8,py+8+Math.cos(ra)*5);
+        ln(ctx,px,py+8,px-5,py+18);ln(ctx,px,py+8,px+5,py+18);
+      }
+      ci(ctx,W/2,H/2+2,4,'#F5C54288');
+    },
+  };
+
+  function setup(canvas){
+    const anim=canvas.dataset.anim||'run';
+    const dpr=window.devicePixelRatio||1;
+    canvas.width=120*dpr;canvas.height=90*dpr;
+    const ctx=canvas.getContext('2d');
+    ctx.scale(dpr,dpr);
+    let t=0,raf;
+    const speed={run:.08,sprint:.12,plank:.03,nordic:.04,bridge:.06,lunge:.04,cod:.07,rondo:.05};
+    function draw(){
+      ctx.clearRect(0,0,120,90);
+      ctx.strokeStyle=ACC;ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';
+      if(ANIMS[anim]) ANIMS[anim](ctx,t,120,90);
+      t+=speed[anim]||.06;
+      raf=requestAnimationFrame(draw);
+    }
+    draw();
+    // pause when off-screen
+    const io=new IntersectionObserver(entries=>{
+      entries[0].isIntersecting ? (raf || (t=t,draw())) : (cancelAnimationFrame(raf),raf=null);
+    },{threshold:.1});
+    io.observe(canvas);
+  }
+
+  window.initStickFigs=function(){
+    document.querySelectorAll('canvas.ex-figure').forEach(setup);
+  };
+})();
+
+/* ══ VIDEO EMBED ══ */
+(function(){
+  function ytId(url){
+    const m=url.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{11})/);
+    return m?m[1]:null;
+  }
+  function loadVids(){try{return JSON.parse(localStorage.getItem('ex_vids')||'{}')}catch{return {};}}
+  function saveVids(d){localStorage.setItem('ex_vids',JSON.stringify(d));}
+
+  function renderVidWrap(el){
+    const key=el.dataset.key;
+    const vids=loadVids();
+    const vid=vids[key];
+    if(vid){
+      el.innerHTML=`<div class="vid-embed"><iframe src="https://www.youtube.com/embed/${vid}?rel=0" allowfullscreen loading="lazy"></iframe></div><button class="vid-add-btn" onclick="vidRemove('${key}')">✕ Quitar video</button>`;
+    } else {
+      el.innerHTML=`<button class="vid-add-btn" onclick="vidAdd('${key}')">▶ Añadir video YouTube</button>`;
+    }
+  }
+
+  window.vidAdd=function(key){
+    const url=prompt('Pega el enlace de YouTube del ejercicio:');
+    if(!url) return;
+    const id=ytId(url);
+    if(!id) return alert('URL de YouTube no reconocida. Usa el formato youtu.be/XXXXX o youtube.com/watch?v=XXXXX');
+    const d=loadVids();d[key]=id;saveVids(d);
+    document.querySelectorAll(`.vid-add-wrap[data-key="${key}"]`).forEach(renderVidWrap);
+  };
+  window.vidRemove=function(key){
+    const d=loadVids();delete d[key];saveVids(d);
+    document.querySelectorAll(`.vid-add-wrap[data-key="${key}"]`).forEach(renderVidWrap);
+  };
+
+  window.initVidWraps=function(){
+    document.querySelectorAll('.vid-add-wrap').forEach(renderVidWrap);
+  };
+})();
+
 document.addEventListener('DOMContentLoaded',()=>{
   initSem();renderRPELog();drawRPEChart();renderWeek();
+  initStickFigs();initVidWraps();
   const rpeDate=document.getElementById('rpe-date');
   if(rpeDate) rpeDate.value=new Date().toISOString().slice(0,10);
 });
