@@ -869,6 +869,29 @@ textarea.inp{height:auto;padding:12px 14px;resize:vertical;min-height:80px;line-
   .qa-sl{margin:6px auto 0;}
   .hc-go{min-height:170px;order:-1;}
 }
+/* panel de lesión (portada) */
+.icon.amber{color:var(--amber);}
+.inj{margin:18px 40px 0;min-height:0;gap:14px;border-color:rgba(242,165,22,.35);}
+.inj[hidden]{display:none;}
+.inj .hc-h{margin-bottom:4px;}
+.inj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.inj-sub{color:rgba(255,255,255,.65);font-size:13.5px;}
+.inj-day{flex:none;font-family:'Outfit',sans-serif;font-weight:800;font-size:15px;color:#1A1205;background:var(--amber);border-radius:99px;padding:6px 14px;}
+.inj-ex{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+.inj-c{display:flex;flex-direction:column;gap:3px;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:8px 8px 10px;color:#fff;cursor:pointer;font:inherit;transition:border-color .2s,transform .2s;}
+.inj-c:hover{border-color:var(--green);transform:translateY(-2px);}
+.inj-c canvas{width:100%;height:92px;border-radius:10px;display:block;margin-bottom:5px;}
+.inj-c b{font-size:13.5px;line-height:1.25;}
+.inj-c span{font-size:12px;color:rgba(255,255,255,.6);}
+.inj-note{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:#F8DFA8;background:rgba(242,165,22,.1);border-radius:12px;padding:10px 13px;}
+.inj-note .icon{flex:none;color:var(--amber);margin-top:2px;}
+.inj-act{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.linkbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:rgba(255,255,255,.7);font:inherit;font-size:13.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px 2px;}
+.linkbtn.dark{color:#0B5530;}
+.linkbtn .icon{width:16px;height:16px;}
+.inj-act .linkbtn{margin-left:auto;}
+@media (max-width:1100px){.inj{margin:18px 24px 0;}.inj-ex{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:900px){.inj{margin:14px 16px 0;}.inj-ex{grid-template-columns:1fr 1fr;}.inj-act .btn,.inj-act .obtn{flex:1 1 100%;justify-content:center;}.inj-act .linkbtn{margin:0 auto;}}
 @media (max-width:520px){.gobtn{padding:15px 26px 15px 20px;}.gobtn b{font-size:22px;}.gobtn small{font-size:15px;}.idc{height:42px;font-size:13px;padding:0 11px;}.hc-big{font-size:23px;}}
 
 #s-formacion .field-wrap{max-width:720px;margin-left:auto;margin-right:auto;}
@@ -1123,6 +1146,20 @@ textarea.inp{height:auto;padding:12px 14px;resize:vertical;min-height:80px;line-
     </div>
    </div>
 
+   <div class="hc inj" id="inj" hidden>
+    <div class="inj-top">
+     <div><div class="hc-h"><svg class="icon amber"><use href="#i-alert"/></svg>Vuelta del esguince</div><div class="inj-sub" id="inj-sub"></div></div>
+     <span class="inj-day" id="inj-day"></span>
+    </div>
+    <div class="inj-ex" id="inj-ex"></div>
+    <div class="inj-note"><svg class="icon"><use href="#i-info"/></svg><span>Dolor como mucho 3 de 10 y sin más hinchazón al día siguiente. Si empeora, para y consulta a tu fisio. Nada de saltos, sprints ni giros bruscos hasta que te den el alta.</span></div>
+    <div class="inj-act">
+     <button class="btn btn-p" onclick="startSession('rehab')"><svg class="icon"><use href="#i-play"/></svg>Empezar rehabilitación</button>
+     <button class="obtn" onclick="startSession('zurda')"><svg class="icon"><use href="#i-ball"/></svg>Balón con la izquierda</button>
+     <button class="inj-toggle linkbtn"></button>
+    </div>
+   </div>
+
    <div class="qa">
     <button class="qab" onclick="go('recup')"><svg class="icon"><use href="#i-heart"/></svg>Registrar<br>recuperación</button>
     <button class="qab" onclick="go('progreso')"><svg class="icon"><use href="#i-chart"/></svg>Ver mi progreso</button>
@@ -1143,6 +1180,7 @@ textarea.inp{height:auto;padding:12px 14px;resize:vertical;min-height:80px;line-
    <button class="chip" data-s="velocidad"><svg class="icon"><use href="#i-bolt"/></svg>Velocidad</button>
    <button class="chip" data-s="resistencia"><svg class="icon"><use href="#i-run"/></svg>Resistencia</button>
    <button class="chip" data-s="tecnica"><svg class="icon"><use href="#i-ball"/></svg>Técnica</button>
+   <button class="chip" data-s="rehab"><svg class="icon"><use href="#i-heart"/></svg>Tobillo</button>
    <button class="chip" data-s="tactica"><svg class="icon"><use href="#i-pitch"/></svg>Táctica</button>
    <button class="chip" data-s="plan"><svg class="icon"><use href="#i-cal"/></svg>Plan semanal</button>
   </div>
@@ -1151,6 +1189,10 @@ textarea.inp{height:auto;padding:12px 14px;resize:vertical;min-height:80px;line-
   <div class="sub" id="en-velocidad"><div class="exg" data-cat="velocidad"></div></div>
   <div class="sub" id="en-resistencia"><div class="exg" data-cat="resistencia"></div></div>
   <div class="sub" id="en-tecnica"><div class="exg" data-cat="tecnica"></div></div>
+  <div class="sub" id="en-rehab">
+   <div class="info" style="margin-bottom:18px"><svg class="icon"><use href="#i-info"/></svg><div>Vuelta progresiva tras el esguince del tobillo derecho. Mientras el modo lesión esté activo, el plan semanal cambia velocidad y resistencia por rehabilitación, y la técnica se hace con la izquierda. <button class="inj-toggle linkbtn dark"></button></div></div>
+   <div class="exg" data-cat="rehab"></div>
+  </div>
   <div class="sub" id="en-tactica">
    <div class="stat-grid">
     <div class="stat-card"><div class="stat-label"><svg class="icon"><use href="#icon-checksquare"/></svg>Checklist</div><div class="stat-num" id="dash-chk-num">0<span>/20</span></div><div class="stat-pct" id="dash-chk-pct">0% completado</div></div>
@@ -2322,6 +2364,24 @@ const ANIM=(function(){
       {d:.32,p:S({tr:4,nl:[10,20],fl:[10,20],nf:30,ff:30,na:[5,80],fa:[5,80]}),l:'Apoyo en la punta'},
       {d:.32,p:S({tr:4,nl:[-2,0],fl:[88,100],nf:35,na:[55,80],fa:[-45,80],air:.04}),l:'Cambia de pierna con ritmo'},
       {d:.32,p:S({tr:4,nl:[10,20],fl:[10,20],nf:30,ff:30,na:[5,80],fa:[5,80]}),l:'Brazos coordinados'}]},
+    /* rehabilitación de tobillo (sentado, pierna estirada) */
+    anklecirc:{anchor:'hip',floor:'mat',props:['foothi'],kf:[
+      {d:.7,h:.5,p:S({tr:-15,hd:22,nl:[90,0],fl:[84,6],nf:-90,ff:-85,na:[-35,0],fa:[-35,0]}),l:'Sentado, pierna estirada'},
+      {d:1.3,p:S({tr:-15,hd:22,nl:[90,0],fl:[84,6],nf:-22,ff:-85,na:[-35,0],fa:[-35,0]}),l:'Punta lejos de ti'},
+      {d:1.5,p:S({tr:-15,hd:22,nl:[90,0],fl:[84,6],nf:-120,ff:-85,na:[-35,0],fa:[-35,0]}),l:'Punta hacia ti'},
+      {d:.7,p:S({tr:-15,hd:22,nl:[90,0],fl:[84,6],nf:-55,ff:-85,na:[-35,0],fa:[-35,0]}),l:'Dibuja las letras de la A a la Z'},
+      {d:.7,p:S({tr:-15,hd:22,nl:[90,0],fl:[84,6],nf:-108,ff:-85,na:[-35,0],fa:[-35,0]}),l:'Dibuja las letras de la A a la Z'},
+      {d:.7,p:S({tr:-15,hd:22,nl:[90,0],fl:[84,6],nf:-65,ff:-85,na:[-35,0],fa:[-35,0]}),l:'Dibuja las letras de la A a la Z'}]},
+    bandpush:{anchor:'hip',floor:'mat',props:['foothi','band'],kf:[
+      {d:.7,h:.5,p:S({tr:2,hd:18,nl:[90,0],fl:[84,6],nf:-95,ff:-85,na:[62,0],fa:[58,0]}),l:'Banda en la planta del pie'},
+      {d:1.6,p:S({tr:4,hd:18,nl:[90,0],fl:[84,6],nf:-25,ff:-85,na:[66,0],fa:[62,0]}),l:'Empuja la punta despacio'},
+      {d:1.2,h:1.2,p:S({tr:4,hd:18,nl:[90,0],fl:[84,6],nf:-25,ff:-85,na:[66,0],fa:[62,0]}),l:'Mantén 2 s'},
+      {d:1.8,p:S({tr:2,hd:18,nl:[90,0],fl:[84,6],nf:-95,ff:-85,na:[62,0],fa:[58,0]}),l:'Vuelve controlado'}]},
+    calfflat:{anchor:'nT',props:['wall','foothi'],kf:[
+      {d:.6,h:.5,p:S({na:[80,10],fa:[70,15]}),l:'Pies paralelos, mano en la pared'},
+      {d:1.1,p:S({nf:45,ff:45,na:[78,14],fa:[68,18]}),l:'Sube los dos talones'},
+      {d:.9,h:.9,p:S({nf:45,ff:45,na:[78,14],fa:[68,18]}),l:'Pausa 1 s, tobillo recto'},
+      {d:2.2,p:S({na:[80,10],fa:[70,15]}),l:'Baja en 2-3 s'}]},
     neckless:null
   };
   /* animaciones procedimentales */
@@ -2368,6 +2428,8 @@ const ANIM=(function(){
       if(pr==='wall'){ctx.fillStyle='#1E3328';ctx.fillRect(ox+U*.42,gy-U*1.9,U*.12,U*1.9);ctx.fillStyle='rgba(255,255,255,.08)';ctx.fillRect(ox+U*.42,gy-U*1.9,U*.03,U*1.9);}
       if(pr==='cones2'){drawCone(ctx,ox-U*1.15,gy,U*.16);drawCone(ctx,ox+U*1.15,gy,U*.16);}
       if(pr==='cones1'){drawCone(ctx,ox+U*1.05,gy,U*.16);drawCone(ctx,ox-U*1.05,gy,U*.16);}
+      if(pr==='foothi'){const h=T(s.n.Hl),t=T(s.n.T);ctx.lineCap='round';seg(ctx,h,t,U*.1,'#F2A516');ctx.fillStyle='rgba(242,165,22,.25)';ctx.beginPath();ctx.arc(T(s.n.A)[0],T(s.n.A)[1],U*.13,0,Math.PI*2);ctx.fill();}
+      if(pr==='band'){const t=T(s.n.T),a=T(s.n.A);ctx.strokeStyle='#F2A516';ctx.lineWidth=Math.max(2,U*.03);ctx.beginPath();[s.na.W,s.fa.W].forEach(w=>{const q=T(w);ctx.moveTo(q[0],q[1]);ctx.lineTo(t[0]+(a[0]-t[0])*.25,t[1]+(a[1]-t[1])*.25);});ctx.stroke();}
       if(pr==='target'){ctx.strokeStyle='rgba(255,255,255,.7)';ctx.lineWidth=3;ctx.strokeRect(ox+U*2.5,gy-U*.5,U*.08,U*.5);drawCone(ctx,ox+U*2.45,gy,U*.13);}
     });
     if(ex.stepUp){const st=T(s.n.T);ctx.fillStyle='#2A4637';ctx.fillRect(st[0]-U*.09,gy-U*.24,U*.75,U*.24+2);ctx.fillStyle='rgba(255,255,255,.22)';ctx.fillRect(st[0]-U*.09,gy-U*.24,U*.75,2);}
@@ -2440,7 +2502,7 @@ const ANIM=(function(){
 })();
 
 /* ══════════ DATOS ══════════ */
-const CAT={fuerza:{n:'Fuerza',c:'g'},velocidad:{n:'Velocidad',c:'a'},resistencia:{n:'Resistencia',c:'b'},tecnica:{n:'Técnica',c:'v'},movilidad:{n:'Movilidad',c:''}};
+const CAT={fuerza:{n:'Fuerza',c:'g'},velocidad:{n:'Velocidad',c:'a'},resistencia:{n:'Resistencia',c:'b'},tecnica:{n:'Técnica',c:'v'},movilidad:{n:'Movilidad',c:''},rehab:{n:'Tobillo',c:'a'}};
 const EX={
   sentadilla:{n:'Sentadilla',cat:'fuerza',anim:'squat',img:'assets/ex/sentadilla.png',zona:'Cuádriceps · glúteo',dose:{s:3,r:'10',rest:60},steps:['Pies al ancho de hombros, puntas algo abiertas.','Baja en 2 s llevando la cadera atrás y abajo.','Muslos paralelos al suelo, pecho alto.','Sube empujando el suelo con todo el pie.'],cue:'Las rodillas siguen la dirección de las puntas; no se van hacia dentro.'},
   zancada:{n:'Zancada adelante',cat:'fuerza',anim:'lunge',img:'assets/ex/zancada.png',zona:'Cuádriceps · glúteo · equilibrio',dose:{s:3,r:'8 por pierna',rest:60},steps:['De pie, tronco erguido.','Paso largo al frente y baja.','Rodilla delantera sobre el tobillo, la trasera casi toca el suelo.','Vuelve empujando con el talón delantero.'],cue:'Tronco vertical: no te inclines hacia delante.'},
@@ -2466,7 +2528,15 @@ const EX={
   rondo:{n:'Rondo 4×1',cat:'tecnica',anim:'rondo',zona:'Posesión',dose:{s:4,t:120,rest:40},steps:['4 jugadores en cuadrado y 1 en el medio.','Máximo 2 toques.','Quien pierde el balón, al centro.'],cue:'Ofrece siempre una línea de pase limpia.'},
   tobillo:{n:'Movilidad de tobillo',cat:'movilidad',anim:'ankle',zona:'Tobillo',dose:{s:2,r:'10 por pie',rest:15},steps:['Pie a un palmo de la pared.','Lleva la rodilla hacia la pared.','El talón no se levanta.','Vuelve despacio.'],cue:'Más movilidad de tobillo = menos carga en la rodilla.'},
   cervical:{n:'Movilidad cervical',cat:'movilidad',anim:'neck',zona:'Cuello · trabajo de oficina',dose:{s:2,r:'6',rest:10},steps:['Hombros relajados.','Barbilla al pecho y mantén 3 s.','Vuelve al centro.','Retracción: barbilla atrás.','Relaja.'],cue:'Hazlo cada 2 horas de pantalla.'},
-  aductormov:{n:'Apertura de aductores',cat:'movilidad',anim:'adductor',zona:'Cadera',dose:{s:2,r:'5 por lado',rest:10},steps:['Pies muy abiertos.','Desplaza el peso lento a un lado.','Mantén 2 s y cambia.'],cue:'Sin rebotes.'}
+  aductormov:{n:'Apertura de aductores',cat:'movilidad',anim:'adductor',zona:'Cadera',dose:{s:2,r:'5 por lado',rest:10},steps:['Pies muy abiertos.','Desplaza el peso lento a un lado.','Mantén 2 s y cambia.'],cue:'Sin rebotes.'},
+  /* tobillo derecho: vuelta tras esguince */
+  anklecirc:{n:'Alfabeto con el tobillo',cat:'rehab',anim:'anklecirc',zona:'Movilidad del tobillo derecho',dose:{s:2,r:'A-Z',rest:20},steps:['Sentado, pierna derecha estirada.','Lleva la punta del pie lejos de ti.','Tira de la punta hacia ti.','Dibuja las letras de la A a la Z con el dedo gordo.'],cue:'Lento y sin dolor: primero recuperas el movimiento, después la fuerza.'},
+  bandpush:{n:'Empuje con banda elástica',cat:'rehab',anim:'bandpush',zona:'Gemelo · flexión del tobillo',dose:{s:3,r:'15',rest:30},steps:['Sentado, banda en la planta del pie derecho.','Empuja la punta despacio, como un acelerador.','Mantén 2 s.','Vuelve controlado.'],cue:'Sin banda, usa una toalla. Debe ser cómodo, nunca doloroso.'},
+  calfflat:{n:'Elevación de talones a dos pies',cat:'rehab',anim:'calfflat',zona:'Gemelo · estabilidad del tobillo',dose:{s:3,r:'12',rest:45},steps:['De pie, pies paralelos, mano en la pared.','Sube los dos talones a la vez.','Pausa 1 s arriba sin que el tobillo se vaya hacia fuera.','Baja en 2-3 s.'],cue:'Cuando no moleste, pasa a una sola pierna (la derecha).'},
+  equider:{n:'Equilibrio sobre el pie derecho',cat:'rehab',anim:'balance',zona:'Propiocepción del tobillo',dose:{s:3,t:30,rest:20},steps:['Apoyo sobre el pie derecho, cerca de una pared.','Rodilla de apoyo un poco flexionada.','Mirada al frente durante 30 s.'],cue:'Progresión: ojos cerrados → cojín → recibir balón. Solo si no duele.'},
+  /* balón con la izquierda */
+  controlzurda:{n:'Control con la izquierda',cat:'tecnica',anim:'firsttouch',img:'assets/ex/control.png',zona:'Pierna izquierda',dose:{s:3,r:'10 controles',rest:30},steps:['Escanea antes de que llegue el balón.','Recibe con el interior de la izquierda.','Orienta el control hacia el espacio.','3-4 toques de conducción solo con la izquierda.'],cue:'Usa la pared o que alguien te lance. Giros suaves mientras se recupera el tobillo.'},
+  pasezurda:{n:'Pase con la izquierda',cat:'tecnica',anim:'passing',img:'assets/ex/pase.png',zona:'Pierna izquierda',dose:{s:4,r:'20 pases',rest:30},steps:['Pie de apoyo (el derecho) al lado del balón.','Golpea con el interior de la izquierda, tobillo firme.','Acompaña el gesto hacia la pared.','Recibe el rebote también con la izquierda.'],cue:'Tu pie de apoyo es el del esguince: distancia corta (3-5 m) y sin giros bruscos. Si molesta, para.'}
 };
 /* sesiones guiadas: [ejercicio, series, reps|null, segundos|null, descanso] */
 const SESSIONS={
@@ -2476,8 +2546,15 @@ const SESSIONS={
   tecnica:{n:'Técnica del pivote',d:25,i:2,img:'assets/foto3.png',s:'Escanear, orientar y pasar',list:[['escaneo',2],['control',3],['pase',3]]},
   recuperacion:{n:'Recuperación activa',d:20,i:1,img:'assets/foto8.png',s:'Trote suave y movilidad',list:[['trote',1,null,480],['tobillo',1],['aductormov',1],['cervical',1]]},
   resistencia:{n:'Resistencia intermitente',d:30,i:4,img:'assets/foto4.webp',s:'Esfuerzos repetidos como en el partido',list:[['trote',1,null,300],['intervalos',2],['trote',1,null,240]]},
-  prepartido:{n:'Pre-partido',d:12,i:1,img:'assets/foto7.png',s:'Movilidad y visualización',list:[['tobillo',1],['aductormov',1],['skipping',1,'15 m'],['escaneo',1]]}
+  prepartido:{n:'Pre-partido',d:12,i:1,img:'assets/foto7.png',s:'Movilidad y visualización',list:[['tobillo',1],['aductormov',1],['skipping',1,'15 m'],['escaneo',1]]},
+  rehab:{n:'Rehabilitación de tobillo',d:20,i:1,img:'assets/foto8.png',s:'Movilidad, fuerza y equilibrio del tobillo derecho',list:[['anklecirc',2],['tobillo',2],['bandpush',3],['calfflat',3],['equider',3]]},
+  zurda:{n:'Balón con la izquierda',d:20,i:2,img:'assets/ex/pase.png',s:'Control y pase solo con la pierna izquierda',list:[['escaneo',1],['controlzurda',3],['pasezurda',3]]},
+  prepartidoles:{n:'Pre-partido (tobillo)',d:12,i:1,img:'assets/foto7.png',s:'Movilidad sin impactos',list:[['anklecirc',1],['tobillo',1],['aductormov',1],['escaneo',1]]},
+  fuerzales:{n:'Fuerza sin cargar el tobillo',d:30,i:2,img:'assets/ex/plancha.png',s:'Glúteo, isquios y core + tobillo',list:[['puente'],['nordico'],['plancha'],['bandpush',2],['equider',2]]}
 };
+/* lesión activa: qué sesión sustituye a cada una */
+const LESION_DEF={activa:true,zona:'Tobillo derecho',tipo:'Esguince de grado 2',desde:'2026-11-03'};
+const LESION_SWAP={recuperacion:'rehab',fuerza:'fuerzales',tecnica:'zurda',velocidad:'rehab',resistencia:'rehab',prepartido:'prepartidoles',none:'rehab'};
 /* semana tipo según tu vida (0=domingo) */
 const WEEK=[
   {fixed:[{t:'match',b:'Partido CD Lourdes',s:'Domingo'}],ses:'prepartido',why:'Día de partido: solo activación.'},
@@ -2762,7 +2839,23 @@ function initNav(){
 
 /* ══════════ PLAN DEL DÍA ══════════ */
 function dayPlan(d=new Date()){return WEEK[d.getDay()];}
-function sessionFor(d=new Date()){return dayPlan(d).ses||'activacion';}
+function sessionFor(d=new Date()){return adaptSes(dayPlan(d).ses)||'activacion';}
+
+/* ══════════ LESIÓN ══════════ */
+function lesion(){return LS.get('mcb_lesion',LESION_DEF);}
+function adaptSes(k){return lesion().activa?(LESION_SWAP[k||'none']||k):k;}
+function setLesion(on){const l=lesion();l.activa=on;if(on&&!l.desde)l.desde=today();LS.set('mcb_lesion',l);renderLesion();renderHome();renderPlan();toast(on?'Modo lesión activado':'¡Recuperado! Vuelves al plan normal');}
+function renderLesion(){
+  const l=lesion(),box=$('#inj');
+  $$('.inj-toggle').forEach(b=>{b.innerHTML=l.activa?`${ic('i-checkc')}Ya estoy recuperado`:`${ic('i-alert')}Activar modo lesión`;b.onclick=()=>setLesion(!l.activa);});
+  box.hidden=!l.activa;if(!l.activa)return;
+  const days=Math.max(0,Math.round((new Date(today())-new Date(l.desde))/864e5))+1;
+  $('#inj-day').textContent='Día '+days;
+  $('#inj-sub').textContent=l.zona+' · '+l.tipo.toLowerCase()+' · balón con la izquierda';
+  const ids=SESSIONS.rehab.list.map(x=>x[0]);
+  $('#inj-ex').innerHTML=ids.map(id=>{const e=EX[id];return `<button class="inj-c" onclick="openEx('${id}')"><canvas data-anim="${e.anim}"></canvas><b>${esc(e.n)}</b><span>${doseText(e)}</span></button>`;}).join('');
+  $$('#inj-ex canvas').forEach(cv=>ANIM.make(cv,cv.dataset.anim,{mini:true}));
+}
 function doneLog(){return LS.get('mcb_done',[]);}
 function weekActivity(){
   const m=monday();const out=[];
@@ -2835,6 +2928,7 @@ function openToday(){
    <div><div class="eyebrow">${DOW[now.getDay()]}</div><div class="sh-title">Qué tengo hoy</div></div>
    <div style="display:flex;flex-direction:column;gap:8px">${fixed}</div>
    <div class="info">${ic('i-info')}<div>${esc(plan.why)}</div></div>
+   ${lesion().activa&&sk!==(plan.ses||'activacion')?`<div class="cue">${ic('i-alert')}<span>Adaptado por tu esguince: hoy ${esc(ses.n.toLowerCase())} en lugar de ${esc(SESSIONS[plan.ses]?SESSIONS[plan.ses].n.toLowerCase():'descanso')}.</span></div>`:''}
    <div class="panel" style="box-shadow:none"><div class="panel-t" style="margin-bottom:8px">${ic('i-play')}${esc(ses.n)} · ${ses.d} min</div>
    <div class="steps">${ses.list.map(it=>`<div class="step" style="cursor:default"><i></i><span>${esc(EX[it[0]].n)}</span></div>`).join('')}</div></div>
    <button class="btn btn-p btn-xl" onclick="closeSheet();startSession('${sk}')">${ic('i-play')}Empezar ${esc(ses.n)}</button></div>`,true);
@@ -2962,10 +3056,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#ovl').classL
 /* ══════════ PLAN SEMANAL ══════════ */
 function renderPlan(){
   const own=LS.get('week_plan',{});const m=monday();
-  $('#wplan').innerHTML=[1,2,3,4,5,6,0].map((dw,i)=>{const d=new Date(m);d.setDate(m.getDate()+i);const w=WEEK[dw];const s=w.ses&&SESSIONS[w.ses];
+  $('#wplan').innerHTML=[1,2,3,4,5,6,0].map((dw,i)=>{const d=new Date(m);d.setDate(m.getDate()+i);const w=WEEK[dw];const sk=adaptSes(w.ses),s=sk&&SESSIONS[sk];
     return `<div class="wd ${iso(d)===today()?'t':''}"><div class="wd-h"><b>${DOW[dw]}</b><span>${d.getDate()} ${MON[d.getMonth()]}</span></div>
      ${w.fixed.map(f=>`<div class="blk ${f.t}"><b>${esc(f.b)}</b>${esc(f.s)}</div>`).join('')}
-     ${s?`<div class="blk home" onclick="startSession('${w.ses}')" title="Empezar"><b>${esc(s.n)}</b>${s.d} min · en casa</div>`:''}
+     ${s?`<div class="blk home" onclick="startSession('${sk}')" title="Empezar"><b>${esc(s.n)}</b>${s.d} min · en casa</div>`:''}
      ${(own[i]||[]).map((x,j)=>`<div class="blk own" onclick="removeWeekSession(${i},${j})" title="Pulsa para quitar"><b>${esc(x)}</b>Añadida por ti</div>`).join('')}
      <button class="wd-add" onclick="addWeekSession(${i})">+ Añadir</button></div>`;}).join('');
 }
@@ -3105,7 +3199,7 @@ function exportCSV(){const d=LS.get('rpe_log',[]);if(!d.length){toast('No hay ca
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));a.download='cargas_'+today()+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
 
 /* ══════════ ARRANQUE ══════════ */
-function renderAll(){renderHome();renderSem();renderHydra();renderPlan();renderPriorities();renderStreak();renderCoachDiary();renderRPELog();}
+function renderAll(){renderLesion();renderHome();renderSem();renderHydra();renderPlan();renderPriorities();renderStreak();renderCoachDiary();renderRPELog();}
 document.addEventListener('DOMContentLoaded',()=>{
   initNav();initGoal();renderLibrary();renderDrills();renderBuilder();renderAll();
   $('#rpe-date').value=today();
